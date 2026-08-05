@@ -63,7 +63,7 @@
   show: article-document.with(
     title: title,
     author: author,
-    colors: light-theme,
+    colors: dark-theme,
     fonts: sans-fonts,
   )
   show: notes-style.with(eq-numbering: "(1)")
