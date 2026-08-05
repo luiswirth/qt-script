@@ -13,6 +13,11 @@
 
 // Equations are numbered because the script cross-references its own
 // derivations, which notes-style does not do by default.
+//
+// Composed from article-document and notes-style by hand rather than through
+// notes-document, which forwards its arguments only to the former and so cannot
+// reach eq-numbering at all. Collapsing the two back into notes-document turns
+// the numbering off and takes every cross-reference with it.
 #let setup(body) = {
   show: article-document.with(
     title: title,
