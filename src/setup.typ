@@ -17,8 +17,8 @@
   show: article-document.with(
     title: title,
     author: author,
-    colors: dark-theme,
-    fonts: serif-fonts,
+    colors: light-theme,
+    fonts: sans-fonts,
   )
   show: notes-style.with(eq-numbering: "(1)")
   body
