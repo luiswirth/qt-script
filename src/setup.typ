@@ -30,6 +30,13 @@
   )
 }
 
+// A remark on the sources rather than on the subject, which is why it leaves
+// the prose.
+#let note(body) = {
+  metadata((kind: "note"))
+  footnote(body)
+}
+
 // The sections are found by location rather than by walking the body, which is
 // the only description that survives a section being wrapped in anything.
 #let chapter(title, body) = {
@@ -60,5 +67,15 @@
     fonts: sans-fonts,
   )
   show: notes-style.with(eq-numbering: "(1)")
+
+  // An equation earns a number by being referenced, and a label is what a
+  // reference needs, so the labelled ones are exactly the numbered ones.
+  show math.equation.where(block: true): it => {
+    if it.numbering == none or it.has("label") { it } else {
+      math.equation(block: true, numbering: none, it.body)
+      counter(math.equation).update(n => n - 1)
+    }
+  }
+
   body
 }
