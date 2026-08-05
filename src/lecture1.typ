@@ -330,16 +330,16 @@ and the failure is not one of resolution but of kind.
 At the quantum level the unknown is the wave function,
 and the equation solved is the stationary Schrödinger equation
 $
-  (- planck^2 / (2 m^*) lapl + V(avec(r))) Psi(avec(r)) = E Psi(avec(r)).
+  (- planck^2 / (2 m^*) lapl + V(avec(r))) psi(avec(r)) = E psi(avec(r)).
 $ <schroedinger>
 The potential energy $V(avec(r))$ #unit($J$), in practice #unit($"eV"$),
 is what the device geometry and the applied voltages supply,
 and $E$ #unit($J$) is the energy eigenvalue.
-The wave function $Psi(avec(r))$ has the dimension #unit($m^(-3 slash 2)$) in
+The wave function $psi(avec(r))$ has the dimension #unit($m^(-3 slash 2)$) in
 three dimensions,
 which is not a curiosity but forced:
-$abs(Psi)^2$ is a probability density per unit volume,
-so it must carry #unit($m^(-3)$), and $Psi$ carries its square root.
+$abs(psi)^2$ is a probability density per unit volume,
+so it must carry #unit($m^(-3)$), and $psi$ carries its square root.
 A wave function has no meaning without the normalization that fixes this,
 and any quantity computed from it inherits the convention.
 
@@ -415,7 +415,7 @@ that is, through Poisson's equation.
   [$L approx lambda_"mfp"$],
   [each scattering event],
 
-  [quantum transport], [$Psi(avec(r))$], [$L approx lambda$], [quantization, tunneling],
+  [quantum transport], [$psi(avec(r))$], [$L approx lambda$], [quantization, tunneling],
 )
 
 == Quantum effects in scaled devices
