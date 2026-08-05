@@ -10,6 +10,6 @@
 ]
 
 #v(1em)
-#outline()
+#outline(depth: 1)
 
 #include "lecture1.typ"
