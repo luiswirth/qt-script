@@ -12,8 +12,8 @@ permissions:
 
 jobs:
   deploy:
-    uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v1
+    uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v2
     with:
-      entry_file: src/main.typ
+      documents: |
+        src/main.typ script.pdf
       package_path: lib/dottyp/pkg
-      output_name: script.pdf
