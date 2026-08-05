@@ -1,0 +1,19 @@
+name: Deploy Typst Document
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    uses: luiswirth/typst-deploy/.github/workflows/typst-deploy.yml@v1
+    with:
+      entry_file: src/main.typ
+      package_path: lib/dottyp/pkg
+      output_name: script.pdf
