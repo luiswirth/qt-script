@@ -20,6 +20,9 @@ this repository. `../CLAUDE.md` carries the course and exam facts, and
   compile to `out/script.pdf`. Both export `TYPST_PACKAGE_PATH` themselves and
   cd to this directory, so a build expects nothing of the environment and runs
   from anywhere.
+- `.github/workflows/typst-deploy.yml`:
+  a push to main publishes the PDF at <https://lwirth.com/quantum-transport-script/>.
+  The repository is private and that page is not.
 
 ## Reading the sources
 
