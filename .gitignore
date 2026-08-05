@@ -1,0 +1,10 @@
+# Course material downloaded from iis-students.ee.ethz.ch and video.ethz.ch.
+slides/
+recordings/
+exercises/
+
+# Typst build output.
+*.pdf
+out/
+
+.DS_Store
