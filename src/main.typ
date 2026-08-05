@@ -13,3 +13,4 @@
 #outline(depth: 1)
 
 #include "lecture1.typ"
+#include "lecture2.typ"
