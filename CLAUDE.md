@@ -53,6 +53,12 @@ holds the raw WebVTT in its history.
 - One document, not one per lecture, so a later lecture cites the derivations of
   an earlier one instead of repeating them. This is why equation numbering is
   turned on, which dottyp's `notes-style` leaves off by default.
+- A quantity is introduced with its name, its units through `unit`, and its
+  definition wherever that is short enough to be worth having.
+  The lectures state none of the three,
+  and a symbol whose dimension is unknown cannot be checked against anything.
+  Where the course overloads a letter, the overload is named rather than
+  silently disambiguated.
 - Built-in Typst notation is written as it stands, never aliased:
   `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
   Beware that a wrong symbol access such as `h.bar` compiles and renders as
