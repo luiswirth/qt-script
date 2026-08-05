@@ -21,6 +21,23 @@ this repository. `../CLAUDE.md` carries the course and exam facts, and
   cd to this directory, so a build expects nothing of the environment and runs
   from anywhere.
 
+## Reading the sources
+
+A deck is read as page images. Its displayed equations are graphics with no text
+layer, so `pdftotext` drops every one of them while leaving the sentence that
+introduces it, which is worse than useless.
+
+What `pdftotext` is for is choosing the pages, since grepping it page by page
+costs nothing. The agenda slides are revealed progressively and repeat, a third
+of some decks, and carry nothing after the first:
+
+    for p in $(seq 1 $n); do pdftotext -f $p -l $p ../slides/lectureN.pdf - |
+      grep -q "Summary of today" && echo $p; done
+
+Captions are read with the timestamps stripped, a third of the file:
+
+    grep -v -e '-->' -e '^WEBVTT' ../recordings/lectureN.vtt | grep -v '^$'
+
 ## Conventions
 
 - One document, not one per lecture, so a later lecture cites the derivations of
