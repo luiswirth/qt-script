@@ -29,11 +29,20 @@ introduces it, which is worse than useless.
 
 What the text is for is choosing which pages to read, which costs nothing since
 only page numbers come back. `../slides/lectureN.txt` holds the extraction, one
-form-feed-delimited record per page, so a page is addressed by its record
-number. The agenda slides are revealed progressively and repeat, a third of some
-decks, and carry nothing after the first:
+form-feed-delimited record per page, so a page is addressed by its record number.
+The whole deck fits in one map of a line per page, which is what the choice is
+made from:
 
-    awk 'BEGIN{RS="\f"} /Summary of today/{print NR}' ../slides/lectureN.txt
+    awk 'BEGIN{RS="\f"} {t=$0; gsub(/\n/," ",t); gsub(/ +/," ",t);
+      printf "%d| %.70s\n", NR, t}' ../slides/lectureN.txt
+
+The agenda slides are revealed progressively and repeat, a third of some decks,
+and carry nothing after the first.
+They are the ones matching `Summary of today`.
+A page carrying no text at all is a figure slide and has to be looked at.
+
+Note that a range is the only thing the reader accepts, never a list of pages,
+so a deck with the boilerplate cut out is read in several goes.
 
 The captions in `../recordings/lectureN.txt` already have their timestamps
 stripped, a third of the file. That directory is a repository of its own and
