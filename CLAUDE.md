@@ -1,41 +1,35 @@
-= Quantum Transport at the Nanoscale
+# Quantum Transport study script
 
-Study repository for the ETH course 227-0159-00, Spring Semester 2026,
-lectured by M. Luisier, J. Cao and A. Emboras.
-The full course description is in `vvz.txt`.
-
-## Exam
-
-- Oral, 30 minutes, in English, examined by M. Luisier.
-- Tue 18.08.2026, 09:00-09:30, ETZ J 82.
-- Everything must be sayable out loud: derivations sketched on paper, no lookup.
-- Lectures 11 and 13 are not exam relevant.
+A Typst script for the ETH course 227-0159-00, written from the lecture slides
+and recording captions, which sit in the parent directory and are not part of
+this repository. `../CLAUDE.md` carries the course and exam facts, and
+`prompt.md` the brief this script is written to.
 
 ## Layout
 
-- `slides/lectureN.pdf`:
-  the official slides, 13 lectures, the primary source.
-- `recordings/lectureN.vtt`:
-  auto-generated captions from video.ethz.ch.
-- `exercises/exerciseN/`, `exercises/solutionN/`:
-  problem sheets with Matlab and Python code, 11 sets.
-- `ai-script/`:
-  a per-lecture Typst study script generated from slides plus captions,
-  and `prompt.md`, the instructions that produced it.
-
-## Sources
-
-- Recommended textbook is Datta, *Electronic Transport in Mesoscopic Systems*, 1997.
-- The captions are good enough to study from: punctuation and sentence structure
-  are intact and technical terms survive, so re-transcribing is not worth it.
-  What they get wrong is names, casing and the odd homophone, reconstructed from
-  the slides rather than read literally.
-- `recordings/*.mp4` are zero-byte, so nothing can be regenerated from video.
+- `src/main.typ`:
+  the title, the outline, and the lectures it includes.
+- `src/setup.typ`:
+  the only importer of dottyp, and the only place the document states how it
+  departs from it.
+- `src/lectureN.typ`:
+  one file per lecture.
+- `lib/dottyp`:
+  the notation and template library, vendored as a submodule.
+- `build.sh`, `watch.sh`:
+  compile to `out/script.pdf`. Both export `TYPST_PACKAGE_PATH` themselves and
+  cd to this directory, so a build expects nothing of the environment and runs
+  from anywhere.
 
 ## Conventions
 
-- Notation and templates come from `@local/dottyp`, vendored as `lib/dottyp`,
-  never a path in the environment.
+- One document, not one per lecture, so a later lecture cites the derivations of
+  an earlier one instead of repeating them. This is why equation numbering is
+  turned on, which dottyp's `notes-style` leaves off by default.
+- The reduced Planck constant is `h.bar`, since Typst reads `planck` as $h$.
+  Written natively in math rather than aliased, as are $m^*$ for the effective
+  mass and $m_0$ for the bare electron mass.
+- Notation general enough to outlive this course belongs in dottyp, not in
+  `setup.typ`. A name is promoted once the script has actually written it.
 - Provenance is marked per the global guidelines.
-  `ai-script/` currently carries `ai-unchecked`, and a lecture moves to
-  `ai-approved` only once it has been read against the slides.
+  A lecture reaches `ai-approved` only once it has been read against the slides.
