@@ -34,9 +34,9 @@ of some decks, and carry nothing after the first:
     for p in $(seq 1 $n); do pdftotext -f $p -l $p ../slides/lectureN.pdf - |
       grep -q "Summary of today" && echo $p; done
 
-Captions are read with the timestamps stripped, a third of the file:
-
-    grep -v -e '-->' -e '^WEBVTT' ../recordings/lectureN.vtt | grep -v '^$'
+The captions in `../recordings/lectureN.txt` already have their timestamps
+stripped, a third of the file. That directory is a repository of its own and
+holds the raw WebVTT in its history.
 
 ## Conventions
 
