@@ -59,8 +59,10 @@ holds the raw WebVTT in its history.
 - Each lecture applies `chapter` as a show rule, which starts it on a fresh page
   and opens it with an outline of its own sections. The outline in `main.typ`
   reaches the chapters alone.
-- Headings are noun phrases. The script is read to find a subject again, not
-  from front to back.
+- Headings are noun phrases and take no article. The script is read to find a
+  subject again, not from front to back.
+- An equation earns a number by being referenced, which `setup.typ` reads off
+  the label, so a display that nothing points at carries none.
 - Figures stay in the slides and are pointed at by slide number.
   They carry other people's copyright, and embedding them would make the script
   unpublishable.
@@ -71,8 +73,9 @@ holds the raw WebVTT in its history.
   definition wherever that is short enough to be worth having.
   The lectures state none of the three,
   and a symbol whose dimension is unknown cannot be checked against anything.
-  Where the course overloads a letter, the overload is named rather than
-  silently disambiguated.
+  Where the course overloads a letter, the script gives each meaning its own
+  symbol and says nothing further about it, as the electric field is `cal(E)`
+  because `E` is an energy.
   A value carried with its unit is `qty` rather than prose, `unit` being the
   other statement and the two never interchangeable.
   How a unit is spelled is `setup.typ`, and division inside math is `slash`,
@@ -89,7 +92,11 @@ holds the raw WebVTT in its history.
   A name is promoted once the script has actually written it.
 - A passage answering a listed exam question is marked with `#exam`, which tags
   the margin and leaves queryable metadata, so what a question is answered by
-  can be collected without parsing the source. The script holds no answer
-  written as one, since it is the material the answers are practiced from.
+  can be collected without parsing the source. The mark sits on the narrowest
+  passage that carries the whole answer, never on a section that merely contains
+  one. The script holds no answer written as one, since it is the material the
+  answers are practiced from.
+- A remark about the sources rather than about the subject is a `#note`, which
+  sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
   A lecture reaches `ai-approved` only once it has been read against the slides.
