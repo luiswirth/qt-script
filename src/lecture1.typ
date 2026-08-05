@@ -1,14 +1,13 @@
 #import "setup.typ": *
-#show: chapter.with("Why Quantum Transport")
+#show: chapter.with("Device scaling and transport regimes")
 
-This first lecture answers a single question:
-under what circumstances does an electron flowing through a transistor stop
-behaving like a particle,
-and what has to replace the particle picture when it does.
-The answer is quantitative,
-and it comes down to comparing one length against another.
+A transistor made small enough stops admitting a description in which electrons
+are particles.
+Where the boundary lies is decided by comparing the length of the device against
+a length carried by the description itself,
+and the three descriptions in use carry three different ones.
 
-== The field-effect transistor
+== Field-effect transistor
 
 A transistor is a switch with three terminals.
 Current is meant to flow from the #term("source") to the #term("drain"),
@@ -20,13 +19,12 @@ Slide 16 shows the two measurements that characterize such a device.
 The output characteristic plots the drain current $I_d$ #unit($A$),
 quoted per unit device width in #unit($mu A slash mu m$) whenever devices of
 different sizes are compared,
-against the drain-source voltage $V_(d s)$ #unit($V$) at a fixed gate voltage,
-and the transfer characteristic plots $I_d$ against the gate voltage $V_(g s)$
-#unit($V$) on a logarithmic scale.
-The second is the one that matters for a switch,
-because a switch is judged by the ratio between the current it passes when on and
-the current it leaks when off,
-and that ratio spans many decades.
+against the drain-source voltage $V_(d s)$ #unit($V$), one curve per gate voltage.
+The transfer characteristic plots $I_d$ against the gate voltage $V_(g s)$
+#unit($V$) on a logarithmic scale, at a small drain bias and at the supply voltage.
+A switch is judged by the ratio between the current it passes when on and the
+current it leaks when off,
+and that ratio spans many decades, which is what the logarithmic axis is for.
 
 Two figures of merit follow from it and recur throughout the course.
 The on-current $I_"on"$, read at $V_(g s) = V_(d s) = V_(D D)$,
@@ -38,30 +36,30 @@ should be as small as possible,
 since it is dissipated continuously by every idle transistor on the chip.
 Here $V_(D D)$ is the supply voltage, nowadays around #qty(0.7, $V$) to #qty(0.8, $V$).
 
-== Scaling and the technology node
+== Scaling and technology nodes
 
-The reason the device keeps getting smaller is economic rather than physical.
+The device keeps getting smaller for economic rather than physical reasons.
 Moore observed in 1965 that the number of components per integrated circuit had
 doubled every year since 1958 and predicted the trend would hold for another
 decade;
 slide 19 reproduces his original sketch.
-The mechanism behind the doubling is worth stating exactly,
-since the numbers are otherwise easy to mistake for coincidence.
 Each generation reduces both the length and the width of a transistor by 30%,
 so the area becomes
 $
   0.7 times 0.7 = 0.49,
 $
-that is, half of what it was.
+half of what it was.
 Twice as many devices then fit on a die,
 and since the cost of processing a wafer is roughly fixed,
 the cost per device halves.
-Each such step is a #term("technology node").
+Each such step is a #term("technology node"),
+and successive node names carry the same factor, $X_(n+1) = 0.7 X_n$.
 
-One caveat is worth carrying, since node names appear on every industry roadmap.
-A node name once referred to a physical gate length,
-but that correspondence broke long ago,
-and the label is now a marketing designation rather than a measurement.
+A node name once referred to a physical gate length, and did so down to about the
+#qty(90, $"nm"$) node.
+Scaling of the physical dimensions then slowed while the names kept advancing by
+the same factor,
+so the label is now a marketing designation rather than a measurement.
 Slide 24 gives the roadmap by manufacturer:
 the industry sits at the 2 nm node in 2025,
 targets 1.4 nm around 2028 and 1 nm around 2032,
@@ -94,13 +92,15 @@ so that the same applied voltage commands a far larger share of the channel.
 In 2022 Samsung moved to the #term("nanosheet FET") at the 3 nm node,
 shown on slide 26,
 where several thin silicon sheets are stacked and the gate surrounds each one
-completely.
+completely;
+TSMC followed at the 2 nm node at the end of 2025.
 This is gate-all-around, the strongest control the geometry admits,
 and it removes the one weakness of the fin, whose bottom the gate could not reach.
-The expected continuation is to thin the sheets into stacked nanowires three to
+Control is tightened further by thinning the sheets themselves, to #qty(4, $"nm"$)
+or #qty(5, $"nm"$),
+and the expected continuation is to draw them into stacked nanowires three to
 four nanometers in diameter.
 
-Note what this progression does to the physics.
 Each step confines the channel more tightly in order to control it better,
 and confinement on the scale of a few nanometers is precisely the condition under
 which an electron ceases to behave as a particle.
@@ -118,6 +118,10 @@ replaces some of those iterations with computation;
 slides 27 and 28 show the loop and what a simulator is expected to deliver,
 namely both measurable quantities such as current and internal ones such as the
 charge distribution, which no measurement reaches.
+The nanowire transistor of slide 4 is such an internal quantity made visible:
+electrons crossing the channel emit phonons, the quanta of lattice vibration,
+and each emission takes a discrete amount of energy out of the carrier and
+deposits it in the lattice.
 
 Choosing the physical model is the whole difficulty,
 because physical completeness and computational cost trade against each other and
@@ -128,59 +132,44 @@ is confined to systems small enough to be called toy examples,
 supercomputer aside.
 A model omitting quantum mechanics runs on a realistically sized device but may
 miss the effect that decides its behavior.
-Choosing deliberately between them, rather than defaulting to either, is the
-subject of the next section.
 
-== The three transport models
+== Transport models
 
 #exam("L1.1")
-There are three families of transport model,
+Three families of transport model are in use,
 distinguished by what they take the unknown to be and by what they therefore
 resolve.
-The useful way to hold them apart is that each carries a length it must be
-compared against,
+Each carries a length that the length of the device must be compared against,
 and the comparison decides whether the model applies at all.
 
-=== Drift-diffusion and the mobility
+=== Drift-diffusion and mobility
 
 At the classical level the unknowns are the carrier densities,
 $n$ for electrons and $p$ for holes, both #unit($m^(-3)$),
 and the current densities are
 $
-  avec(J)_n &= q n mu_n avec(E) + q D_n grad n, \
-  avec(J)_p &= q p mu_p avec(E) - q D_p grad p.
+  avec(J)_n &= q n mu_n avec(cal(E)) + q D_n nabla n, \
+  avec(J)_p &= q p mu_p avec(cal(E)) - q D_p nabla p.
 $ <drift-diffusion>
 The quantities appearing here are the current density
 $avec(J)$ #unit($A slash m^2$), charge crossing unit area per unit time;
-the elementary charge $q = 1.602 dot 10^(-19)$ #unit($C$),
+the elementary charge $q = #qty($1.602 dot 10^(-19)$, $C$)$,
 which is positive throughout this script,
 so that an electron carries $-q$ and a hole $+q$
 and every sign below is a consequence of that one choice;
-the electric field $avec(E)$ #unit($V slash m$)\;
+the electric field $avec(cal(E))$ #unit($V slash m$)\;
 the mobility $mu$ #unit($m^2 slash (V thin s)$),
 defined below as the positive constant relating drift speed to field;
 and the diffusion coefficient $D$ #unit($m^2 slash s$),
 which relates a particle flux to the density gradient driving it.
 
-A warning about $E$, since the lectures leave it implicit and it is the easiest
-way to misread an equation in this subject.
-The letter carries two unrelated meanings:
-the electric field, and an energy #unit($J$), conventionally quoted in
-#unit($"eV"$).
-This script writes the field bold, $avec(E)$, wherever it is a vector,
-and the energy italic, $E$.
-Where a one-dimensional argument needs only the field component, as in the
-derivation below, that is said explicitly.
-The slides write an upright $E$ for both and leave the reader to infer which is
-meant.
-
 Each current has a drift term driven by the field and a diffusion term driven by
 the density gradient.
 Neither sign in them is chosen; both follow from the charge the carrier carries.
-An electron drifts against the field, at velocity $-mu_n avec(E)$ as derived
+An electron drifts against the field, at velocity $-mu_n avec(cal(E))$ as derived
 below, and the minus sign of its charge cancels that one in the current,
-while its diffusive particle flux $-D_n grad n$ keeps the minus sign of the
-charge and yields $+q D_n grad n$.
+while its diffusive particle flux $-D_n nabla n$ keeps the minus sign of the
+charge and yields $+q D_n nabla n$.
 A hole carries $+q$ and drifts with the field, which leaves its drift term
 positive and its diffusion term negative.
 
@@ -190,18 +179,18 @@ exists at all.
 Consider one electron injected into a slab across which a constant field is
 applied.
 The argument is one-dimensional, along the field,
-so $E$ denotes the field component throughout it and not an energy.
+so $cal(E)$ denotes the field component throughout it.
 Between collisions the electron obeys Newton's law,
 $
-  m^* (dif v) / (dif t) = -q E,
-$ <newton>
+  m^* (dif v) / (dif t) = -q cal(E),
+$
 in which $m^*$ #unit($"kg"$) is the effective mass,
 the mass an electron appears to carry inside the crystal rather than in vacuum,
 fixed by the curvature of the band it occupies and computed in the next lecture;
 $v$ #unit($m slash s$) is the velocity
 and $dif v slash dif t$ #unit($m slash s^2$) the acceleration.
 The effective mass is customarily given as a multiple of the free electron mass
-$m_0 = 9.109 dot 10^(-31)$ #unit($"kg"$),
+$m_0 = #qty($9.109 dot 10^(-31)$, $"kg"$)$,
 so that $m^* = 0.32 m_0$ in silicon is a number and not a measurement in
 kilograms.
 Its velocity therefore grows linearly in time.
@@ -209,19 +198,21 @@ It then scatters, off another electron, an impurity, or a surface,
 losing the momentum it had accumulated,
 and accelerates again over a different, randomly distributed interval until it
 leaves the device.
+Free flight interrupted by collisions that reset the momentum is the
+#term("Drude model").
 
 Steady state is the balance between those two processes.
 Write $angled(v)$ #unit($m slash s$) for the velocity averaged along the
 trajectory, the drift velocity,
 and $tau$ #unit($s$) for the mean free time, the average interval between two
 scattering events.
-Momentum is gained at the rate $-q E$ and lost at the rate
+Momentum is gained at the rate $-q cal(E)$ and lost at the rate
 $m^* angled(v) slash tau$,
 and equating the two gives
 $
-  angled(v) = -(q tau) / m^* E =: -mu E,
+  angled(v) = -(q tau) / m^* cal(E) =: -mu cal(E),
   quad mu := (q tau) / m^*.
-$ <mobility>
+$
 The mobility is defined as the positive constant relating the two,
 so that the drift velocity of an electron points against the field and that of a
 hole along it, and the drift term of @drift-diffusion comes out positive for
@@ -235,9 +226,12 @@ $
   lambda_"mfp" = abs(angled(v)) tau,
 $ <mfp>
 the average distance covered between two scattering events,
-a speed times a time.
+a speed times a time.#note[
+  The Drude picture returns a carrier to rest after every collision, which is
+  what leaves the drift velocity in @mfp. Thermal motion, which dominates the
+  drift velocity at low field, would put the thermal velocity there instead.
+]
 
-The criterion now follows, and it is the reason for the derivation.
 Both $tau$ and $angled(v)$ are averages,
 and averaging over scattering events presupposes there are enough events to
 average over.
@@ -249,6 +243,12 @@ with $L$ the length of the device.
 A device shorter than its own mean free path offers no statistics to support a
 mobility,
 so the model does not merely lose accuracy there, it loses meaning.
+The same condition is stated on slide 32 as the transit time through the device
+far exceeding the energy relaxation time,
+a carrier having to relax many times over before it leaves.
+Drift-diffusion is derivable from the Boltzmann transport equation below,
+and inherits from that derivation a second restriction,
+to states perturbed only slightly away from equilibrium.
 
 Two things are absent from @drift-diffusion by construction,
 and no adjustment of $mu$ or $D$ introduces them.
@@ -259,7 +259,7 @@ rather than a discrete set.
 Quantum corrections exist and are widely used,
 but they reproduce the symptoms of effects the model does not contain.
 
-=== The Boltzmann transport equation
+=== Boltzmann transport equation
 
 At the semiclassical level the unknown is richer.
 It is the distribution function $f(avec(r), avec(k), t)$,
@@ -274,8 +274,8 @@ because a crystal quantizes momentum rather than velocity,
 and time $t$ #unit($s$).
 It obeys
 $
-  (partial / (partial t) + avec(v)(avec(k)) dot grad_avec(r)
-    - q / planck avec(E)(t) dot grad_avec(k)) f(avec(r), avec(k), t)
+  (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
+    - q / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
     = ((dif f) / (dif t))_"collision".
 $ <bte>
 The left-hand side is the total derivative of $f$ along a classical trajectory,
@@ -286,11 +286,11 @@ The first term is the explicit time dependence,
 the second moves a carrier through real space at the band velocity
 $avec(v)(avec(k))$ #unit($m slash s$),
 which is not an independent quantity but the group velocity of the band,
-$avec(v) = planck^(-1) grad_avec(k) E(avec(k))$,
+$avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
 and the third accelerates it through momentum space under the field,
-which is Newton's law once more, in the form $planck dot(avec(k)) = -q avec(E)$
-for the electron of charge $-q$.
-Here $planck = h slash 2 pi = 1.055 dot 10^(-34)$ #unit($J thin s$)
+which is Newton's law once more, in the form
+$planck dot(avec(k)) = -q avec(cal(E))$ for the electron of charge $-q$.
+Here $planck = h slash 2 pi = #qty($1.055 dot 10^(-34)$, $J thin s$)$
 is the reduced Planck constant,
 which has the dimension of an action, energy times time.
 Quantum mechanics enters @bte in two restricted places,
@@ -312,6 +312,9 @@ $
 $
 which makes the semiclassical level the right one for devices too short to
 average over but not yet short enough to be waves.
+The upper end of that range is where a trajectory stops being followable at all:
+a potential varying sharply over 10 to 20 nm has to be met with waves,
+whatever the mean free path.
 In practice @bte is not discretized directly but solved by Monte Carlo methods,
 its phase space being too large for a direct attack.
 The Wigner transport equation is a variant of the same description.
@@ -322,9 +325,8 @@ so like drift-diffusion it contains neither tunneling nor quantization.
 Both models fail on exactly the same physics,
 and the failure is not one of resolution but of kind.
 
-=== Quantum transport and the de Broglie wavelength
+=== Quantum transport and de Broglie wavelength
 
-#exam("L1.2")
 At the quantum level the unknown is the wave function,
 and the equation solved is the stationary Schrödinger equation
 $
@@ -352,6 +354,7 @@ and it is where the two formalisms of this course,
 the wave function and the non-equilibrium Green's function,
 part company.
 
+#exam("L1.2")
 The criterion for needing @schroedinger at all is again a length.
 An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$
 #unit($"kg" thin m slash s$),
@@ -360,7 +363,7 @@ and hence the de Broglie wavelength $lambda$ #unit($m$),
 $
   lambda = h / sqrt(2 m^* E) = h / p,
 $ <de-broglie>
-with $h = 6.626 dot 10^(-34)$ #unit($J thin s$) Planck's constant, unreduced,
+with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced,
 since the relation is $lambda = h slash p$ and not $planck slash p$.
 The dimensions check:
 an action divided by a momentum is
@@ -369,9 +372,9 @@ Wave behavior matters once a device dimension becomes comparable to $lambda$,
 and it is enough that this holds along one of the three dimensions,
 since confinement in a single direction already quantizes the spectrum.
 
-The numbers decide the course.
 Taking carriers #qty(0.1, $"eV"$) above the conduction band edge,
-where their concentration is largest, @de-broglie gives
+where their concentration is largest, @de-broglie
+gives#note[Slide 35 rounds $lambda("Si")$ down to #qty(6.8, $"nm"$).]
 $
   lambda("Si") &= #qty(6.9, $"nm"$), quad m^* = 0.32 m_0, \
   lambda("GaAs") &= #qty(15.2, $"nm"$), quad m^* = 0.065 m_0.
@@ -388,16 +391,13 @@ Quantum transport is not a refinement here, it is the only applicable descriptio
 
 === Choice of model
 
-One question from the lecture is worth recording,
-since @de-broglie contains an effective mass while a device contains two kinds of
-carrier.
-Which mass?
-Usually the question does not arise,
-because a given device conducts with one or the other:
+A device carries electrons and holes, while @de-broglie contains one effective
+mass.
+Usually only one of the two conducts:
 an n-type transistor is carried by electrons, a p-type by holes.
 Where both matter, as in a tunnel FET,
-take the smaller effective mass, hence the longer wavelength,
-and treat the whole device at the level that mass demands.
+the smaller effective mass decides, hence the longer wavelength,
+and the whole device is treated at the level that mass demands.
 Mixing models, quantum transport for electrons and drift-diffusion for holes,
 is not advisable.
 The one defensible exception is a device such as a bipolar transistor in which one
@@ -418,13 +418,12 @@ that is, through Poisson's equation.
   [quantum transport], [$Psi(avec(r))$], [$L approx lambda$], [quantization, tunneling],
 )
 
-== Quantum effects in a scaled device
+== Quantum effects in scaled devices
 
-Three effects close the lecture,
-each invisible to both models above,
-and together they are the standing motivation for everything that follows.
+Three effects appear once a device reaches these dimensions,
+and neither classical model contains any of them.
 
-=== Quantization of the band structure
+=== Band structure quantization
 
 Bulk silicon has the band structure on the left of slide 37,
 with an indirect gap:
@@ -441,7 +440,7 @@ Confinement has quantized the spectrum,
 and the familiar square-well picture of discrete levels is exactly what this is,
 computed with a full band model rather than a single parabola.
 
-=== Interface confinement and the density of states
+=== Interface confinement and density of states
 
 Slide 38 makes the same point in the geometry of a real MOSFET,
 cutting vertically through the channel beneath the gate.
@@ -451,7 +450,7 @@ holding a discrete set of bound states $E_1, E_2, E_3$.
 Their wave functions penetrate into the oxide barrier instead of vanishing at it,
 which is a purely quantum feature.
 
-The consequence to carry forward is on the right of the same slide.
+The right of the same slide carries the consequence.
 Classically the density of states grows as $sqrt(E)$, smoothly from the band edge.
 In the confined channel it is a staircase,
 flat until $E_1$ and stepping up at each subband edge.
@@ -462,7 +461,7 @@ and the comparison between the two curves is taken up in the next lecture.
 
 === Intra-band tunneling
 
-The last effect limits scaling directly, and slides 39 to 41 develop it.
+Slides 39 to 41 develop the effect that limits scaling most directly.
 The geometry is a double-gate FET cut along the direction of current flow,
 so the horizontal axis runs from source to drain,
 and the gate raises a potential barrier between them.
