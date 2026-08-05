@@ -27,12 +27,13 @@ A deck is read as page images. Its displayed equations are graphics with no text
 layer, so `pdftotext` drops every one of them while leaving the sentence that
 introduces it, which is worse than useless.
 
-What `pdftotext` is for is choosing the pages, since grepping it page by page
-costs nothing. The agenda slides are revealed progressively and repeat, a third
-of some decks, and carry nothing after the first:
+What the text is for is choosing which pages to read, which costs nothing since
+only page numbers come back. `../slides/lectureN.txt` holds the extraction, one
+form-feed-delimited record per page, so a page is addressed by its record
+number. The agenda slides are revealed progressively and repeat, a third of some
+decks, and carry nothing after the first:
 
-    for p in $(seq 1 $n); do pdftotext -f $p -l $p ../slides/lectureN.pdf - |
-      grep -q "Summary of today" && echo $p; done
+    awk 'BEGIN{RS="\f"} /Summary of today/{print NR}' ../slides/lectureN.txt
 
 The captions in `../recordings/lectureN.txt` already have their timestamps
 stripped, a third of the file. That directory is a repository of its own and
