@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
-# dottyp is vendored at lib/dottyp, so every checkout resolves @local/dottyp
-# the same way, this one and CI included.
+# dottyp is vendored, so every checkout resolves @local/dottyp the same way.
 
 set -e
 cd "$(dirname "$0")"
