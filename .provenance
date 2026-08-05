@@ -1,4 +1,3 @@
-mine: .github/workflows/typst-deploy.yml
 ai-assisted: prompt.md
 ai-assisted: TODO.md
-ai-unchecked: src/*
+ai-approved: src/*
