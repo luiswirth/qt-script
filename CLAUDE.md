@@ -44,10 +44,12 @@ holds the raw WebVTT in its history.
 - One document, not one per lecture, so a later lecture cites the derivations of
   an earlier one instead of repeating them. This is why equation numbering is
   turned on, which dottyp's `notes-style` leaves off by default.
-- The reduced Planck constant is `h.bar`, since Typst reads `planck` as $h$.
-  Written natively in math rather than aliased, as are $m^*$ for the effective
-  mass and $m_0$ for the bare electron mass.
+- Built-in Typst notation is written as it stands, never aliased:
+  `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
+  Beware that a wrong symbol access such as `h.bar` compiles and renders as
+  garbage, so a change is checked by looking at the page, never by compiling.
 - Notation general enough to outlive this course belongs in dottyp, not in
-  `setup.typ`. A name is promoted once the script has actually written it.
+  `setup.typ`, and only if Typst does not already provide it.
+  A name is promoted once the script has actually written it.
 - Provenance is marked per the global guidelines.
   A lecture reaches `ai-approved` only once it has been read against the slides.
