@@ -53,6 +53,12 @@ holds the raw WebVTT in its history.
 - One document, not one per lecture, so a later lecture cites the derivations of
   an earlier one instead of repeating them. This is why equation numbering is
   turned on, which dottyp's `notes-style` leaves off by default.
+- Figures stay in the slides and are pointed at by slide number.
+  They carry other people's copyright, and embedding them would make the script
+  unpublishable.
+  A schematic may be redrawn instead, but only one simple enough to come out
+  right in plain Typst at the first attempt;
+  anything whose appearance would have to be iterated on is referenced.
 - A quantity is introduced with its name, its units through `unit`, and its
   definition wherever that is short enough to be worth having.
   The lectures state none of the three,
