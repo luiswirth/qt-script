@@ -154,7 +154,7 @@ $ <drift-diffusion>
 The quantities appearing here are the current density
 $avec(J)$ #unit($A slash m^2$), charge crossing unit area per unit time;
 the elementary charge $q = #qty($1.602 dot 10^(-19)$, $C$)$,
-which is positive throughout this script,
+which is positive by convention,
 so that an electron carries $-q$ and a hole $+q$
 and every sign below is a consequence of that one choice;
 the electric field $avec(cal(E))$ #unit($V slash m$)\;
@@ -243,8 +243,8 @@ with $L$ the length of the device.
 A device shorter than its own mean free path offers no statistics to support a
 mobility,
 so the model does not merely lose accuracy there, it loses meaning.
-The same condition is stated on slide 32 as the transit time through the device
-far exceeding the energy relaxation time,
+In times rather than lengths the same condition reads that the transit time
+through the device far exceeds the energy relaxation time,
 a carrier having to relax many times over before it leaves.
 Drift-diffusion is derivable from the Boltzmann transport equation below,
 and inherits from that derivation a second restriction,
@@ -461,7 +461,7 @@ and the comparison between the two curves is taken up in the next lecture.
 
 === Intra-band tunneling
 
-Slides 39 to 41 develop the effect that limits scaling most directly.
+The effect that limits scaling most directly is developed on slides 39 to 41.
 The geometry is a double-gate FET cut along the direction of current flow,
 so the horizontal axis runs from source to drain,
 and the gate raises a potential barrier between them.
