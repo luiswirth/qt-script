@@ -75,5 +75,9 @@ holds the raw WebVTT in its history.
 - Notation general enough to outlive this course belongs in dottyp, not in
   `setup.typ`, and only if Typst does not already provide it.
   A name is promoted once the script has actually written it.
+- A passage answering a listed exam question is marked with `#exam`, which tags
+  the margin and leaves queryable metadata, so what a question is answered by
+  can be collected without parsing the source. The script holds no answer
+  written as one, since it is the material the answers are practiced from.
 - Provenance is marked per the global guidelines.
   A lecture reaches `ai-approved` only once it has been read against the slides.

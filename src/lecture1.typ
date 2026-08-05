@@ -134,6 +134,7 @@ subject of the next section.
 
 == Three levels of description
 
+#exam("L1.1")
 There are three families of transport model,
 distinguished by what they take the unknown to be and by what they therefore
 resolve.
@@ -312,6 +313,7 @@ and the failure is not one of resolution but of kind.
 
 === Quantum transport, and the de Broglie criterion
 
+#exam("L1.2")
 At the quantum level the unknown is the wave function,
 and the equation solved is the stationary Schrödinger equation
 $

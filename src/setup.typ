@@ -11,6 +11,28 @@
 // alone do not say what kind of object is meant.
 #let unit(u) = $lr([#math.upright(u)])$
 
+// Marks the passage answering a question of ../exam-questions.md by its id,
+// several ids where it answers several. The tag goes in the margin, and the
+// metadata carries the same ids, so the marks can be collected by query without
+// parsing the source.
+//
+// The mark says where a question is answered and never what the answer is:
+// the script is what the answers are practiced from, so writing them out here
+// would spend the only material there is to be tested on.
+#let exam(..ids) = {
+  let ids = ids.pos()
+  metadata((kind: "exam", ids: ids))
+  context place(
+    left,
+    dx: -3cm,
+    box(width: 2.6cm)[
+      #set align(right)
+      #set text(size: 7pt, fill: palette.get().accent, weight: "medium")
+      #ids.join(sym.space.thin)
+    ],
+  )
+}
+
 // Equations are numbered because the script cross-references its own
 // derivations, which notes-style does not do by default.
 //
