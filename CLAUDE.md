@@ -56,6 +56,11 @@ holds the raw WebVTT in its history.
 - One document, not one per lecture, so a later lecture cites the derivations of
   an earlier one instead of repeating them. This is why equation numbering is
   turned on, which dottyp's `notes-style` leaves off by default.
+- Each lecture applies `chapter` as a show rule, which starts it on a fresh page
+  and opens it with an outline of its own sections. The outline in `main.typ`
+  reaches the chapters alone.
+- Headings are noun phrases. The script is read to find a subject again, not
+  from front to back.
 - Figures stay in the slides and are pointed at by slide number.
   They carry other people's copyright, and embedding them would make the script
   unpublishable.
@@ -68,6 +73,13 @@ holds the raw WebVTT in its history.
   and a symbol whose dimension is unknown cannot be checked against anything.
   Where the course overloads a letter, the overload is named rather than
   silently disambiguated.
+  A value carried with its unit is `qty` rather than prose, `unit` being the
+  other statement and the two never interchangeable.
+  How a unit is spelled is `setup.typ`, and division inside math is `slash`,
+  `/` being the fraction operator.
+- The defining occurrence of a term is marked with `#term`, which leaves the
+  vocabulary queryable, so that what the script defines can be checked against
+  the lectures rather than reread. Emphasis carrying no definition stays `_`.
 - Built-in Typst notation is written as it stands, never aliased:
   `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
   Beware that a wrong symbol access such as `h.bar` compiles and renders as
