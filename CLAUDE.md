@@ -109,6 +109,11 @@ holds the raw WebVTT in its history.
   passage that carries the whole answer, never on a section that merely contains
   one. The script holds no answer written as one, since it is the material the
   answers are practiced from.
+- A passage carrying what a section has to be able to state is marked with
+  `#key`, which highlights it and leaves queryable metadata. It is a single
+  sentence, and a section carries one, two where it states two things, and none
+  where it states none. Math stays outside the mark, Typst's highlight leaving
+  an equation unpainted.
 - A remark about the sources rather than about the subject is a `#note`, which
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
