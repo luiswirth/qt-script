@@ -10,7 +10,7 @@
 ]
 
 #v(1em)
-#outline(depth: 1)
+#outline(depth: 2)
 
 #include "lecture1.typ"
 #include "lecture2.typ"
