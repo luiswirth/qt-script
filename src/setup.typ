@@ -60,6 +60,15 @@
   )
 }
 
+// The sentence the section has to be able to state out loud, marked so that a
+// script already read once can be skimmed. The brackets hug the text, a line
+// break next to one being painted along with it.
+#let key(body) = {
+  metadata((kind: "key", body: body))
+  // Typst's highlight is a text decoration and leaves inline math unpainted.
+  context highlight(fill: palette.get().marker, body)
+}
+
 // A remark on the sources rather than on the subject, which is why it leaves
 // the prose.
 #let note(body) = {

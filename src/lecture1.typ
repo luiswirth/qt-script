@@ -22,9 +22,9 @@ different sizes are compared,
 against the drain-source voltage $V_(d s)$, one curve per gate voltage.
 The #term("transfer characteristic") plots $I_d$ against the gate voltage $V_(g s)$
 on a logarithmic scale, at a small drain bias and at the supply voltage.
-A switch is judged by the ratio between the current it passes when on and the
-current it leaks when off,
-and that ratio spans many decades, which is what the logarithmic axis is for.
+#key[A switch is judged by the ratio between the current it passes when on and the
+current it leaks when off.]
+That ratio spans many decades, which is what the logarithmic axis is for.
 
 Two figures of merit follow from it and recur throughout the course.
 The #term("on-current") $I_"on"$, read at $V_(g s) = V_(d s) = V_(D D)$,
@@ -38,7 +38,7 @@ Here $V_(D D)$ is the supply voltage, nowadays around #qty(0.7, $V$) to #qty(0.8
 
 == Scaling and technology nodes
 
-The device keeps getting smaller for economic rather than physical reasons.
+#key[The device keeps getting smaller for economic rather than physical reasons.]
 Moore observed in 1965 that the number of components per integrated circuit had
 doubled every year since 1958 and predicted the trend would hold for another
 decade;
@@ -58,8 +58,8 @@ and successive node names carry the same factor, $X_(n+1) = 0.7 X_n$.
 A node name once referred to a physical gate length, and did so down to about the
 #qty(90, $"nm"$) node.
 Scaling of the physical dimensions then slowed while the names kept advancing by
-the same factor,
-so the label is now a marketing designation rather than a measurement.
+the same factor.
+#key[A node name is today a marketing designation rather than a measurement.]
 Slide 24 gives the roadmap by manufacturer:
 the industry sits at the 2 nm node in 2025,
 targets 1.4 nm around 2028 and 1 nm around 2032,
@@ -69,7 +69,7 @@ fabrication plant grows.
 == Electrostatic control and device geometry
 
 Scaling the gate length is not a matter of drawing it shorter.
-The channel potential is set by a competition.
+#key[The channel potential is set by a competition between the gate and the drain.]
 The gate raises and lowers the barrier between source and drain,
 and the drain, a biased contact adjacent to the same channel,
 works against it.
@@ -101,9 +101,9 @@ or #qty(5, $"nm"$),
 and the expected continuation is to draw them into stacked #term("nanowires") three to
 four nanometers in diameter.
 
-Each step confines the channel more tightly in order to control it better,
-and #term("confinement") on the scale of a few nanometers is precisely the condition under
-which an electron ceases to behave as a particle.
+Each step confines the channel more tightly in order to control it better.
+#key[An electron ceases to behave as a particle precisely under #term("confinement")
+on the scale of a few nanometers.]
 The engineering remedy and the physical difficulty have the same cause.
 
 == Device simulation
@@ -123,9 +123,9 @@ electrons crossing the channel emit #term("phonons"), the quanta of lattice vibr
 and each emission takes a discrete amount of energy out of the carrier and
 deposits it in the lattice.
 
-Choosing the physical model is the whole difficulty,
-because physical completeness and computational cost trade against each other and
-cannot both be had.
+#key[Choosing the physical model is the whole difficulty,
+because physical completeness and computational cost trade against each other
+and cannot both be had.]
 A model resolving every atom, the vibrations of the lattice, and the coupling
 between them
 is confined to systems small enough to be called toy examples,
@@ -139,8 +139,9 @@ miss the effect that decides its behavior.
 Three families of transport model are in use,
 distinguished by what they take the unknown to be and by what they therefore
 resolve.
-Each carries a length that the length of the device must be compared against,
-and the comparison decides whether the model applies at all.
+#key[Each family carries a length that the length of the device must be compared
+against,
+and the comparison decides whether the model applies at all.]
 
 === Drift-diffusion and mobility
 
@@ -244,9 +245,8 @@ $
   L >> lambda_"mfp",
 $ <dd-validity>
 with $L$ the length of the device.
-A device shorter than its own mean free path offers no statistics to support a
-mobility,
-so the model does not merely lose accuracy there, it loses meaning.
+#key[A device shorter than its own mean free path offers no statistics to support a
+mobility, so the model does not merely lose accuracy there, it loses meaning.]
 In times rather than lengths the same condition reads that the transit time
 through the device far exceeds the energy relaxation time,
 a carrier having to relax many times over before it leaves.
@@ -254,8 +254,8 @@ Drift-diffusion is derivable from the Boltzmann transport equation below,
 and inherits from that derivation a second restriction,
 to states perturbed only slightly away from equilibrium.
 
-Two things are absent from @drift-diffusion by construction,
-and no adjustment of $mu_s$ or $D_s$ introduces them.
+#key[Two things are absent from @drift-diffusion by construction,
+and no adjustment of $mu_s$ or $D_s$ introduces them.]
 There is no #term("tunneling"), so a barrier reflects every carrier whose energy
 lies below it, however thin it is.
 And there is no #term("quantization"), so a quantum well carries a continuum of states
@@ -305,10 +305,10 @@ which is the precise sense in which drift-diffusion sits below the Boltzmann
 equation rather than beside it.
 
 What the extra variables buy is the collision operator on the right.
-Where drift-diffusion compresses all scattering into the single number $tau_s$,
-@bte keeps each mechanism explicitly,
-as a table of processes selected according to their probabilities as a carrier
-propagates.
+#key[Where drift-diffusion compresses all scattering into the single number
+$tau_s$, @bte keeps each mechanism explicitly.]
+They enter as a table of processes selected according to their probabilities as a
+carrier propagates.
 Scattering is thus resolved event by event rather than on average,
 and the validity condition relaxes from @dd-validity to
 $
@@ -324,8 +324,9 @@ its phase space being too large for a direct attack.
 The Wigner transport equation is a variant of the same description.
 
 What @bte does not repair is the more serious limitation.
-It still treats carriers as point particles following trajectories,
-so like drift-diffusion it contains neither tunneling nor quantization.
+#key[The semiclassical description still treats carriers as point particles
+following trajectories,
+so like drift-diffusion it contains neither tunneling nor quantization.]
 Both models fail on exactly the same physics,
 and the failure is not one of resolution but of kind.
 
@@ -348,9 +349,9 @@ A wave function has no meaning without the normalization that fixes this,
 and any quantity computed from it inherits the convention.
 
 As written this is an eigenvalue problem,
-a self-adjoint spectral problem for the #term("Hamiltonian"),
-and in that form it describes a closed system.
-It is not yet a transport equation.
+a self-adjoint spectral problem for the #term("Hamiltonian").
+#key[As an eigenvalue problem it describes a closed system and is not yet a
+transport equation.]
 A device is open, joined to contacts through which carriers enter and leave,
 and @schroedinger has to be modified before it can express that.
 Doing so properly occupies the next several lectures,
@@ -368,9 +369,9 @@ $
 $ <de-broglie>
 with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced,
 since the relation is $lambda = h slash p$ and not $planck slash p$.
-Wave behavior matters once a device dimension becomes comparable to $lambda$,
-and it is enough that this holds along one of the three dimensions,
-since confinement in a single direction already quantizes the spectrum.
+#key[Wave behavior matters once a device dimension becomes comparable to $lambda$,
+and it is enough that this holds along one of the three dimensions.]
+Confinement in a single direction already quantizes the spectrum.
 
 Taking carriers #qty(0.1, $"eV"$) above the conduction band edge,
 where their concentration is largest, @de-broglie
@@ -395,9 +396,9 @@ A device carries electrons and holes, while @de-broglie contains one effective
 mass.
 Usually only one of the two conducts:
 an n-type transistor is carried by electrons, a p-type by holes.
-Where both matter, as in a tunnel FET,
-the smaller effective mass decides, hence the longer wavelength,
-and the whole device is treated at the level that mass demands.
+#key[Where both matter, as in a tunnel FET, the smaller effective mass decides,
+hence the longer wavelength,
+and the whole device is treated at the level that mass demands.]
 Mixing models, quantum transport for electrons and drift-diffusion for holes,
 is not advisable.
 The one defensible exception is a device such as a bipolar transistor in which one
@@ -435,9 +436,8 @@ as in a double-gate transistor,
 and the right of slide 37 shows the result.
 The single conduction band is replaced by a family of discrete #term("subbands"),
 each with its own dispersion, and likewise for the valence band.
-The material has not changed.
-Confinement has quantized the spectrum,
-and the familiar square-well picture of discrete levels is exactly what this is,
+#key[The material has not changed, and confinement alone has quantized the spectrum.]
+The familiar square-well picture of discrete levels is exactly what this is,
 computed with a full band model rather than a single parabola.
 
 === Interface confinement and density of states
@@ -451,9 +451,9 @@ Their wave functions penetrate into the oxide barrier instead of vanishing at it
 which is a purely quantum feature.
 
 The right of the same slide carries the consequence.
-Classically the #term("density of states") grows as $sqrt(E)$, smoothly from the band edge.
-In the confined channel it is a staircase,
-flat until $E_1$ and stepping up at each subband edge.
+#key[Classically the #term("density of states") grows as $sqrt(E)$, smoothly from
+the band edge, while in the confined channel it is a staircase,
+flat until $E_1$ and stepping up at each subband edge.]
 Since the carrier density is an integral of the density of states against the
 occupation,
 the difference is not cosmetic,
@@ -488,10 +488,10 @@ so a transistor that is nominally switched off conducts substantially.
 This is #term("source-to-drain tunneling"), also called #term("intra-band tunneling"),
 since the carrier stays within the conduction band throughout,
 as opposed to the #term("band-to-band tunneling") of a tunnel FET.
-No drift-diffusion model and no Boltzmann solver can produce it,
+#key[No drift-diffusion model and no Boltzmann solver can produce it,
 since neither contains tunneling at all,
-and it is a leading reason why the gate length of a production device has stopped
-following the node label downward.
+and it is a leading reason why the gate length of a production device has
+stopped following the node label downward.]
 
 == Outlook
 
