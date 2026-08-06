@@ -13,7 +13,7 @@
 // conversion.
 #let term(name) = {
   metadata((kind: "term", name: name))
-  emph(name)
+  strong(name)
 }
 
 // An equation whose name is what it is cited by carries that name in place of
