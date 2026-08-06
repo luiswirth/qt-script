@@ -85,8 +85,6 @@ holds the raw WebVTT in its history.
   the lectures rather than reread. Emphasis carrying no definition stays `_`.
 - Built-in Typst notation is written as it stands, never aliased:
   `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
-  Beware that a wrong symbol access such as `h.bar` compiles and renders as
-  garbage, so a change is checked by looking at the page, never by compiling.
 - Notation general enough to outlive this course belongs in dottyp, not in
   `setup.typ`, and only if Typst does not already provide it.
   A name is promoted once the script has actually written it.
