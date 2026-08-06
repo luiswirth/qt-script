@@ -144,54 +144,59 @@ and the comparison decides whether the model applies at all.
 
 === Drift-diffusion and mobility
 
-At the classical level the unknowns are the carrier densities,
-$n$ for electrons and $p$ for holes, both #unit($m^(-3)$),
-and the current densities are
+At the classical level the unknowns are the carrier densities $c_s$
+#unit($m^(-3)$), the species $s in {n, p}$ being electrons and holes,
+and the current density is
 $
-  avec(J)_n &= q n mu_n avec(cal(E)) + q D_n nabla n, \
-  avec(J)_p &= q p mu_p avec(cal(E)) - q D_p nabla p.
+  avec(J)_s = q_s mu_s c_s avec(cal(E)) - q_s D_s nabla c_s.
 $ <drift-diffusion>
 The quantities appearing here are the current density
 $avec(J)$ #unit($A slash m^2$), charge crossing unit area per unit time;
-the elementary charge $q = #qty($1.602 dot 10^(-19)$, $C$)$,
-which is positive by convention,
-so that an electron carries $-q$ and a hole $+q$
-and every sign below is a consequence of that one choice;
+the charge of the species $q_s$,
+$q_n = -q_0$ and $q_p = +q_0$ for the elementary charge
+$q_0 = #qty($1.602 dot 10^(-19)$, $C$)$;
 the electric field $avec(cal(E))$ #unit($V slash m$)\;
-the mobility $mu$ #unit($m^2 slash (V thin s)$),
-defined below as the positive constant relating drift speed to field;
-and the diffusion coefficient $D$ #unit($m^2 slash s$),
-which relates a particle flux to the density gradient driving it.
+the mobility $mu_s$ #unit($m^2 slash (V thin s)$), defined below;
+and the diffusion coefficient $D_s$ #unit($m^2 slash s$),
+which relates a particle flux to the density gradient driving it,
+no charge entering it.
+The charge is signed, and every quantity derived from it carries that sign.#note[
+  The lectures and the experimental literature leave it unsigned, write $q$ for
+  $q_0$ and carry the magnitudes $abs(mu_s)$, the sign sitting in the species
+  label, write $n$ and $p$ for $c_n$ and $c_p$,
+  and split @drift-diffusion into one equation per species.
+]
 
-Each current has a drift term driven by the field and a diffusion term driven by
+The first term is drift, driven by the field, the second diffusion, driven by
 the density gradient.
-Neither sign in them is chosen; both follow from the charge the carrier carries.
-An electron drifts against the field, at velocity $-mu_n avec(cal(E))$ as derived
-below, and the minus sign of its charge cancels that one in the current,
-while its diffusive particle flux $-D_n nabla n$ keeps the minus sign of the
-charge and yields $+q D_n nabla n$.
-A hole carries $+q$ and drifts with the field, which leaves its drift term
-positive and its diffusion term negative.
+Drift carries the charge twice, through the force $q_s avec(cal(E))$ and again
+through the current, a current being a particle flux times the charge carried,
+so $q_s mu_s = q_s^2 tau_s slash m_s^*$ below is positive for either species,
+while diffusion carries it once and changes sign between them.
+Electrons and holes in one field drift in opposite directions carrying opposite
+charge, so their currents add,
+and in one density gradient they diffuse the same way, so their currents
+subtract.
 
 The content of @drift-diffusion sits in the mobility,
 so the question of when the model may be used is the question of when a mobility
 exists at all.
-Consider one electron injected into a slab across which a constant field is
+Consider one carrier injected into a slab across which a constant field is
 applied.
 The argument is one-dimensional, along the field,
 so $cal(E)$ denotes the field component throughout it.
-Between collisions the electron obeys Newton's law,
+Between collisions the carrier obeys Newton's law,
 $
-  m^* (dif v) / (dif t) = -q cal(E),
+  m_s^* (dif v) / (dif t) = q_s cal(E),
 $
-in which $m^*$ #unit($"kg"$) is the effective mass,
-the mass an electron appears to carry inside the crystal rather than in vacuum,
+in which $m_s^*$ #unit($"kg"$) is the effective mass,
+the mass a carrier appears to carry inside the crystal rather than in vacuum,
 fixed by the curvature of the band it occupies and computed in the next lecture;
 $v$ #unit($m slash s$) is the velocity
 and $dif v slash dif t$ #unit($m slash s^2$) the acceleration.
 The effective mass is customarily given as a multiple of the free electron mass
 $m_0 = #qty($9.109 dot 10^(-31)$, $"kg"$)$,
-so that $m^* = 0.32 m_0$ in silicon is a number and not a measurement in
+so that $m_n^* = 0.32 m_0$ in silicon is a number and not a measurement in
 kilograms.
 Its velocity therefore grows linearly in time.
 It then scatters, off another electron, an impurity, or a surface,
@@ -204,26 +209,26 @@ Free flight interrupted by collisions that reset the momentum is the
 Steady state is the balance between those two processes.
 Write $angled(v)$ #unit($m slash s$) for the velocity averaged along the
 trajectory, the drift velocity,
-and $tau$ #unit($s$) for the mean free time, the average interval between two
+and $tau_s$ #unit($s$) for the mean free time, the average interval between two
 scattering events.
-Momentum is gained at the rate $-q cal(E)$ and lost at the rate
-$m^* angled(v) slash tau$,
+Momentum is gained at the rate $q_s cal(E)$ and lost at the rate
+$m_s^* angled(v) slash tau_s$,
 and equating the two gives
 $
-  angled(v) = -(q tau) / m^* cal(E) =: -mu cal(E),
-  quad mu := (q tau) / m^*.
+  angled(v) = (q_s tau_s) / m_s^* cal(E) =: mu_s cal(E),
+  quad mu_s := (q_s tau_s) / m_s^*.
 $
-The mobility is defined as the positive constant relating the two,
-so that the drift velocity of an electron points against the field and that of a
-hole along it, and the drift term of @drift-diffusion comes out positive for
-both.
-It is therefore not an independent material parameter but a statement about
+Since $mu_s slash q_s = tau_s slash m_s^*$ is positive,
+an electron drifts against the field and a hole along it.
+Both $tau_s$ and $m_s^*$ depend on the species,
+so the two mobilities differ in magnitude and not in sign alone.
+The mobility is not an independent material parameter but a statement about
 scattering:
 the longer a carrier survives between collisions the faster it moves,
 and the faster it moves the higher the clock frequency the circuit sustains.
 The length that goes with it is the mean free path $lambda_"mfp"$ #unit($m$),
 $
-  lambda_"mfp" = abs(angled(v)) tau,
+  lambda_"mfp" = abs(angled(v)) tau_s,
 $ <mfp>
 the average distance covered between two scattering events,
 a speed times a time.#note[
@@ -232,7 +237,7 @@ a speed times a time.#note[
   drift velocity at low field, would put the thermal velocity there instead.
 ]
 
-Both $tau$ and $angled(v)$ are averages,
+Both $tau_s$ and $angled(v)$ are averages,
 and averaging over scattering events presupposes there are enough events to
 average over.
 A mobility can be defined, and @drift-diffusion applied, only when
@@ -251,7 +256,7 @@ and inherits from that derivation a second restriction,
 to states perturbed only slightly away from equilibrium.
 
 Two things are absent from @drift-diffusion by construction,
-and no adjustment of $mu$ or $D$ introduces them.
+and no adjustment of $mu_s$ or $D_s$ introduces them.
 There is no tunneling, so a barrier reflects every carrier whose energy lies
 below it, however thin it is.
 And there is no quantization, so a quantum well carries a continuum of states
@@ -275,7 +280,7 @@ and time $t$ #unit($s$).
 It obeys
 $
   (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
-    - q / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
+    + q_s / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
     = ((dif f) / (dif t))_"collision".
 $ <bte>
 The left-hand side is the total derivative of $f$ along a classical trajectory,
@@ -289,7 +294,7 @@ which is not an independent quantity but the group velocity of the band,
 $avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
 and the third accelerates it through momentum space under the field,
 which is Newton's law once more, in the form
-$planck dot(avec(k)) = -q avec(cal(E))$ for the electron of charge $-q$.
+$planck dot(avec(k)) = q_s avec(cal(E))$.
 Here $planck = h slash 2 pi = #qty($1.055 dot 10^(-34)$, $J thin s$)$
 is the reduced Planck constant,
 which has the dimension of an action, energy times time.
@@ -301,7 +306,7 @@ which is the precise sense in which drift-diffusion sits below the Boltzmann
 equation rather than beside it.
 
 What the extra variables buy is the collision operator on the right.
-Where drift-diffusion compresses all scattering into the single number $tau$,
+Where drift-diffusion compresses all scattering into the single number $tau_s$,
 @bte keeps each mechanism explicitly,
 as a table of processes selected according to their probabilities as a carrier
 propagates.
@@ -409,7 +414,7 @@ that is, through Poisson's equation.
   columns: 4,
   align: (left, left, left, left),
   table.header([*model*], [*unknown*], [*applies when*], [*resolves*]),
-  [drift-diffusion], [$n$, $p$], [$L >> lambda_"mfp"$], [scattering on average],
+  [drift-diffusion], [$c_n$, $c_p$], [$L >> lambda_"mfp"$], [scattering on average],
   [Boltzmann],
   [$f(avec(r), avec(k), t)$],
   [$L approx lambda_"mfp"$],
