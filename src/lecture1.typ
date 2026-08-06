@@ -14,24 +14,24 @@ Current is meant to flow from the #term("source") to the #term("drain"),
 and the #term("gate") decides whether it does.
 The gate carries no current itself;
 it sits above the channel and controls it electrostatically,
-which is what the field effect in the name refers to.
+which is what the #term("field effect") in the name refers to.
 Slide 16 shows the two measurements that characterize such a device.
-The output characteristic plots the drain current $I_d$ #unit($A$),
+The #term("output characteristic") plots the drain current $I_d$ #unit($A$),
 quoted per unit device width in #unit($mu A slash mu m$) whenever devices of
 different sizes are compared,
 against the drain-source voltage $V_(d s)$ #unit($V$), one curve per gate voltage.
-The transfer characteristic plots $I_d$ against the gate voltage $V_(g s)$
+The #term("transfer characteristic") plots $I_d$ against the gate voltage $V_(g s)$
 #unit($V$) on a logarithmic scale, at a small drain bias and at the supply voltage.
 A switch is judged by the ratio between the current it passes when on and the
 current it leaks when off,
 and that ratio spans many decades, which is what the logarithmic axis is for.
 
 Two figures of merit follow from it and recur throughout the course.
-The on-current $I_"on"$, read at $V_(g s) = V_(d s) = V_(D D)$,
+The #term("on-current") $I_"on"$, read at $V_(g s) = V_(d s) = V_(D D)$,
 should be as large as possible,
 since it charges the next transistor in the circuit and therefore sets the clock
 frequency.
-The off-current $I_"off"$, read at $V_(g s) = 0$ and $V_(d s) = V_(D D)$,
+The #term("off-current") $I_"off"$, read at $V_(g s) = 0$ and $V_(d s) = V_(D D)$,
 should be as small as possible,
 since it is dissipated continuously by every idle transistor on the chip.
 Here $V_(D D)$ is the supply voltage, nowadays around #qty(0.7, $V$) to #qty(0.8, $V$).
@@ -94,15 +94,15 @@ shown on slide 26,
 where several thin silicon sheets are stacked and the gate surrounds each one
 completely;
 TSMC followed at the 2 nm node at the end of 2025.
-This is gate-all-around, the strongest control the geometry admits,
+This is #term("gate-all-around"), the strongest control the geometry admits,
 and it removes the one weakness of the fin, whose bottom the gate could not reach.
 Control is tightened further by thinning the sheets themselves, to #qty(4, $"nm"$)
 or #qty(5, $"nm"$),
-and the expected continuation is to draw them into stacked nanowires three to
+and the expected continuation is to draw them into stacked #term("nanowires") three to
 four nanometers in diameter.
 
 Each step confines the channel more tightly in order to control it better,
-and confinement on the scale of a few nanometers is precisely the condition under
+and #term("confinement") on the scale of a few nanometers is precisely the condition under
 which an electron ceases to behave as a particle.
 The engineering remedy and the physical difficulty have the same cause.
 
@@ -113,13 +113,13 @@ previous generation,
 then fabricated, characterized, and compared against its specification.
 The first prototype essentially never meets it,
 and every iteration of the loop costs a run through a clean room.
-Simulation, in this context called Technology Computer Aided Design,
+Simulation, in this context called #term("Technology Computer Aided Design") (TCAD),
 replaces some of those iterations with computation;
 slides 27 and 28 show the loop and what a simulator is expected to deliver,
 namely both measurable quantities such as current and internal ones such as the
 charge distribution, which no measurement reaches.
 The nanowire transistor of slide 4 is such an internal quantity made visible:
-electrons crossing the channel emit phonons, the quanta of lattice vibration,
+electrons crossing the channel emit #term("phonons"), the quanta of lattice vibration,
 and each emission takes a discrete amount of energy out of the carrier and
 deposits it in the lattice.
 
@@ -150,14 +150,14 @@ and the current density is
 $
   avec(J)_s = q_s mu_s c_s avec(cal(E)) - q_s D_s nabla c_s.
 $ <drift-diffusion>
-The quantities appearing here are the current density
+The quantities appearing here are the #term("current density")
 $avec(J)$ #unit($A slash m^2$), charge crossing unit area per unit time;
 the charge of the species $q_s$,
 $q_n = -q_0$ and $q_p = +q_0$ for the elementary charge
 $q_0 = #qty($1.602 dot 10^(-19)$, $C$)$;
 the electric field $avec(cal(E))$ #unit($V slash m$)\;
-the mobility $mu_s$ #unit($m^2 slash (V thin s)$), defined below;
-and the diffusion coefficient $D_s$ #unit($m^2 slash s$),
+the #term("mobility") $mu_s$ #unit($m^2 slash (V thin s)$), defined below;
+and the #term("diffusion coefficient") $D_s$ #unit($m^2 slash s$),
 which relates a particle flux to the density gradient driving it,
 no charge entering it.
 The charge is signed, and every quantity derived from it carries that sign.#note[
@@ -167,8 +167,8 @@ The charge is signed, and every quantity derived from it carries that sign.#note
   and split @drift-diffusion into one equation per species.
 ]
 
-The first term is drift, driven by the field, the second diffusion, driven by
-the density gradient.
+The first term is #term("drift"), driven by the field, the second
+#term("diffusion"), driven by the density gradient.
 Drift carries the charge twice, through the force $q_s avec(cal(E))$ and again
 through the current, a current being a particle flux times the charge carried,
 so $q_s mu_s = q_s^2 tau_s slash m_s^*$ below is positive for either species,
@@ -189,7 +189,7 @@ Between collisions the carrier obeys Newton's law,
 $
   m_s^* (dif v) / (dif t) = q_s cal(E),
 $
-in which $m_s^*$ #unit($"kg"$) is the effective mass,
+in which $m_s^*$ #unit($"kg"$) is the #term("effective mass"),
 the mass a carrier appears to carry inside the crystal rather than in vacuum,
 fixed by the curvature of the band it occupies and computed in the next lecture;
 $v$ #unit($m slash s$) is the velocity
@@ -208,9 +208,9 @@ Free flight interrupted by collisions that reset the momentum is the
 
 Steady state is the balance between those two processes.
 Write $angled(v)$ #unit($m slash s$) for the velocity averaged along the
-trajectory, the drift velocity,
-and $tau_s$ #unit($s$) for the mean free time, the average interval between two
-scattering events.
+trajectory, the #term("drift velocity"),
+and $tau_s$ #unit($s$) for the #term("mean free time"), the average interval
+between two scattering events.
 Momentum is gained at the rate $q_s cal(E)$ and lost at the rate
 $m_s^* angled(v) slash tau_s$,
 and equating the two gives
@@ -226,7 +226,7 @@ The mobility is not an independent material parameter but a statement about
 scattering:
 the longer a carrier survives between collisions the faster it moves,
 and the faster it moves the higher the clock frequency the circuit sustains.
-The length that goes with it is the mean free path $lambda_"mfp"$ #unit($m$),
+The length that goes with it is the #term("mean free path") $lambda_"mfp"$ #unit($m$),
 $
   lambda_"mfp" = abs(angled(v)) tau_s,
 $ <mfp>
@@ -257,17 +257,17 @@ to states perturbed only slightly away from equilibrium.
 
 Two things are absent from @drift-diffusion by construction,
 and no adjustment of $mu_s$ or $D_s$ introduces them.
-There is no tunneling, so a barrier reflects every carrier whose energy lies
-below it, however thin it is.
-And there is no quantization, so a quantum well carries a continuum of states
+There is no #term("tunneling"), so a barrier reflects every carrier whose energy
+lies below it, however thin it is.
+And there is no #term("quantization"), so a quantum well carries a continuum of states
 rather than a discrete set.
 Quantum corrections exist and are widely used,
 but they reproduce the symptoms of effects the model does not contain.
 
 === Boltzmann transport equation
 
-At the semiclassical level the unknown is richer.
-It is the distribution function $f(avec(r), avec(k), t)$,
+At the #term("semiclassical") level the unknown is richer.
+It is the #term("distribution function") $f(avec(r), avec(k), t)$,
 the occupation of a point of phase space,
 and it is dimensionless, taking values in $cc(0, 1)$,
 since it counts the fraction of available states that are filled rather than a
@@ -277,7 +277,7 @@ wave vector $avec(k)$ #unit($m^(-1)$),
 which carries momentum $avec(p) = planck avec(k)$ and is the natural variable
 because a crystal quantizes momentum rather than velocity,
 and time $t$ #unit($s$).
-It obeys
+It obeys the #term("Boltzmann transport equation"),
 $
   (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
     + q_s / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
@@ -288,7 +288,7 @@ which is what the three terms together amount to and why the right-hand side is
 written as one:
 what a trajectory cannot account for is exactly what a collision does.
 The first term is the explicit time dependence,
-the second moves a carrier through real space at the band velocity
+the second moves a carrier through real space at the #term("band velocity")
 $avec(v)(avec(k))$ #unit($m slash s$),
 which is not an independent quantity but the group velocity of the band,
 $avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
@@ -333,14 +333,14 @@ and the failure is not one of resolution but of kind.
 === Quantum transport and de Broglie wavelength
 
 At the quantum level the unknown is the wave function,
-and the equation solved is the stationary Schrödinger equation
+and the equation solved is the stationary #term("Schrödinger equation")
 $
   (- planck^2 / (2 m^*) lapl + V(avec(r))) psi(avec(r)) = E psi(avec(r)).
 $ <schroedinger>
 The potential energy $V(avec(r))$ #unit($J$), in practice #unit($"eV"$),
 is what the device geometry and the applied voltages supply,
 and $E$ #unit($J$) is the energy eigenvalue.
-The wave function $psi(avec(r))$ has the dimension #unit($m^(-3 slash 2)$) in
+The #term("wave function") $psi(avec(r))$ has the dimension #unit($m^(-3 slash 2)$) in
 three dimensions,
 which is not a curiosity but forced:
 $abs(psi)^2$ is a probability density per unit volume,
@@ -349,7 +349,7 @@ A wave function has no meaning without the normalization that fixes this,
 and any quantity computed from it inherits the convention.
 
 As written this is an eigenvalue problem,
-a self-adjoint spectral problem for the Hamiltonian,
+a self-adjoint spectral problem for the #term("Hamiltonian"),
 and in that form it describes a closed system.
 It is not yet a transport equation.
 A device is open, joined to contacts through which carriers enter and leave,
@@ -364,7 +364,7 @@ The criterion for needing @schroedinger at all is again a length.
 An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$
 #unit($"kg" thin m slash s$),
 from the non-relativistic $E = p^2 slash 2 m^*$,
-and hence the de Broglie wavelength $lambda$ #unit($m$),
+and hence the #term("de Broglie wavelength") $lambda$ #unit($m$),
 $
   lambda = h / sqrt(2 m^* E) = h / p,
 $ <de-broglie>
@@ -431,14 +431,14 @@ and neither classical model contains any of them.
 === Band structure quantization
 
 Bulk silicon has the band structure on the left of slide 37,
-with an indirect gap:
+with an #term("indirect gap"):
 the conduction band minimum and the valence band maximum lie at different points
 of the Brillouin zone,
 which is why silicon does not emit light.
 Confine that same silicon to a #qty(5, $"nm"$) layer between two oxide barriers,
 as in a double-gate transistor,
 and the right of slide 37 shows the result.
-The single conduction band is replaced by a family of discrete subbands,
+The single conduction band is replaced by a family of discrete #term("subbands"),
 each with its own dispersion, and likewise for the valence band.
 The material has not changed.
 Confinement has quantized the spectrum,
@@ -456,7 +456,7 @@ Their wave functions penetrate into the oxide barrier instead of vanishing at it
 which is a purely quantum feature.
 
 The right of the same slide carries the consequence.
-Classically the density of states grows as $sqrt(E)$, smoothly from the band edge.
+Classically the #term("density of states") grows as $sqrt(E)$, smoothly from the band edge.
 In the confined channel it is a staircase,
 flat until $E_1$ and stepping up at each subband edge.
 Since the carrier density is an integral of the density of states against the
@@ -467,7 +467,7 @@ and the comparison between the two curves is taken up in the next lecture.
 === Intra-band tunneling
 
 The effect that limits scaling most directly is developed on slides 39 to 41.
-The geometry is a double-gate FET cut along the direction of current flow,
+The geometry is a #term("double-gate FET") cut along the direction of current flow,
 so the horizontal axis runs from source to drain,
 and the gate raises a potential barrier between them.
 In the off state that barrier is what suppresses the current.
@@ -478,7 +478,7 @@ At $L_g = #qty(13, $"nm"$)$ the barrier does its job:
 carriers with energy below its peak are reflected,
 and the only current is carried by the thermal tail of the distribution passing
 over the top.
-That is thermionic emission; it is classical, and it cannot be eliminated.
+That is #term("thermionic emission"); it is classical, and it cannot be eliminated.
 At #qty(10, $"nm"$) a second contribution appears,
 with carriers crossing through the upper part of the barrier rather than over it.
 At #qty(7, $"nm"$) it is stronger.
@@ -492,7 +492,7 @@ then by orders of magnitude at #qty(4, $"nm"$),
 so a transistor that is nominally switched off conducts substantially.
 This is #term("source-to-drain tunneling"), also called #term("intra-band tunneling"),
 since the carrier stays within the conduction band throughout,
-as opposed to the band-to-band tunneling of a tunnel FET.
+as opposed to the #term("band-to-band tunneling") of a tunnel FET.
 No drift-diffusion model and no Boltzmann solver can produce it,
 since neither contains tunneling at all,
 and it is a leading reason why the gate length of a production device has stopped
@@ -503,9 +503,9 @@ following the node label downward.
 The device simulated over the semester is the double-gate FET of slides 39 to 41,
 and the target is to reproduce curves like slide 41 from first principles.
 Two further structures recur:
-the tunnel FET, built to exploit band-to-band tunneling rather than to suffer from
-it,
-and the resonant tunneling diode, whose behavior rests on a single resonant state
+the #term("tunnel FET"), built to exploit band-to-band tunneling rather than to
+suffer from it,
+and the #term("resonant tunneling diode"), whose behavior rests on a single resonant state
 and which therefore makes a clean test of any simulator.
 
 The route there starts one level below transport.
