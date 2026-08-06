@@ -73,10 +73,13 @@ holds the raw WebVTT in its history.
   A schematic may be redrawn instead, but only one simple enough to come out
   right in plain Typst at the first attempt;
   anything whose appearance would have to be iterated on is referenced.
-- A quantity is introduced with its name, its units through `unit`, and its
-  definition wherever that is short enough to be worth having.
-  The lectures state none of the three,
-  and a symbol whose dimension is unknown cannot be checked against anything.
+- A quantity is introduced with its name and with its definition wherever that
+  is short enough to be worth having.
+  Its units are stated through `unit`, once and at that introduction alone, and
+  only where they are not read off the name:
+  a length, a time, a velocity or an energy carries none, a mobility does.
+  A unit stated in prose rather than through `unit` is reserved for the rare
+  case where the dimension is itself the point, as it is for the wave function.
   Where the course overloads a letter, the script gives each meaning its own
   symbol and says nothing further about it, as the electric field is `cal(E)`
   because `E` is an energy and the elementary charge is `q_0` because `e` is the
@@ -85,9 +88,10 @@ holds the raw WebVTT in its history.
   other statement and the two never interchangeable.
   How a unit is spelled is `setup.typ`, and division inside math is `slash`,
   `/` being the fraction operator.
-- The defining occurrence of a term is marked with `#term`, which leaves the
-  vocabulary queryable, so that what the script defines can be checked against
-  the lectures rather than reread. Emphasis carrying no definition stays `_`.
+- The defining occurrence of a term is marked with `#term`, which sets it bold
+  and leaves the vocabulary queryable, so that what the script defines can be
+  checked against the lectures rather than reread. Emphasis carrying no
+  definition is italic, written `_`, and bold belongs to `#term` alone.
   A term earns the mark by being load-bearing, the theory being unstatable
   without it, and takes it where it is properly introduced rather than where it
   is first mentioned. It is marked again wherever it carries a later section,
