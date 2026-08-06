@@ -88,6 +88,10 @@ holds the raw WebVTT in its history.
 - The defining occurrence of a term is marked with `#term`, which leaves the
   vocabulary queryable, so that what the script defines can be checked against
   the lectures rather than reread. Emphasis carrying no definition stays `_`.
+  A term earns the mark by being load-bearing, the theory being unstatable
+  without it, and takes it where it is properly introduced rather than where it
+  is first mentioned. It is marked again wherever it carries a later section,
+  never twice in one passage.
 - Built-in Typst notation is written as it stands, never aliased:
   `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
 - An exponential is `exp` wherever its exponent is large enough that `e^` would
