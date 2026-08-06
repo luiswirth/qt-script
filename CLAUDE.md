@@ -63,6 +63,10 @@ holds the raw WebVTT in its history.
   subject again, not from front to back.
 - An equation earns a number by being referenced, which `setup.typ` reads off
   the label, so a display that nothing points at carries none.
+- An equation carrying a name of its own is cited by that name instead, its tag
+  standing in for the number both at the display and at every reference.
+  The tags are `eq-tags` in `setup.typ`, and only an equation the field names,
+  never a step of a derivation, earns one.
 - Figures stay in the slides and are pointed at by slide number.
   They carry other people's copyright, and embedding them would make the script
   unpublishable.
