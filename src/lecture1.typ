@@ -282,10 +282,22 @@ $
     + q_s / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
     = ((dif f) / (dif t))_"collision".
 $ <bte>
-The left-hand side is the total derivative of $f$ along a classical trajectory,
-which is what the three terms together amount to and why the right-hand side is
-written as one:
-what a trajectory cannot account for is exactly what a collision does.
+The left-hand side is one derivative written out.
+A carrier follows the #term("characteristic curve")
+$gamma(t) = (avec(r)(t), avec(k)(t))$ in phase space,
+fixed by $dot(avec(r)) = avec(v)(avec(k))$ and
+$planck dot(avec(k)) = q_s avec(cal(E))$,
+and lifting it to $t arrow.bar (t, gamma(t))$ makes its tangent
+$partial_t + dot(gamma)$ a single direction in time and phase space together.
+The three terms are the derivative of $f$ along it,
+the directional derivative in the direction the state actually moves.
+Along such a curve the partial differential equation collapses to an ordinary
+one in $t$ alone,
+$dif f slash dif t = (dif f slash dif t)_"collision"$,
+which is why the right-hand side is written as a single total derivative:
+what following the trajectory cannot account for is exactly what a collision
+does.
+
 The first term is the explicit time dependence,
 the second moves a carrier through real space at the #term("band velocity")
 $avec(v)(avec(k))$,
