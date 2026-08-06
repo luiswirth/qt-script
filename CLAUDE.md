@@ -58,7 +58,7 @@ holds the raw WebVTT in its history.
   turned on, which dottyp's `notes-style` leaves off by default.
 - Each lecture applies `chapter` as a show rule, which starts it on a fresh page
   and opens it with an outline of its own sections. The outline in `main.typ`
-  reaches the chapters alone.
+  reaches the chapters and their sections.
 - Headings are noun phrases and take no article. The script is read to find a
   subject again, not from front to back.
 - An equation earns a number by being referenced, which `setup.typ` reads off
