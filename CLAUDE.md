@@ -112,8 +112,10 @@ holds the raw WebVTT in its history.
 - A passage carrying what a section has to be able to state is marked with
   `#key`, which highlights it and leaves queryable metadata. It is a single
   sentence, and a section carries one, two where it states two things, and none
-  where it states none. Math stays outside the mark, Typst's highlight leaving
-  an equation unpainted.
+  where it states none. Where no sentence carries the whole statement, the prose
+  is restructured until one does, never marked as a clause. Math stays outside
+  the mark, Typst's highlight leaving an equation unpainted, and a key opens with
+  words, inline math in it going unpainted as well.
 - A remark about the sources rather than about the subject is a `#note`, which
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
