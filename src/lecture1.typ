@@ -16,12 +16,12 @@ The gate carries no current itself;
 it sits above the channel and controls it electrostatically,
 which is what the #term("field effect") in the name refers to.
 Slide 16 shows the two measurements that characterize such a device.
-The #term("output characteristic") plots the drain current $I_d$ #unit($A$),
+The #term("output characteristic") plots the drain current $I_d$,
 quoted per unit device width in #unit($mu A slash mu m$) whenever devices of
 different sizes are compared,
-against the drain-source voltage $V_(d s)$ #unit($V$), one curve per gate voltage.
+against the drain-source voltage $V_(d s)$, one curve per gate voltage.
 The #term("transfer characteristic") plots $I_d$ against the gate voltage $V_(g s)$
-#unit($V$) on a logarithmic scale, at a small drain bias and at the supply voltage.
+on a logarithmic scale, at a small drain bias and at the supply voltage.
 A switch is judged by the ratio between the current it passes when on and the
 current it leaks when off,
 and that ratio spans many decades, which is what the logarithmic axis is for.
@@ -151,11 +151,11 @@ $
   avec(J)_s = q_s mu_s c_s avec(cal(E)) - q_s D_s nabla c_s.
 $ <drift-diffusion>
 The quantities appearing here are the #term("current density")
-$avec(J)$ #unit($A slash m^2$), charge crossing unit area per unit time;
+$avec(J)$, charge crossing unit area per unit time;
 the charge of the species $q_s$,
 $q_n = -q_0$ and $q_p = +q_0$ for the elementary charge
 $q_0 = #qty($1.602 dot 10^(-19)$, $C$)$;
-the electric field $avec(cal(E))$ #unit($V slash m$)\;
+the electric field $avec(cal(E))$;
 the #term("mobility") $mu_s$ #unit($m^2 slash (V thin s)$), defined below;
 and the #term("diffusion coefficient") $D_s$ #unit($m^2 slash s$),
 which relates a particle flux to the density gradient driving it,
@@ -189,11 +189,10 @@ Between collisions the carrier obeys Newton's law,
 $
   m_s^* (dif v) / (dif t) = q_s cal(E),
 $
-in which $m_s^*$ #unit($"kg"$) is the #term("effective mass"),
+in which $m_s^*$ is the #term("effective mass"),
 the mass a carrier appears to carry inside the crystal rather than in vacuum,
-fixed by the curvature of the band it occupies and computed in the next lecture;
-$v$ #unit($m slash s$) is the velocity
-and $dif v slash dif t$ #unit($m slash s^2$) the acceleration.
+fixed by the curvature of the band it occupies and computed in the next lecture,
+and $v$ is the velocity.
 The effective mass is customarily given as a multiple of the free electron mass
 $m_0 = #qty($9.109 dot 10^(-31)$, $"kg"$)$,
 so that $m_n^* = 0.32 m_0$ in silicon is a number and not a measurement in
@@ -207,9 +206,9 @@ Free flight interrupted by collisions that reset the momentum is the
 #term("Drude model").
 
 Steady state is the balance between those two processes.
-Write $angled(v)$ #unit($m slash s$) for the velocity averaged along the
+Write $angled(v)$ for the velocity averaged along the
 trajectory, the #term("drift velocity"),
-and $tau_s$ #unit($s$) for the #term("mean free time"), the average interval
+and $tau_s$ for the #term("mean free time"), the average interval
 between two scattering events.
 Momentum is gained at the rate $q_s cal(E)$ and lost at the rate
 $m_s^* angled(v) slash tau_s$,
@@ -226,7 +225,7 @@ The mobility is not an independent material parameter but a statement about
 scattering:
 the longer a carrier survives between collisions the faster it moves,
 and the faster it moves the higher the clock frequency the circuit sustains.
-The length that goes with it is the #term("mean free path") $lambda_"mfp"$ #unit($m$),
+The length that goes with it is the #term("mean free path") $lambda_"mfp"$,
 $
   lambda_"mfp" = abs(angled(v)) tau_s,
 $ <mfp>
@@ -272,11 +271,11 @@ the occupation of a point of phase space,
 and it is dimensionless, taking values in $cc(0, 1)$,
 since it counts the fraction of available states that are filled rather than a
 number of particles.
-Its arguments are position $avec(r)$ #unit($m$),
-wave vector $avec(k)$ #unit($m^(-1)$),
+Its arguments are position $avec(r)$,
+wave vector $avec(k)$,
 which carries momentum $avec(p) = planck avec(k)$ and is the natural variable
 because a crystal quantizes momentum rather than velocity,
-and time $t$ #unit($s$).
+and time $t$.
 It obeys the #term("Boltzmann transport equation"),
 $
   (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
@@ -289,7 +288,7 @@ written as one:
 what a trajectory cannot account for is exactly what a collision does.
 The first term is the explicit time dependence,
 the second moves a carrier through real space at the #term("band velocity")
-$avec(v)(avec(k))$ #unit($m slash s$),
+$avec(v)(avec(k))$,
 which is not an independent quantity but the group velocity of the band,
 $avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
 and the third accelerates it through momentum space under the field,
@@ -337,9 +336,9 @@ and the equation solved is the stationary #term("Schrödinger equation")
 $
   (- planck^2 / (2 m^*) lapl + V(avec(r))) psi(avec(r)) = E psi(avec(r)).
 $ <schroedinger>
-The potential energy $V(avec(r))$ #unit($J$), in practice #unit($"eV"$),
+The potential energy $V(avec(r))$, quoted in #unit($"eV"$) throughout,
 is what the device geometry and the applied voltages supply,
-and $E$ #unit($J$) is the energy eigenvalue.
+and $E$ is the energy eigenvalue.
 The #term("wave function") $psi(avec(r))$ has the dimension #unit($m^(-3 slash 2)$) in
 three dimensions,
 which is not a curiosity but forced:
@@ -361,18 +360,14 @@ part company.
 
 #exam("L1.2")
 The criterion for needing @schroedinger at all is again a length.
-An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$
-#unit($"kg" thin m slash s$),
+An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$,
 from the non-relativistic $E = p^2 slash 2 m^*$,
-and hence the #term("de Broglie wavelength") $lambda$ #unit($m$),
+and hence the #term("de Broglie wavelength") $lambda$,
 $
   lambda = h / sqrt(2 m^* E) = h / p,
 $ <de-broglie>
 with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced,
 since the relation is $lambda = h slash p$ and not $planck slash p$.
-The dimensions check:
-an action divided by a momentum is
-#unit($J thin s slash ("kg" thin m slash s)$), which reduces to #unit($m$).
 Wave behavior matters once a device dimension becomes comparable to $lambda$,
 and it is enough that this holds along one of the three dimensions,
 since confinement in a single direction already quantizes the spectrum.
