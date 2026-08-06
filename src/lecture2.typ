@@ -58,8 +58,8 @@ The ions are taken to sit at fixed positions, which already discards their
 kinetic energy and is the #term("Born-Oppenheimer approximation");
 the lattice vibrations dropped here return in a later chapter as phonons.
 
-@many-body cannot be solved exactly beyond a few special cases.
-The obstruction is the electron-electron term.
+#key[@many-body cannot be solved exactly beyond a few special cases, and the
+obstruction is the electron-electron term.]
 Without it the Hamiltonian would be a sum of identical one-electron operators
 and $Psi$ would factorize;
 with it every coordinate is coupled to every other, and the dimension of the
@@ -76,22 +76,26 @@ $
   hat(H) = - planck^2 / (2 m_0) lapl + V_"eff" (avec(r)),
 $ <single-electron>
 with $psi(avec(r))$ depending on one position only.
-Everything the other electrons do to the one under consideration is cast into
-the single #term("effective potential") $V_"eff" (avec(r))$.
+#key[Everything the other electrons do to the one under consideration is cast
+into the single #term("effective potential") $V_"eff" (avec(r))$.]
 The pair interaction, a function of $6$ coordinates, becomes a field on
 $3$ coordinates,
 and the many-body problem becomes a one-body problem in a medium.
 
 That this is possible at all is the content of density functional theory:
-Kohn and Sham proved in 1965 that an effective potential exists for which the
-carrier density computed from the single-electron wave functions equals the true
-many-body density exactly.
+#key[Kohn and Sham proved in 1965 that an effective potential exists for which
+the carrier density computed from the single-electron wave functions equals the
+true many-body density exactly.]
 The theorem asserts existence and does not exhibit the potential,
 and every practical scheme is an approximation to it.
 
 === Calculation methods
 
 Three families are in use, and they differ in what they take as input.
+#key[Density functional theory computes $V_"eff"$ from the positions of the
+atoms alone and pays for it with an underestimated gap and a large cost, while
+the empirical methods buy the correct gap and the correct masses cheaply and
+need a bandstructure to fit against before they can compute anything.]
 
 #term("Density functional theory") approximates $V_"eff"$ from the density
 itself, through a chain of successively better functionals beginning with the
@@ -152,8 +156,8 @@ named $avec(k)$ and called the #term("wave vector"),
 $
   psi_avec(k) (avec(r) + n avec(a)) = e^(i avec(k) dot n avec(a)) psi_avec(k) (avec(r)).
 $ <bloch-phase>
-#term("Bloch's theorem") is the statement that a function with this property is
-a plane wave times something with the periodicity of the lattice,
+#key[#term("Bloch's theorem") is the statement that a function with this
+property is a plane wave times something with the periodicity of the lattice,]
 $
   psi_avec(k) (avec(r)) = u_avec(k) (avec(r)) e^(i avec(k) dot avec(r)),
   quad
@@ -167,10 +171,10 @@ structure within one.
 What has entered is a label. The wave function and its eigenvalue now depend on
 $avec(k)$ as well,
 $
-  hat(H) psi_avec(k) (avec(r)) = E(avec(k)) psi_avec(k) (avec(r)),
+  hat(H) psi_avec(k) (avec(r)) = E(avec(k)) psi_avec(k) (avec(r)).
 $ <schroedinger-k>
-so that @single-electron is not one eigenvalue problem but a family of them,
-one for each $avec(k)$.
+#key[What was one eigenvalue problem is therefore a family of them, one for each
+$avec(k)$.]
 The resulting $E(avec(k))$ is the #term("dispersion") of one band and the
 #term("bandstructure") of all of them together.
 Only the phase $avec(k) dot n avec(a)$ has meaning and it is defined modulo
@@ -207,8 +211,9 @@ $
 $ <normalization>
 the integral running over the volume the electron is confined to, which for a
 device is the device.
-@normalization is what fixes the prefactor of every wave function below, and it
-is why $psi$ carries #unit($m^(-3 slash 2)$) rather than being dimensionless.
+#key[@normalization is what fixes the prefactor of every wave function below,
+and it is why $psi$ carries #unit($m^(-3 slash 2)$) rather than being
+dimensionless.]
 
 Knowing $P_avec(k)$ says how an electron in the state $avec(k)$ is spread out.
 It says nothing about whether that state holds an electron at all.
@@ -232,12 +237,12 @@ the distribution depends on $E$ and $E_F$ only through $(E - E_F) slash k_B T$,
 so $k_B T$ measures the width of the region over which $f$ falls from one to
 zero.
 
-At $T = 0$ the exponent is $minus infinity$ below $E_F$ and $plus infinity$
-above it, and @fermi degenerates to a step:
-every state below the Fermi level is filled, every state above it is empty.
-Raising the temperature rounds the step symmetrically about $E_F$, emptying
-states just below it and filling states just above it, over a range of a few
-$k_B T$ to either side.
+#key[At $T = 0$ @fermi degenerates to a step, every state below the Fermi level
+filled and every state above it empty, and raising the temperature rounds that
+step symmetrically about $E_F$ over a range of a few $k_B T$ to either side.]
+The step is what the exponent leaves, $minus infinity$ below $E_F$ and
+$plus infinity$ above it, and the rounding empties states just below the Fermi
+level and fills states just above it.
 The curves for #qty(0, $K$), #qty(100, $K$), #qty(300, $K$) and #qty(500, $K$)
 are on slide 13, all crossing at $f = 1 slash 2$, which they must, since
 $E = E_F$ makes the exponent vanish at any temperature.
@@ -249,7 +254,7 @@ previous chapter.
 === Metals, semiconductors and insulators
 
 #exam("L2.7")
-Where the Fermi level sits relative to the bands classifies the material.
+#key[Where the Fermi level sits relative to the bands classifies the material.]
 Slide 14 shows the three cases side by side.
 
 In a #term("metal") the Fermi level lies inside a band.
@@ -280,11 +285,11 @@ Even this fails at the margin, gallium nitride having a gap near
 
 #exam("L2.8")
 The two ingredients now combine.
-The #term("carrier density") $c(avec(r))$ #unit($m^(-3)$) counts electrons per
-unit volume at $avec(r)$:
-each state contributes the probability density of finding its electron there,
-weighted by the probability that the state is occupied, and the states are
-summed over,
+#key[The #term("carrier density") $c(avec(r))$ #unit($m^(-3)$) counts electrons
+per unit volume at $avec(r)$, each state contributing the probability density of
+finding its electron there weighted by the probability that the state is
+occupied.]
+Summing over the states,
 $
   c(avec(r)) = sum_(avec(k) in "BZ") P_avec(k) (avec(r)) thin f(E(avec(k))).
 $ <carrier-density>
@@ -322,22 +327,24 @@ $ <dos>
 carrying #unit($J^(-1) m^(-3)$), states per unit energy per unit volume.
 The delta function is what selects, out of all of $avec(k)$-space, the states
 whose energy is $E$, and $P_avec(k)$ distributes each of them over position.
-The sum over $avec(k)$ has not disappeared, but it has moved:
-it is now performed once, in the definition of $g$, rather than every time a
-carrier density is wanted.
+#key[The sum over $avec(k)$ has not disappeared, but it has moved: it is now
+performed once, in the definition of $g$, rather than every time a carrier
+density is wanted.]
 The carrier density is then
 $
   c(avec(r)) = integral dif E thin g(E, avec(r)) f(E).
 $ <c-from-g>
 
 #exam("L2.10")
-The two factors of @c-from-g separate cleanly.
-The density of states is a property of the structure alone, of its geometry and
-its materials, and it is fixed once the structure is:
+#key[The two factors of @c-from-g separate cleanly, the density of states being
+a property of the structure alone and the distribution a property of the
+reservoir the structure is in equilibrium with.]
+The density of states belongs to the geometry and the materials and is fixed
+once the structure is:
 it says how many states exist at energy $E$ and position $avec(r)$ and would say
 so at any temperature and any bias.
-The distribution is a property of the reservoir the structure is in equilibrium
-with, through $E_F$ and $T$ alone, and knows nothing about the structure.
+The distribution enters through $E_F$ and $T$ alone and knows nothing about the
+structure.
 Their product $g(E, avec(r)) f(E)$ is therefore the #term("density of occupied states"),
 electrons per unit energy per unit volume,
 and it is what the energy integral of @c-from-g accumulates into a carrier
@@ -371,10 +378,10 @@ evaluated at the extremum, so that
 $
   E(avec(k)) = E_"CB" + (planck^2 abs(avec(k))^2) / (2 m^*).
 $ <parabolic>
-It is a curvature and nothing else:
-a flat band means a heavy electron, a sharply curved one a light electron, and
-the sign of the curvature is what distinguishes the electron-like minimum of the
-conduction band from the hole-like maximum of the valence band.
+#key[It is a curvature and nothing else: a flat band means a heavy electron, a
+sharply curved one a light electron, and the sign of the curvature is what
+distinguishes the electron-like minimum of the conduction band from the
+hole-like maximum of the valence band.]
 Slide 18 sets @parabolic against the computed bands of silicon and indium
 arsenide.
 The fit is good over a wider range for silicon, whose $m^* = 0.91$ at the $X$
@@ -387,9 +394,9 @@ derivatives are large, and the quadratic truncation is exactly what those
 derivatives measure the error of.
 
 The value of @effective-mass is that it removes $V_"eff"$ from the problem.
-The periodic potential of the crystal was what made @single-electron hard, and
-its entire effect on a carrier near a band edge is to change the coefficient of
-$k^2$ in the dispersion.
+#key[The periodic potential of the crystal was what made @single-electron hard,
+and its entire effect on a carrier near a band edge is to change the coefficient
+of $k^2$ in the dispersion.]
 Replacing $m_0$ by $m^*$ therefore reproduces that dispersion with no potential
 at all,
 $
@@ -429,17 +436,17 @@ $ <aniso-dispersion>
 whose surfaces of constant energy are ellipsoids rather than spheres;
 slide 24 shows both.
 Silicon is the case that matters.
-Its conduction band minimum does not sit at $Gamma$ but on the six equivalent
-$Delta$ directions, giving six #term("valleys"), each an ellipsoid elongated
-along its own axis with a #term("longitudinal mass") $m_L = 0.91 m_0$ along that
-axis and a #term("transverse mass") $m_T = 0.19 m_0$ along the two perpendicular
-to it.
+#key[Its conduction band minimum does not sit at $Gamma$ but on the six
+equivalent $Delta$ directions, giving six #term("valleys"), each an ellipsoid
+elongated along its own axis with a #term("longitudinal mass")
+$m_L = 0.91 m_0$ along that axis and a #term("transverse mass")
+$m_T = 0.19 m_0$ along the two perpendicular to it.]
 The crystal as a whole is cubic and therefore isotropic;
 the anisotropy belongs to the individual valley.
 
-Where a single mass is wanted, as in a density of states, the ellipsoid is
+#key[Where a single mass is wanted, as in a density of states, the ellipsoid is
 replaced by the sphere of equal volume, whose radius is the geometric mean of
-the three semi-axes.
+the three semi-axes.]
 This defines the #term("density of states effective mass")
 $
   m_"DOS" = (m_L m_T^2)^(1 slash 3),
@@ -477,21 +484,20 @@ $
   E(avec(k)) = (planck^2 abs(avec(k))^2) / (2 m^*),
 $ <bulk-solution>
 with @aniso-dispersion in place of the energy when the mass is anisotropic.
-The dispersion is the parabola that @ema was built to reproduce, which is the
-consistency check on the whole construction:
-the equation whose solution defines the effective mass returns the band it was
-fitted to.
+#key[The dispersion is the parabola that @ema was built to reproduce, which is
+the consistency check on the whole construction: the equation whose solution
+defines the effective mass returns the band it was fitted to.]
 
-The periodic boundary condition quantizes $avec(k)$.
+#key[The periodic boundary condition quantizes $avec(k)$ on a grid of spacing
+$2 pi slash L_j$, on which each allowed wave vector occupies a volume
+$8 pi^3 slash V$ of $avec(k)$-space and a sum over states becomes an integral.]
 Requiring $e^(i avec(k) dot {L_x, L_y, L_z}) = 1$ forces each component to
 satisfy $k_j L_j in 2 pi ZZ$, so
 $
   k_j = n_j (2 pi) / L_j,
-  quad n_j in ZZ,
+  quad n_j in ZZ.
 $ <k-quantization>
-and the allowed wave vectors form a grid of spacing $2 pi slash L_j$.
-Each occupies a volume $8 pi^3 slash V$ of $avec(k)$-space, which is what turns
-a sum into an integral,
+The conversion is
 $
   sum_avec(k) arrow.r V / (8 pi^3) integral dif^3 avec(k),
 $ <sum-to-integral>
@@ -510,9 +516,9 @@ $
   n_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
 $ <n-bulk>
 The position dependence is gone.
-This is forced rather than fortunate: the structure was assumed homogeneous, so
-a carrier density varying with position would have contradicted the assumption it
-was computed under.
+#key[This is forced rather than fortunate: the structure was assumed
+homogeneous, so a carrier density varying with position would have contradicted
+the assumption it was computed under.]
 
 === Bulk density of states
 
@@ -541,16 +547,18 @@ $ <g-bulk>
 Here the energy is measured from the band edge, and $g_"bulk"$ vanishes below
 it, there being no states in the gap.
 
-Two features of @g-bulk carry the physics and the prefactor carries none.#note[
+#key[Two features of @g-bulk carry the physics, growth as $sqrt(E)$ from the
+band edge and growth as $m^(*3 slash 2)$ with the mass, and the prefactor
+carries none.]#note[
   Luisier said in the lecture that he likes to ask for the $sqrt(E)$ behavior
   and for two curves of different effective mass to be drawn and identified,
   and that he does not expect the $m^(*3 slash 2)$ prefactor to be recalled.
 ]
-The density of states grows as $sqrt(E)$, smoothly from zero at the band edge,
-because the number of states inside a sphere of radius $abs(avec(k))$ grows as
-$abs(avec(k))^3$ while $E$ grows as $abs(avec(k))^2$.
-And it grows as $m^(*3 slash 2)$, so a heavy band carries more states at a given
-energy than a light one:
+The growth in energy is smooth from zero at the band edge, because the number of
+states inside a sphere of radius $abs(avec(k))$ grows as $abs(avec(k))^3$ while
+$E$ grows as $abs(avec(k))^2$.
+The growth in mass means a heavy band carries more states at a given energy than
+a light one:
 a heavy mass is a flat band, a flat band reaches a given energy only at large
 $abs(avec(k))$, and a large $abs(avec(k))$ encloses many states.
 Slide 27 plots @g-bulk for the three masses $0.023 m_0$, $0.065 m_0$ and
@@ -569,8 +577,8 @@ A #term("quantum well") is the first structure that is not bulk:
 a thin layer of one material between two thick layers of another with a wider
 gap, gallium arsenide between aluminium gallium arsenide in the case treated
 here.
-The periodicity is broken along the growth direction $x$ and retained along
-$avec(r)_t = {y, z}$, over which the structure has area $A = L_y L_z$.
+#key[The periodicity is broken along the growth direction $x$ and retained along
+$avec(r)_t = {y, z}$, over which the structure has area $A = L_y L_z$.]
 Everything below follows from that one asymmetry.
 
 === Band diagram
@@ -583,8 +591,8 @@ The conduction band minimum of the alloy lies above that of gallium arsenide by
 $Delta E_"CB"$, and its valence band maximum lies below by $Delta E_"VB"$;
 the wider gap of the barrier material is split between the two band edges.
 
-The #term("band diagram") is then constructed by walking along $x$ and
-recording, at each position, the band edge of whichever material is there.
+#key[The #term("band diagram") is then constructed by walking along $x$ and
+recording, at each position, the band edge of whichever material is there.]
 Taking the conduction band, since only electrons are treated, and putting its
 zero at the well,
 $
@@ -606,9 +614,9 @@ $
   (- planck^2 / (2 m^*) lapl + V_"QW" (x)) psi_(avec(k)_t) (avec(r))
     = E(avec(k)_t) psi_(avec(k)_t) (avec(r)).
 $ <qw-schroedinger>
-The potential depends on $x$ alone, so the transverse directions are still those
-of a homogeneous crystal and carry plane waves, while $x$ carries an unknown
-factor.
+#key[The potential depends on $x$ alone, so the transverse directions are still
+those of a homogeneous crystal and carry plane waves, while $x$ carries an
+unknown factor.]
 The ansatz is
 $
   psi_(avec(k)_t) (x, avec(r)_t)
@@ -638,8 +646,9 @@ of the well is
 $
   E_n (avec(k)_t) = E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*).
 $ <subband>
-Each $E_n$ is the bottom of a parabolic #term("subband") in the transverse plane,
-free motion along $y$ and $z$ built on a confined state along $x$.#note[
+#key[Each $E_n$ is the bottom of a parabolic #term("subband") in the transverse
+plane, free motion along $y$ and $z$ built on a confined state along
+$x$.]#note[
   The slides write the eigenvalue of @qw-1d as $cal(E)$ and reserve $E$ for the
   total. Since $cal(E)$ is already the electric field here, and since $E_n$ is
   exactly $E_n (avec(k)_t)$ at $avec(k)_t = 0$, the script writes $E_n$
@@ -693,24 +702,25 @@ $ <infinite-well-solution>
 the prefactor of $phi_n$ fixed by $integral dif x thin abs(phi_n)^2 = 1$.
 
 Everything about the spectrum is in @infinite-well-solution.
-It is discrete, which is #term("energy quantization"), and this is the quantized
-bandstructure the previous chapter showed on slide 37 without computing.
+#key[It is discrete, which is #term("energy quantization"), and this is the
+quantized bandstructure the previous chapter showed on slide 37 without
+computing.]
 The levels go as $n^2$, so the spacing $E_(n+1) - E_n prop 2n + 1$ widens as one
 climbs, visibly so among the four states plotted on slide 34 for a
 #qty(5, $"nm"$) gallium arsenide well.
 The state $phi_n$ has $n$ antinodes and $n - 1$ interior nodes, so the index can
 be read off a picture of the wave function.
-And the scale of the whole ladder is $E_1 prop 1 slash (m^* L_"QW"^2)$:
+#key[The scale of the whole ladder is $E_1 prop 1 slash (m^* L_"QW"^2)$, so
 confinement energy grows as the well narrows and falls as the carrier gets
-heavier,
-which is why a light mass makes a device quantum mechanical at dimensions where
-a heavy one does not.
+heavier, which is why a light mass makes a device quantum mechanical at
+dimensions where a heavy one does not.]
 
 === Finite barriers
 
 #exam("L2.16")
-A real barrier is finite, $V_"QW" = Delta E_"CB"$ outside the well, and three
-things change.
+#key[A real barrier is finite, $V_"QW" = Delta E_"CB"$ outside the well, and
+three things change: the wave function leaks into the barrier, the eigenvalues
+are no longer given in closed form, and the number of bound states is finite.]
 
 The wave function no longer vanishes at the interface.
 Below the barrier top the solution outside is the decaying exponential of
@@ -768,9 +778,9 @@ $
       f(E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*)),
 $ <n-qw>
 a function of $x$ alone, constant in the transverse plane.
-Its shape along $x$ is the sum of the $abs(phi_n)^2$ weighted by how populated
-each subband is, so at low temperature and low filling it is essentially
-$abs(phi_1)^2$, peaked at the center of the well.
+#key[Its shape along $x$ is the sum of the $abs(phi_n)^2$ weighted by how
+populated each subband is, so at low temperature and low filling it is
+essentially $abs(phi_1)^2$, peaked at the center of the well.]
 
 === Quantum well density of states
 
@@ -801,8 +811,9 @@ The difference from bulk traces to one line of the derivation.
 In three dimensions the shell had area $4 pi abs(avec(k))^2$ and left a
 $sqrt(E')$ behind; in two it has circumference $2 pi abs(avec(k)_t)$ and leaves
 nothing.
-A two-dimensional parabolic band has a density of states independent of energy,
-and a quantum well is a stack of them, one per subband, switched on at $E_n$.
+#key[A two-dimensional parabolic band has a density of states independent of
+energy, and a quantum well is a stack of them, one per subband, switched on at
+$E_n$.]
 
 Averaging @g-qw over the well removes the $x$ dependence and gives the quantity
 that is plotted,
@@ -813,8 +824,8 @@ $
 $ <g-qw-av>
 using $integral dif x thin abs(phi_n)^2 = 1$.
 This is a staircase, flat between subband edges and stepping up at each one.
-Both features of the step depend on the effective mass, and in opposite
-directions.
+#key[Both features of the step depend on the effective mass, and in opposite
+directions.]
 The height $m^* slash (L_"QW" pi planck^2)$ is the same for every step and grows
 with $m^*$.
 The spacing is set by $E_n prop 1 slash m^*$, so a heavier mass puts the steps
@@ -828,10 +839,9 @@ indium arsenide staircase the shortest and the widest.
 #exam("L2.1")
 The two densities of states answer the same question about the same material and
 differ only in whether one direction is confined.
-Bulk gives the smooth $sqrt(E)$ of @g-bulk, rising continuously from the band
-edge.
-The well gives the staircase of @g-qw-av, identically zero below $E_1$ and
-constant between steps.
+#key[Bulk gives the smooth $sqrt(E)$ of @g-bulk, rising continuously from the
+band edge, while the well gives the staircase of @g-qw-av, identically zero
+below $E_1$ and constant between steps.]
 This is the difference between the classical and the quantum mechanical density
 of states in a MOSFET channel of the previous chapter, computed rather than
 asserted:
@@ -847,8 +857,9 @@ $
   g_"bulk" (E_n) = (n m^*) / (L_"QW" pi planck^2),
 $
 the same number.
-The upper corner of every step lies exactly on the bulk curve, which is what
-slide 39 shows and which is stronger than the resemblance the picture suggests.
+#key[The upper corner of every step lies exactly on the bulk curve, which is
+what slide 39 shows and which is stronger than the resemblance the picture
+suggests.]
 Widening the well then lowers all $E_n$ as $1 slash L_"QW"^2$ and lowers each
 step height as $1 slash L_"QW"$, so the staircase is sampled at ever finer
 intervals along a curve that does not move, and it converges to $g_"bulk"$.
@@ -868,9 +879,9 @@ $
 $ <variable-mass-operator>
 with the mass between the derivatives rather than in front of them.
 The ordering is forced.
-Integrating @qw-1d across an interface where $m^*$ jumps, the potential and
+#key[Integrating @qw-1d across an interface where $m^*$ jumps, the potential and
 eigenvalue terms contribute nothing in the limit of a vanishing interval, so
-$(1 slash m^*) dif phi slash dif x$ must be continuous there.
+$(1 slash m^*) dif phi slash dif x$ must be continuous there.]
 Writing $(1 slash m^*) dif^2 phi slash dif x^2$ instead would make $dif phi
 slash dif x$ continuous, which is the wrong condition and does not conserve
 probability current across the interface.
@@ -889,9 +900,9 @@ $
   phi arrow.r [phi_1, phi_2, ..., phi_N], quad phi_i = phi(x_i),
 $
 which slide 42 shows against the continuous wave function.
-The grid must resolve the oscillation of the states wanted, so $Delta x$ is
+#key[The grid must resolve the oscillation of the states wanted, so $Delta x$ is
 chosen a small fraction of the shortest half-wavelength in play, and only the
-lowest states of the resulting spectrum are trustworthy.
+lowest states of the resulting spectrum are trustworthy.]
 
 === Discretized Hamiltonian
 
@@ -933,16 +944,15 @@ the discrete kinetic operator annihilates constants, as the continuous one does.
 A discretization failing this would assign a kinetic energy to an electron at
 rest.
 
-Assembled, $H$ is a real symmetric tridiagonal $N times N$ matrix and
-@discrete-row is the eigenvalue problem
+Assembled, @discrete-row is the eigenvalue problem
 $
   H phi = E phi.
 $
-Symmetry is inherited from @variable-mass-operator through the midpoint mass,
-which is shared between rows $i$ and $i plus.minus 1$, and it guarantees real
-eigenvalues and orthogonal eigenvectors.
-Tridiagonality is inherited from the second derivative, which couples each point
-to its two neighbors and to nothing else.
+#key[The $N times N$ matrix $H$ is real symmetric tridiagonal, symmetric through
+the midpoint mass, which is shared between rows $i$ and $i plus.minus 1$, and
+tridiagonal through the second derivative, which couples each point to its two
+neighbors and to nothing else.]
+Symmetry guarantees real eigenvalues and orthogonal eigenvectors.
 Dirichlet conditions close the system: $phi_0 = phi_(N+1) = 0$ removes the
 missing neighbor from the first and last rows and leaves their diagonal entries
 unchanged.
