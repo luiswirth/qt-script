@@ -75,7 +75,8 @@ holds the raw WebVTT in its history.
   and a symbol whose dimension is unknown cannot be checked against anything.
   Where the course overloads a letter, the script gives each meaning its own
   symbol and says nothing further about it, as the electric field is `cal(E)`
-  because `E` is an energy.
+  because `E` is an energy and the elementary charge is `q_0` because `e` is the
+  exponential base.
   A value carried with its unit is `qty` rather than prose, `unit` being the
   other statement and the two never interchangeable.
   How a unit is spelled is `setup.typ`, and division inside math is `slash`,
@@ -85,6 +86,8 @@ holds the raw WebVTT in its history.
   the lectures rather than reread. Emphasis carrying no definition stays `_`.
 - Built-in Typst notation is written as it stands, never aliased:
   `planck` is already ℏ, and `m^*` and `m_0` need no name of their own.
+- An exponential is `exp` wherever its exponent is large enough that `e^` would
+  set it in superscript across the line.
 - Notation general enough to outlive this course belongs in dottyp, not in
   `setup.typ`, and only if Typst does not already provide it.
   A name is promoted once the script has actually written it.
@@ -98,3 +101,19 @@ holds the raw WebVTT in its history.
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
   A lecture reaches `ai-approved` only once it has been read against the slides.
+
+### Deviations from the lectures
+
+Where the lectures' notation is inconsistent or forces a special case, the
+script replaces it rather than inherits it, and marks the replacement at its
+defining occurrence with a `#note` naming the lectures' form, since the exam is
+answered in their vocabulary. Listed here are only the deviations that change
+how something is stated, never a symbol chosen differently.
+
+- The carrier charge is signed, and every quantity derived from it carries that
+  sign, the mobility included. The lectures leave it unsigned and carry
+  magnitudes, which is what forces them to split drift-diffusion into one
+  equation per species where the script keeps a single one with the species as
+  a parameter.
+- The carrier density is named as one, the lectures calling it the charge
+  density though it counts carriers and carries no charge.
