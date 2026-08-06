@@ -177,6 +177,9 @@ $ <schroedinger-k>
 $avec(k)$.]
 The resulting $E(avec(k))$ is the #term("dispersion") of one band and the
 #term("bandstructure") of all of them together.
+A stationary state carries the time dependence $e^(-i E t \/ planck)$, so
+$E = planck omega$ and this is the relation $omega(avec(k))$ of wave theory,
+written in energy units.
 Only the phase $avec(k) dot n avec(a)$ has meaning and it is defined modulo
 $2 pi$, so wave vectors differing by a reciprocal lattice vector label the same
 state.
