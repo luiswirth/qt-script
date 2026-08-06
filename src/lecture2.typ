@@ -15,7 +15,7 @@ on a grid for the rest.
 
 Alongside runs a second thread.
 The wave function is not itself observable, and the quantities a device
-simulation reports are the charge density and the density of states.
+simulation reports are the carrier density and the density of states.
 Both are built from the same two ingredients, the probability density of a state
 and the probability that the state is occupied,
 and both are computed for each geometry as it appears.
@@ -33,13 +33,13 @@ $
 in which $Psi = Psi(avec(r)_1, avec(r)_2, ..., avec(r)_N)$ is a single function
 of the coordinates of all $N$ electrons simultaneously,
 and $E$ #unit($J$) is the total energy of the system.
-For a crystal of $N$ electrons and $M$ ions, the ion $j$ carrying charge $Z_j q$
+For a crystal of $N$ electrons and $M$ ions, the ion $j$ carrying charge $Z_j q_0$
 at the fixed position $avec(R)_j$, the Hamiltonian is
 $
   hat(H) = sum_(i=1)^N (
     - planck^2 / (2 m_0) lapl_i
-    - sum_(j=1)^M (Z_j q^2) / (4 pi epsilon_0 abs(avec(r)_i - avec(R)_j))
-    + sum_(j > i) q^2 / (4 pi epsilon_0 abs(avec(r)_i - avec(r)_j))
+    - sum_(j=1)^M (Z_j q_0^2) / (4 pi epsilon_0 abs(avec(r)_i - avec(R)_j))
+    + sum_(j > i) q_0^2 / (4 pi epsilon_0 abs(avec(r)_i - avec(r)_j))
   ).
 $ <many-body>
 The three terms are the kinetic energy of the electrons,
@@ -51,7 +51,7 @@ and the electron-electron repulsion, which is positive and counts each pair once
 through the restriction $j > i$.
 Here $epsilon_0 = #qty($8.854 dot 10^(-12)$, $F slash m$)$ is the vacuum
 permittivity, and every term carries #unit($J$).#note[
-  The slides write the Coulomb terms in Gaussian units, as $Z_j e^2 slash
+  The slides write the Coulomb terms in Gaussian units, as $Z_j q_0^2 slash
   abs(avec(r)_i - avec(R)_j)$ without the $4 pi epsilon_0$.
 ]
 The ions are taken to sit at fixed positions, which already discards their
@@ -84,7 +84,7 @@ and the many-body problem becomes a one-body problem in a medium.
 
 That this is possible at all is the content of density functional theory:
 Kohn and Sham proved in 1965 that an effective potential exists for which the
-charge density computed from the single-electron wave functions equals the true
+carrier density computed from the single-electron wave functions equals the true
 many-body density exactly.
 The theorem asserts existence and does not exhibit the potential,
 and every practical scheme is an approximation to it.
@@ -218,7 +218,7 @@ It says nothing about whether that state holds an electron at all.
 The probability that the state $psi_avec(k)$, of energy $E(avec(k))$, is
 occupied is the #term("Fermi distribution")
 $
-  f(E) = 1 / (1 + e^((E - E_F) slash (k_B T))),
+  f(E) = 1 / (1 + exp((E - E_F) slash (k_B T))),
 $ <fermi>
 dimensionless and valued in $cc(0, 1)$,
 where $k_B = #qty($1.381 dot 10^(-23)$, $J slash K$)$ is the Boltzmann constant,
@@ -241,7 +241,7 @@ The curves for #qty(0, $K$), #qty(100, $K$), #qty(300, $K$) and #qty(500, $K$)
 are on slide 13, all crossing at $f = 1 slash 2$, which they must, since
 $E = E_F$ makes the exponent vanish at any temperature.
 Far above the Fermi level the exponential dominates the denominator and
-$f approx e^(-(E - E_F) slash k_B T)$, the Boltzmann tail,
+$f approx exp(-(E - E_F) slash k_B T)$, the Boltzmann tail,
 which is the thermionic population that carried the leakage current of the
 previous chapter.
 
@@ -279,30 +279,32 @@ Even this fails at the margin, gallium nitride having a gap near
 
 #exam("L2.8")
 The two ingredients now combine.
-The #term("charge density") $n(avec(r))$ #unit($m^(-3)$) counts electrons per
+The #term("carrier density") $c(avec(r))$ #unit($m^(-3)$) counts electrons per
 unit volume at $avec(r)$:
 each state contributes the probability density of finding its electron there,
 weighted by the probability that the state is occupied, and the states are
 summed over,
 $
-  n(avec(r)) = sum_(avec(k) in "BZ") P_avec(k) (avec(r)) thin f(E(avec(k))).
-$ <charge-density>
+  c(avec(r)) = sum_(avec(k) in "BZ") P_avec(k) (avec(r)) thin f(E(avec(k))).
+$ <carrier-density>
+It counts carriers, the charge density proper being $q_s c$
+#unit($C slash m^3$).#note[The lectures call $c$ itself the charge density.]
 Neither factor alone would do.
 Dropping $f$ would count every state as full, dropping $P_avec(k)$ would give a
 number of electrons and not a density.
-Slide 15 shows @charge-density evaluated for a resonant tunneling diode and for
+Slide 15 shows @carrier-density evaluated for a resonant tunneling diode and for
 a double-gate transistor, the internal quantities of the previous chapter that
 no measurement reaches.
 
 === Density of states
 
 #exam("L2.9")
-@charge-density is a sum over the Brillouin zone, and $avec(k)$ is an
+@carrier-density is a sum over the Brillouin zone, and $avec(k)$ is an
 inconvenient variable to work in.
 It can be traded for energy at no cost. Insert a delta function and an integral
 that undoes it,
 $
-  n(avec(r))
+  c(avec(r))
     &= integral dif E sum_avec(k) P_avec(k) (avec(r)) thin
        delta(E - E(avec(k))) thin f(E(avec(k))) \
     &= integral dif E underbrace(
@@ -321,14 +323,14 @@ The delta function is what selects, out of all of $avec(k)$-space, the states
 whose energy is $E$, and $P_avec(k)$ distributes each of them over position.
 The sum over $avec(k)$ has not disappeared, but it has moved:
 it is now performed once, in the definition of $g$, rather than every time a
-charge density is wanted.
-The charge density is then
+carrier density is wanted.
+The carrier density is then
 $
-  n(avec(r)) = integral dif E thin g(E, avec(r)) f(E).
-$ <n-from-g>
+  c(avec(r)) = integral dif E thin g(E, avec(r)) f(E).
+$ <c-from-g>
 
 #exam("L2.10")
-The two factors of @n-from-g separate cleanly.
+The two factors of @c-from-g separate cleanly.
 The density of states is a property of the structure alone, of its geometry and
 its materials, and it is fixed once the structure is:
 it says how many states exist at energy $E$ and position $avec(r)$ and would say
@@ -337,7 +339,7 @@ The distribution is a property of the reservoir the structure is in equilibrium
 with, through $E_F$ and $T$ alone, and knows nothing about the structure.
 Their product $g(E, avec(r)) f(E)$ is therefore the density of _occupied_ states,
 electrons per unit energy per unit volume,
-and it is what the energy integral of @n-from-g accumulates into a charge
+and it is what the energy integral of @c-from-g accumulates into a carrier
 density.
 The same product resolved in energy, rather than integrated, is what a transport
 calculation needs, since current is carried by electrons in a particular range
@@ -494,20 +496,20 @@ $ <sum-to-integral>
 exactly as a Riemann sum becomes an integral when the spacing goes to zero,
 here because $L_j$ is macroscopic.
 
-=== Bulk charge density
+=== Bulk carrier density
 
 #exam("L2.13")
 The probability density of @bulk-solution is
 $
   P_avec(k) (avec(r)) = abs(psi_avec(k) (avec(r)))^2 = 1 / V,
 $
-independent of position, and @charge-density collapses to
+independent of position, and @carrier-density collapses to
 $
   n_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
 $ <n-bulk>
 The position dependence is gone.
 This is forced rather than fortunate: the structure was assumed homogeneous, so
-a charge density varying with position would have contradicted the assumption it
+a carrier density varying with position would have contradicted the assumption it
 was computed under.
 
 === Bulk density of states
@@ -745,10 +747,10 @@ wider well has a lower ground state by $E_1 prop 1 slash L_"QW"^2$, and the
 shift is largest for the highest bound state, whose $kappa$ is smallest and
 which therefore leaks furthest.
 
-=== Quantum well charge density
+=== Quantum well carrier density
 
 #exam("L2.17")
-Two things change in @charge-density.
+Two things change in @carrier-density.
 The label $avec(k)$ becomes the pair $(avec(k)_t, n)$, a transverse wave vector
 and a subband index, so the sum runs over both.
 And $P$ regains a position dependence that it did not have in bulk, since the
@@ -757,7 +759,7 @@ from @qw-ansatz,
 $
   P_(avec(k)_t, n) (avec(r)) = 1 / A abs(phi_n (x))^2 .
 $
-The charge density is therefore
+The carrier density is therefore
 $
   n_"QW" (x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
