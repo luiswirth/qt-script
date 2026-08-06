@@ -859,7 +859,8 @@ confinement is released, as it must be.
 Outside the infinite well there is no analytical solution, and @qw-1d has to be
 solved on a computer.
 For a heterostructure the operator is not the one written there.
-The effective mass varies with position, and the kinetic term is
+The effective mass varies with position, and the kinetic term is the
+#term("BenDaniel–Duke operator")
 $
   - planck^2 / 2 dif / (dif x) 1 / (m^* (x)) dif / (dif x),
 $ <variable-mass-operator>

@@ -16,6 +16,36 @@
   emph(name)
 }
 
+// An equation whose name is what it is cited by carries that name in place of
+// its number, wherever it is set and wherever it is referenced.
+#let eq-tags = (
+  "drift-diffusion": "DD",
+  "bte": "BTE",
+  "schroedinger": "SE",
+  "de-broglie": "dB",
+  "many-body": "MBSE",
+  "single-electron": "SPSE",
+  "bloch": "Bloch",
+  "fermi": "FD",
+  "ema": "EMA",
+  "dos": "DOS",
+  "variable-mass-operator": "BDD",
+)
+
+// The tag is set on the equation rather than drawn onto it, which is what
+// leaves the reference to Typst. It is a function and never a pattern, in which
+// the letters that count would be counted. One rule reaches one label, so the
+// dictionary is folded over the body.
+#let tag-equations(names, body) = {
+  if names.len() == 0 { return body }
+  [
+    #show label(names.first()): set math.equation(
+      numbering: _ => "(" + eq-tags.at(names.first()) + ")",
+    )
+    #tag-equations(names.slice(1), body)
+  ]
+}
+
 #let exam(..ids) = {
   let ids = ids.pos()
   metadata((kind: "exam", ids: ids))
@@ -63,17 +93,40 @@
   show: article-document.with(
     title: title,
     author: author,
-    colors: dark-theme,
+    colors: light-theme,
     fonts: sans-fonts,
   )
   show: notes-style.with(eq-numbering: "(1)")
 
+  show: tag-equations.with(eq-tags.keys())
+
   // An equation earns a number by being referenced, and a label is what a
   // reference needs, so the labelled ones are exactly the numbered ones.
+  // A tagged equation steps the counter like any other, and a tag is what a
+  // number is instead of, so both it and an unreferenced display take their
+  // step back.
   show math.equation.where(block: true): it => {
-    if it.numbering == none or it.has("label") { it } else {
+    if it.numbering == none {
+      it
+    } else if type(it.numbering) == function {
+      it
+      counter(math.equation).update(n => n - 1)
+    } else if it.has("label") {
+      it
+    } else {
       math.equation(block: true, numbering: none, it.body)
       counter(math.equation).update(n => n - 1)
+    }
+  }
+
+  // A tag names a label that lives in another file, which is the one thing that
+  // can silently fall apart.
+  context {
+    for name in eq-tags.keys() {
+      assert(
+        query(label(name)).len() > 0,
+        message: "eq-tags names no equation: " + name,
+      )
     }
   }
 
