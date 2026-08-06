@@ -285,30 +285,28 @@ $ <bte>
 The left-hand side is one derivative written out.
 A carrier follows the #term("characteristic curve")
 $gamma(t) = (avec(r)(t), avec(k)(t))$ in phase space,
-fixed by $dot(avec(r)) = avec(v)(avec(k))$ and
-$planck dot(avec(k)) = q_s avec(cal(E))$,
-and lifting it to $t arrow.bar (t, gamma(t))$ makes its tangent
-$partial_t + dot(gamma)$ a single direction in time and phase space together.
-The three terms are the derivative of $f$ along it,
+moving through real space at the #term("band velocity") $avec(v)(avec(k))$,
+which is not an independent quantity but the group velocity of the band,
+$avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
+and through momentum space under the field by Newton's law in the form
+$planck dot(avec(k)) = q_s avec(cal(E))$.
+Lifting the curve to $t arrow.bar (t, gamma(t))$ makes its tangent
+$partial_t + dot(gamma)$ a single direction in time and phase space together,
+and the three terms are the derivative of $f$ along it,
 the directional derivative in the direction the state actually moves.
 Along such a curve the partial differential equation collapses to an ordinary
 one in $t$ alone,
-$dif f slash dif t = (dif f slash dif t)_"collision"$,
-which is why the right-hand side is written as a single total derivative:
-what following the trajectory cannot account for is exactly what a collision
-does.
-
-The first term is the explicit time dependence,
-the second moves a carrier through real space at the #term("band velocity")
-$avec(v)(avec(k))$,
-which is not an independent quantity but the group velocity of the band,
-$avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$,
-and the third accelerates it through momentum space under the field,
-which is Newton's law once more, in the form
-$planck dot(avec(k)) = q_s avec(cal(E))$.
+$dif f slash dif t = (dif f slash dif t)_"collision"$.
 Here $planck = h slash 2 pi = #qty($1.055 dot 10^(-34)$, $J thin s$)$
 is the reduced Planck constant,
 which has the dimension of an action, energy times time.
+
+What following the trajectory cannot account for is exactly what a collision
+does.
+The notation on the right names a rate rather than a derivative of anything:
+scattering moves a carrier from one $avec(k)$ to another at fixed position and
+in no time at all, so it enters as the net change in occupation per second that
+such jumps produce at $(avec(r), avec(k))$.
 Quantum mechanics enters @bte in two restricted places,
 through the band velocity and through the collision term, and nowhere else.
 Read as mathematics this is a kinetic equation on phase space,
