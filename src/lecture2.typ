@@ -371,9 +371,15 @@ The linear term vanishes there, so in one dimension
 $
   E(k) = E_"CB" + 1/2 (dif^2 E) / (dif k^2) k^2 + ...,
 $
-and comparing with the free-particle dispersion $planck^2 k^2 slash 2 m$
-identifies the coefficient as an inverse mass.
-The #term("effective mass") is defined by
+a parabola in $k$, which is what a free particle already has.
+A free particle of mass $m$ obeys $E = planck^2 k^2 slash 2 m$, whose second
+derivative is $planck^2 slash m$, so its mass is nothing but its curvature
+inverted.
+The curvature is the only place $m$ enters that dispersion, and it enters
+through a denominator, which is why a curve delivers $1 slash m$ rather than $m$.
+Reading a mass off a band is then not an analogy with the free particle but the
+same measurement performed on a different curve, and the #term("effective mass")
+is defined by
 $
   1 / m^* = 1 / planck^2 (dif^2 E(k)) / (dif k^2),
 $ <effective-mass>
@@ -430,7 +436,8 @@ And $m^*$ need not be isotropic.
 
 @effective-mass is a second derivative along one direction, and a band curved
 differently along different directions yields a different mass for each.
-The dispersion is then
+Taken along the axes in which the curvature is extremal, where the mixed
+derivatives vanish, the dispersion is
 $
   E(avec(k)) = planck^2 / 2 (
     k_x^2 / m_x^* + k_y^2 / m_y^* + k_z^2 / m_z^*
