@@ -22,12 +22,6 @@ Not a status log: what is done is in the history, what is convention is in
 
 ## Upstream in dottyp
 
-- **`notes-document` cannot reach the parameters of `notes-style`,**
-  since it forwards its arguments to `article-document` alone,
-  so `eq-numbering` and `heading-numbering` are exactly the two settings a caller
-  cannot make.
-  `setup.typ` composes the two by hand to work around it.
-  The fix is to name both in the wrapper and forward them.
 - **`lesser` and `greater` rename the builtins `lt` and `gt`.**
   Kept because the Keldysh functions are named that way, so the name carries the
   physics rather than the glyph, but this is the borderline case of the
