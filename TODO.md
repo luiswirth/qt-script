@@ -16,6 +16,3 @@ Not a status log: what is done is in the history, what is convention is in
   They are the practical half of the course and the script currently ignores them.
   Against them entering: `../exam-questions.md` draws on none of them,
   so nothing in the exam depends on the script covering them.
-- **Whether `notes-style` stays the right base.**
-  If the script grows dividers per topic block rather than per lecture,
-  `area` and `section-style` come closer than notes do.
