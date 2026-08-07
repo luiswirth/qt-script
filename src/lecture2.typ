@@ -1,7 +1,7 @@
 #import "setup.typ": *
 #show: chapter.with("Bandstructure and the effective mass approximation")
 
-The previous chapter left @schroedinger standing with two unexplained symbols in
+The previous chapter left @SE standing with two unexplained symbols in
 it, an effective mass and a potential.
 This chapter produces both.
 The route runs from the equation that is exactly right and unsolvable to the one
@@ -41,7 +41,7 @@ $
     - sum_(j=1)^M (Z_j q_0^2) / (4 pi epsilon_0 abs(avec(r)_i - avec(R)_j))
     + sum_(j > i) q_0^2 / (4 pi epsilon_0 abs(avec(r)_i - avec(r)_j))
   ).
-$ <many-body>
+$ <MBSE>
 The three terms are the kinetic energy of the electrons,
 each differentiated with respect to its own coordinate through $lapl_i$ and
 carrying the free electron mass $m_0$ rather than any effective one;
@@ -58,7 +58,7 @@ The ions are taken to sit at fixed positions, which already discards their
 kinetic energy and is the #term("Born-Oppenheimer approximation");
 the lattice vibrations dropped here return in a later chapter as phonons.
 
-#key[@many-body cannot be solved exactly beyond a few special cases, and the
+#key[@MBSE cannot be solved exactly beyond a few special cases, and the
 obstruction is the electron-electron term.]
 Without it the Hamiltonian would be a sum of identical one-electron operators
 and $Psi$ would factorize;
@@ -74,7 +74,7 @@ $
   hat(H) psi(avec(r)) = E psi(avec(r)),
   quad
   hat(H) = - planck^2 / (2 m_0) lapl + V_"eff" (avec(r)),
-$ <single-electron>
+$ <SPSE>
 with $psi(avec(r))$ depending on one position only.
 #key[Everything the other electrons do to the one under consideration is cast
 into the single #term("effective potential") $V_"eff" (avec(r))$.]
@@ -162,8 +162,8 @@ $
   psi_avec(k) (avec(r)) = u_avec(k) (avec(r)) e^(i avec(k) dot avec(r)),
   quad
   u_avec(k) (avec(r) + n avec(a)) = u_avec(k) (avec(r)).
-$ <bloch>
-The two forms are equivalent: substituting @bloch into the left of
+$ <Bloch>
+The two forms are equivalent: substituting @Bloch into the left of
 @bloch-phase and using the periodicity of $u_avec(k)$ returns the right.
 The plane wave carries the phase between cells and $u_avec(k)$ carries the
 structure within one.
@@ -228,19 +228,19 @@ The probability that the state $psi_avec(k)$, of energy $E(avec(k))$, is
 occupied is the #term("Fermi distribution")
 $
   f(E) = 1 / (1 + exp((E - E_F) slash (k_B T))),
-$ <fermi>
+$ <FD>
 dimensionless and valued in $cc(0, 1)$,
 where $k_B = #qty($1.381 dot 10^(-23)$, $J slash K$)$ is the Boltzmann constant,
 $T$ the temperature,
 and $E_F$ the #term("Fermi level"), the energy at which the occupation
 is exactly one half.
 The combination $k_B T$ is an energy, #qty(25.9, $"meV"$) at #qty(300, $K$), and
-it is the only scale in @fermi:
+it is the only scale in @FD:
 the distribution depends on $E$ and $E_F$ only through $(E - E_F) slash k_B T$,
 so $k_B T$ measures the width of the region over which $f$ falls from one to
 zero.
 
-#key[At $T = 0$ @fermi degenerates to a step, every state below the Fermi level
+#key[At $T = 0$ @FD degenerates to a step, every state below the Fermi level
 filled and every state above it empty, and raising the temperature rounds that
 step symmetrically about $E_F$ over a range of a few $k_B T$ to either side.]
 The step is what the exponent leaves, $minus infinity$ below $E_F$ and
@@ -326,7 +326,7 @@ $E = E(avec(k))$ wherever the integrand is nonzero.
 The bracketed quantity is the #term("density of states")
 $
   g(E, avec(r)) = sum_avec(k) P_avec(k) (avec(r)) thin delta(E - E(avec(k))),
-$ <dos>
+$ <DOS>
 carrying #unit($J^(-1) m^(-3)$), states per unit energy per unit volume.
 The delta function is what selects, out of all of $avec(k)$-space, the states
 whose energy is $E$, and $P_avec(k)$ distributes each of them over position.
@@ -403,7 +403,7 @@ derivatives are large, and the quadratic truncation is exactly what those
 derivatives measure the error of.
 
 The value of @effective-mass is that it removes $V_"eff"$ from the problem.
-#key[The periodic potential of the crystal was what made @single-electron hard,
+#key[The periodic potential of the crystal was what made @SPSE hard,
 and its entire effect on a carrier near a band edge is to change the coefficient
 of $k^2$ in the dispersion.]
 Replacing $m_0$ by $m^*$ therefore reproduces that dispersion with no potential
@@ -411,13 +411,13 @@ at all,
 $
   (- planck^2 / (2 m^*) lapl + V_"ext" (avec(r))) psi_avec(k) (avec(r))
     = E(avec(k)) psi_avec(k) (avec(r)),
-$ <ema>
+$ <EMA>
 which is the #term("effective mass approximation") and the form used for the
 rest of the course.
 An electron in a crystal is treated as a free electron carrying a mass the
 crystal has given it.
 
-The potential that reappears in @ema is not the one that was removed.
+The potential that reappears in @EMA is not the one that was removed.
 $V_"eff"$ was the periodic potential of the lattice, and it is gone, absorbed
 into $m^*$.
 $V_"ext" (avec(r))$ is everything the lattice does not supply:
@@ -427,7 +427,7 @@ different gap meet.
 The effective mass may itself depend on position, since it is a property of the
 local material, and in a heterostructure it does.
 
-Two limitations come with @ema.
+Two limitations come with @EMA.
 It holds near a band extremum and nowhere else, so a process reaching far into a
 band is outside it.
 And $m^*$ need not be isotropic.
@@ -467,7 +467,7 @@ the value the previous chapter used for the de Broglie wavelength.
 == Bulk
 
 #exam("L2.12")
-The first geometry @ema is solved in is a #term("bulk") crystal, a chunk of one
+The first geometry @EMA is solved in is a #term("bulk") crystal, a chunk of one
 material of volume $V = L_x L_y L_z$ with nothing done to it.
 Homogeneity is the whole of the assumption: no material changes and no
 electrostatics, so
@@ -480,7 +480,7 @@ The #term("periodic boundary condition") is a device for counting states in a
 finite volume and not a physical statement;
 nothing below depends on it once $V$ has cancelled.
 
-What remains of @ema is the free-particle equation
+What remains of @EMA is the free-particle equation
 $
   - planck^2 / (2 m^*) lapl psi_avec(k) (avec(r))
     = E(avec(k)) psi_avec(k) (avec(r)),
@@ -494,7 +494,7 @@ $
   E(avec(k)) = (planck^2 abs(avec(k))^2) / (2 m^*),
 $ <bulk-solution>
 with @aniso-dispersion in place of the energy when the mass is anisotropic.
-#key[The dispersion is the parabola that @ema was built to reproduce, which is
+#key[The dispersion is the parabola that @EMA was built to reproduce, which is
 the consistency check on the whole construction: the equation whose solution
 defines the effective mass returns the band it was fitted to.]
 
@@ -532,7 +532,7 @@ the assumption it was computed under.]
 
 === Bulk density of states
 
-The same substitution in @dos gives
+The same substitution in @DOS gives
 $
   g_"bulk" (E) = 1 / V sum_avec(k) delta(E - E(avec(k))),
 $
@@ -593,7 +593,7 @@ Everything below follows from that one asymmetry.
 
 === Band diagram
 
-The potential $V_"QW" (x)$ that enters @ema comes from the bands of the two
+The potential $V_"QW" (x)$ that enters @EMA comes from the bands of the two
 materials.
 Slide 30 superimposes the bandstructures of gallium arsenide and
 $"Al"_(0.3)"Ga"_(0.7)"As"$ near $Gamma$.
@@ -619,7 +619,7 @@ bandstructure.
 === Schrödinger equation in a quantum well
 
 #exam("L2.14")
-With @v-qw the equation @ema reads
+With @v-qw the equation @EMA reads
 $
   (- planck^2 / (2 m^*) lapl + V_"QW" (x)) psi_(avec(k)_t) (avec(r))
     = E(avec(k)_t) psi_(avec(k)_t) (avec(r)).
@@ -794,7 +794,7 @@ essentially $abs(phi_1)^2$, peaked at the center of the well.]
 
 === Quantum well density of states
 
-The same substitution in @dos gives
+The same substitution in @DOS gives
 $
   g_"QW" (E, x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
@@ -886,7 +886,7 @@ The effective mass varies with position, and the kinetic term is the
 #term("BenDaniel–Duke operator")
 $
   - planck^2 / 2 dif / (dif x) 1 / (m^* (x)) dif / (dif x),
-$ <variable-mass-operator>
+$ <BDD>
 with the mass between the derivatives rather than in front of them.
 The ordering is forced.
 #key[Integrating @qw-1d across an interface where $m^*$ jumps, the potential and
@@ -895,7 +895,7 @@ $(1 slash m^*) dif phi slash dif x$ must be continuous there.]
 Writing $(1 slash m^*) dif^2 phi slash dif x^2$ instead would make $dif phi
 slash dif x$ continuous, which is the wrong condition and does not conserve
 probability current across the interface.
-@variable-mass-operator is also self-adjoint, which
+@BDD is also self-adjoint, which
 $(1 slash m^*) dif^2 slash dif x^2$ is not, and only a self-adjoint operator has
 the real eigenvalues an energy needs.
 
@@ -917,7 +917,7 @@ lowest states of the resulting spectrum are trustworthy.]
 === Discretized Hamiltonian
 
 #exam("L2.19")
-@variable-mass-operator is a derivative of a flux, and it is discretized as one.
+@BDD is a derivative of a flux, and it is discretized as one.
 Evaluate the inner derivative on the midpoints between grid points, where the
 mass is $m^*_(i plus.minus 1 slash 2) = (m^*_i + m^*_(i plus.minus 1)) slash 2$,
 and the outer derivative on the grid points themselves:

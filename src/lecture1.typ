@@ -150,7 +150,7 @@ At the classical level the unknowns are the carrier densities $c_s$
 and the current density is
 $
   avec(J)_s = q_s mu_s c_s avec(cal(E)) - q_s D_s nabla c_s.
-$ <drift-diffusion>
+$ <DD>
 The quantities appearing here are the #term("current density")
 $avec(J)$, charge crossing unit area per unit time;
 the charge of the species $q_s$,
@@ -165,7 +165,7 @@ The charge is signed, and every quantity derived from it carries that sign.#note
   The lectures and the experimental literature leave it unsigned, write $q$ for
   $q_0$ and carry the magnitudes $abs(mu_s)$, the sign sitting in the species
   label, write $n$ and $p$ for $c_n$ and $c_p$,
-  and split @drift-diffusion into one equation per species.
+  and split @DD into one equation per species.
 ]
 
 The first term is #term("drift"), driven by the field, the second
@@ -179,7 +179,7 @@ charge, so their currents add,
 and in one density gradient they diffuse the same way, so their currents
 subtract.
 
-The content of @drift-diffusion sits in the mobility,
+The content of @DD sits in the mobility,
 so the question of when the model may be used is the question of when a mobility
 exists at all.
 Consider one carrier injected into a slab across which a constant field is
@@ -240,7 +240,7 @@ a speed times a time.#note[
 Both $tau_s$ and $angled(v)$ are averages,
 and averaging over scattering events presupposes there are enough events to
 average over.
-A mobility can be defined, and @drift-diffusion applied, only when
+A mobility can be defined, and @DD applied, only when
 $
   L >> lambda_"mfp",
 $ <dd-validity>
@@ -254,7 +254,7 @@ Drift-diffusion is derivable from the Boltzmann transport equation below,
 and inherits from that derivation a second restriction,
 to states perturbed only slightly away from equilibrium.
 
-#key[Two things are absent from @drift-diffusion by construction,
+#key[Two things are absent from @DD by construction,
 and no adjustment of $mu_s$ or $D_s$ introduces them.]
 There is no #term("tunneling"), so a barrier reflects every carrier whose energy
 lies below it, however thin it is.
@@ -281,7 +281,7 @@ $
   (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
     + q_s / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
     = ((dif f) / (dif t))_"collision".
-$ <bte>
+$ <BTE>
 The left-hand side is one derivative written out.
 A carrier follows the #term("characteristic curve")
 $gamma(t) = (avec(r)(t), avec(k)(t))$ in phase space,
@@ -307,16 +307,16 @@ The notation on the right names a rate rather than a derivative of anything:
 scattering moves a carrier from one $avec(k)$ to another at fixed position and
 in no time at all, so it enters as the net change in occupation per second that
 such jumps produce at $(avec(r), avec(k))$.
-Quantum mechanics enters @bte in two restricted places,
+Quantum mechanics enters @BTE in two restricted places,
 through the band velocity and through the collision term, and nowhere else.
 Read as mathematics this is a kinetic equation on phase space,
-and @drift-diffusion is recoverable from it in the diffusive limit,
+and @DD is recoverable from it in the diffusive limit,
 which is the precise sense in which drift-diffusion sits below the Boltzmann
 equation rather than beside it.
 
 What the extra variables buy is the collision operator on the right.
 #key[Where drift-diffusion compresses all scattering into the single number
-$tau_s$, @bte keeps each mechanism explicitly.]
+$tau_s$, @BTE keeps each mechanism explicitly.]
 They enter as a table of processes selected according to their probabilities as a
 carrier propagates.
 Scattering is thus resolved event by event rather than on average,
@@ -329,11 +329,11 @@ average over but not yet short enough to be waves.
 The upper end of that range is where a trajectory stops being followable at all:
 a potential varying sharply over 10 to 20 nm has to be met with waves,
 whatever the mean free path.
-In practice @bte is not discretized directly but solved by Monte Carlo methods,
+In practice @BTE is not discretized directly but solved by Monte Carlo methods,
 its phase space being too large for a direct attack.
 The Wigner transport equation is a variant of the same description.
 
-What @bte does not repair is the more serious limitation.
+What @BTE does not repair is the more serious limitation.
 #key[The semiclassical description still treats carriers as point particles
 following trajectories,
 so like drift-diffusion it contains neither tunneling nor quantization.]
@@ -346,7 +346,7 @@ At the quantum level the unknown is the wave function,
 and the equation solved is the stationary #term("Schrödinger equation")
 $
   (- planck^2 / (2 m^*) lapl + V(avec(r))) psi(avec(r)) = E psi(avec(r)).
-$ <schroedinger>
+$ <SE>
 The potential energy $V(avec(r))$, quoted in #unit($"eV"$) throughout,
 is what the device geometry and the applied voltages supply,
 and $E$ is the energy eigenvalue.
@@ -363,20 +363,20 @@ a self-adjoint spectral problem for the #term("Hamiltonian").
 #key[As an eigenvalue problem it describes a closed system and is not yet a
 transport equation.]
 A device is open, joined to contacts through which carriers enter and leave,
-and @schroedinger has to be modified before it can express that.
+and @SE has to be modified before it can express that.
 Doing so properly occupies the next several lectures,
 and it is where the two formalisms of this course,
 the wave function and the non-equilibrium Green's function,
 part company.
 
 #exam("L1.2")
-The criterion for needing @schroedinger at all is again a length.
+The criterion for needing @SE at all is again a length.
 An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$,
 from the non-relativistic $E = p^2 slash 2 m^*$,
 and hence the #term("de Broglie wavelength") $lambda$,
 $
   lambda = h / sqrt(2 m^* E) = h / p,
-$ <de-broglie>
+$ <dB>
 with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced,
 since the relation is $lambda = h slash p$ and not $planck slash p$.
 #key[Wave behavior matters once a device dimension becomes comparable to $lambda$,
@@ -384,7 +384,7 @@ and it is enough that this holds along one of the three dimensions.]
 Confinement in a single direction already quantizes the spectrum.
 
 Taking carriers #qty(0.1, $"eV"$) above the conduction band edge,
-where their concentration is largest, @de-broglie
+where their concentration is largest, @dB
 gives#note[Slide 35 rounds $lambda("Si")$ down to #qty(6.8, $"nm"$).]
 $
   lambda("Si") &= #qty(6.9, $"nm"$), quad m^* = 0.32 m_0, \
@@ -402,7 +402,7 @@ Quantum transport is not a refinement here, it is the only applicable descriptio
 
 === Choice of model
 
-A device carries electrons and holes, while @de-broglie contains one effective
+A device carries electrons and holes, while @dB contains one effective
 mass.
 Usually only one of the two conducts:
 an n-type transistor is carried by electrons, a p-type by holes.
@@ -514,7 +514,7 @@ and the #term("resonant tunneling diode"), whose behavior rests on a single reso
 and which therefore makes a clean test of any simulator.
 
 The route there starts one level below transport.
-@schroedinger presumes an effective mass and a band structure,
+@SE presumes an effective mass and a band structure,
 and the next lecture computes both,
 for bulk material and for a quantum well,
 which is the calculation whose output is the two panels of slide 37.
