@@ -15,7 +15,8 @@ this repository. `../CLAUDE.md` carries the course and exam facts, and
 - `src/lectureN.typ`:
   one file per lecture.
 - `lib/dottyp`:
-  the notation and template library, vendored as a submodule.
+  the notation and template library, vendored as a submodule and never edited
+  here. It carries the Typst conventions this script is written to.
 - `build.sh`, `watch.sh`:
   compile to `out/script.pdf`. Both export `TYPST_PACKAGE_PATH` themselves and
   cd to this directory, so a build expects nothing of the environment and runs
