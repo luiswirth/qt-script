@@ -19,10 +19,3 @@ Not a status log: what is done is in the history, what is convention is in
 - **Whether `notes-style` stays the right base.**
   If the script grows dividers per topic block rather than per lecture,
   `area` and `section-style` come closer than notes do.
-
-## Upstream in dottyp
-
-- **`lesser` and `greater` rename the builtins `lt` and `gt`.**
-  Kept because the Keldysh functions are named that way, so the name carries the
-  physics rather than the glyph, but this is the borderline case of the
-  convention against redefining what Typst provides.
