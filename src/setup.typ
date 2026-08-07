@@ -3,7 +3,6 @@
 #let title = "Quantum Transport at the Nanoscale"
 #let author = "Luis Wirth"
 
-// The equations the field names, cited by name rather than by number.
 #let named-equations = (
   "DD",
   "BTE",
@@ -18,9 +17,8 @@
   "BDD",
 )
 
-// A passage answering a listed exam question, tagged in the margin and left as
-// metadata, so what a question is answered by can be collected without parsing
-// the source.
+// The metadata leaves what a question is answered by collectable without
+// parsing the source.
 #let exam(..ids) = {
   let ids = ids.pos()
   metadata((kind: "exam", ids: ids))
@@ -35,8 +33,6 @@
   )
 }
 
-// A remark on the sources rather than on the subject, which is why it leaves
-// the prose.
 #let note(body) = {
   metadata((kind: "note"))
   footnote(body)
