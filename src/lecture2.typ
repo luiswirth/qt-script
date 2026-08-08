@@ -927,7 +927,7 @@ Evaluate the inner derivative on the midpoints between grid points, where the
 mass is $m^*_(i plus.minus 1 slash 2) = (m^*_i + m^*_(i plus.minus 1)) slash 2$,
 and the outer derivative on the grid points themselves:
 $
-  [dif / (dif x) 1 / m^* dif phi / (dif x)]_i approx 1 / (Delta x) (
+  [dif / (dif x) 1 / m^* (dif phi) / (dif x)]_i approx 1 / (Delta x) (
     (phi_(i+1) - phi_i) / (m^*_(i + 1 slash 2) Delta x)
     - (phi_i - phi_(i-1)) / (m^*_(i - 1 slash 2) Delta x)
   ).
