@@ -416,16 +416,26 @@ where the two descriptions may be coupled through the electrostatics,
 that is, through Poisson's equation.
 
 #table(
-  columns: 4,
-  align: (left, left, left, left),
-  table.header([*model*], [*unknown*], [*applies when*], [*resolves*]),
-  [drift-diffusion], [$c_n$, $c_p$], [$L >> lambda_"mfp"$], [scattering on average],
+  columns: 5,
+  align: (left, left, left, left, left),
+  table.header([*model*], [*unknown*], [*applies when*], [*resolves*], [*cost*]),
+  [drift-diffusion],
+  [$c_n$, $c_p$],
+  [$L >> lambda_"mfp"$],
+  [scattering on average],
+  [low],
+
   [Boltzmann],
   [$f(avec(r), avec(k), t)$],
   [$L approx lambda_"mfp"$],
   [each scattering event],
+  [high],
 
-  [quantum transport], [$psi(avec(r))$], [$L approx lambda$], [quantization, tunneling],
+  [quantum transport],
+  [$psi(avec(r))$],
+  [$L approx lambda$],
+  [quantization, tunneling],
+  [highest],
 )
 
 == Quantum effects in scaled devices
