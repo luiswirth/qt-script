@@ -489,8 +489,8 @@ $
     = E(avec(k)) psi_avec(k) (avec(r)),
 $ <bulk-schroedinger>
 solved by plane waves.
-Normalizing over $V$ through @normalization, and using that $abs(e^(i avec(k)
-dot avec(r))) = 1$ so the integrand is the constant $1 slash V$,
+Normalizing over $V$ through @normalization, the modulus of the plane wave being
+one so that the integrand is constant,
 $
   psi_avec(k) (avec(r)) = 1 / sqrt(V) e^(i avec(k) dot avec(r)),
   quad
