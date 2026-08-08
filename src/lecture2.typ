@@ -467,7 +467,11 @@ $
   m_"DOS" = (m_L m_T^2)^(1 slash 3),
 $ <m-dos>
 which for silicon is $(0.91 dot 0.19^2)^(1 slash 3) m_0 = 0.32 m_0$,
-the value the previous chapter used for the de Broglie wavelength.
+the value the previous chapter used for the de Broglie wavelength.#note[
+  This is the shape of one valley, and silicon has six.
+  Its total bulk density of states therefore carries a further factor $6$,
+  equivalently $6^(2 slash 3)$ in the mass, which the lectures leave out.
+]
 
 == Bulk
 
