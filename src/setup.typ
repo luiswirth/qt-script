@@ -15,6 +15,7 @@
   "EMA",
   "DOS",
   "BDD",
+  "OBC",
 )
 
 // The metadata leaves what a question is answered by collectable without

@@ -14,3 +14,4 @@
 
 #include "lecture1.typ"
 #include "lecture2.typ"
+#include "lecture3.typ"
