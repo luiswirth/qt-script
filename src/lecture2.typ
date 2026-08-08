@@ -284,7 +284,7 @@ other and make it $n$-type or $p$-type, and an oxide generally does not.
 Even this fails at the margin, gallium nitride having a gap near
 #qty(3, $"eV"$) and being dopable, while oxides of the same gap are not.
 
-=== Charge density
+=== Carrier density
 
 #exam("L2.8")
 The two ingredients now combine.
@@ -523,8 +523,8 @@ $
 $
 independent of position, and @carrier-density collapses to
 $
-  n_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
-$ <n-bulk>
+  c_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
+$ <c-bulk>
 The position dependence is gone.
 #key[This is forced rather than fortunate: the structure was assumed
 homogeneous, so a carrier density varying with position would have contradicted
@@ -784,10 +784,10 @@ $
 $
 The carrier density is therefore
 $
-  n_"QW" (x)
+  c_"QW" (x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
       f(E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*)),
-$ <n-qw>
+$ <c-qw>
 a function of $x$ alone, constant in the transverse plane.
 #key[Its shape along $x$ is the sum of the $abs(phi_n)^2$ weighted by how
 populated each subband is, so at low temperature and low filling it is
