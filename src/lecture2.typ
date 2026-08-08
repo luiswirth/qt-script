@@ -124,44 +124,65 @@ $X$ valleys in their measured positions.
 
 == Bloch's theorem
 
-#exam("L2.4")
-The effective potential inherits a property of the crystal.
+=== Crystal lattice
+
 A crystal is built by translating a primitive unit cell along its lattice
-vectors, so that the position of any cell is $n_1 avec(a)_1 + n_2 avec(a)_2 +
-n_3 avec(a)_3$ with integer coefficients, written $n avec(a)$ for short.
-All cells being identical, there is nothing to distinguish the potential in one
-from the potential in another,
+vectors $avec(a)_1, avec(a)_2, avec(a)_3$.
+Collected into the columns of a matrix $amat(A) = [avec(a)_1 avec(a)_2
+avec(a)_3]$, they generate the #term("Bravais lattice") of translations,
 $
-  V_"eff" (avec(r) + n avec(a)) = V_"eff" (avec(r)).
+  cal(R) = { sum_(i=1)^3 n_i avec(a)_i mid(|) avec(n) in ZZ^3 } = amat(A) ZZ^3 .
+$ <bravais-lattice>
+The effective potential inherits this periodicity, all cells being identical,
 $
+  V_"eff" (avec(r) + avec(R)) = V_"eff" (avec(r)),
+  quad avec(R) in cal(R) .
+$
+#note[The lectures write the translation as $n_1 avec(a)_1 + n_2 avec(a)_2 + n_3
+avec(a)_3$ throughout, carrying the coefficients rather than naming the lattice.]
+
+A plane wave $e^(i avec(k) dot avec(r))$ shares that periodicity for some wave
+vectors and not others.
+#key[Those that do form the #term("reciprocal lattice"), the dual basis of the
+direct one scaled so that $avec(k) dot avec(r)$ is a phase,]
+$
+  cal(R)^* = { avec(G) in RR^3 mid(|) e^(i avec(G) dot avec(R)) = 1
+    " for all " avec(R) in cal(R) } = 2 pi amat(A)^(-transp) ZZ^3 .
+$ <reciprocal-lattice>
+The second equality is $avec(a)_i dot avec(b)_j = 2 pi delta_(i j)$ written for
+all $i$ and $j$ at once.
+
+=== Bloch's theorem
+
+#exam("L2.4")
 The consequence for the wave function is not immediate, and getting it right is
 the whole of the argument.
 What must be periodic is not $psi$ but what is observable of it.
 An electron is no more likely to be found in one cell than in another, so the
 probability density repeats,
 $
-  abs(psi(avec(r) + n avec(a)))^2 = abs(psi(avec(r)))^2 .
+  abs(psi(avec(r) + avec(R)))^2 = abs(psi(avec(r)))^2 .
 $
 A modulus fixes a function only up to a phase, so this says
 $
-  psi(avec(r) + n avec(a)) = e^(i theta) psi(avec(r))
+  psi(avec(r) + avec(R)) = e^(i theta) psi(avec(r))
 $
 and not that $psi$ itself repeats.
 The phase $theta$ may depend on the translation, and the translations compose:
-shifting by $n avec(a)$ and then by $n' avec(a)$ must give the same phase as
-shifting by $(n + n') avec(a)$, so $theta$ is additive in the translation and
+shifting by $avec(R)$ and then by $avec(R)'$ must give the same phase as
+shifting by $avec(R) + avec(R)'$, so $theta$ is additive in the translation and
 therefore linear in it.
-A linear function of $n avec(a)$ is a scalar product with some vector, which is
+A linear function of $avec(R)$ is a scalar product with some vector, which is
 named $avec(k)$ and called the #term("wave vector"),
 $
-  psi_avec(k) (avec(r) + n avec(a)) = e^(i avec(k) dot n avec(a)) psi_avec(k) (avec(r)).
+  psi_avec(k) (avec(r) + avec(R)) = e^(i avec(k) dot avec(R)) psi_avec(k) (avec(r)).
 $ <bloch-phase>
 #key[#term("Bloch's theorem") is the statement that a function with this
 property is a plane wave times something with the periodicity of the lattice,]
 $
   psi_avec(k) (avec(r)) = u_avec(k) (avec(r)) e^(i avec(k) dot avec(r)),
   quad
-  u_avec(k) (avec(r) + n avec(a)) = u_avec(k) (avec(r)).
+  u_avec(k) (avec(r) + avec(R)) = u_avec(k) (avec(r)).
 $ <Bloch>
 The two forms are equivalent: substituting @Bloch into the left of
 @bloch-phase and using the periodicity of $u_avec(k)$ returns the right.
@@ -180,19 +201,35 @@ The resulting $E(avec(k))$ is the #term("dispersion") of one band and the
 A stationary state carries the time dependence $e^(-i E t \/ planck)$, so
 $E = planck omega$ and this is the relation $omega(avec(k))$ of wave theory,
 written in energy units.
-Only the phase $avec(k) dot n avec(a)$ has meaning and it is defined modulo
-$2 pi$, so wave vectors differing by a reciprocal lattice vector label the same
-state.
-The set of inequivalent $avec(k)$ is the #term("Brillouin zone"), a bounded
-region fixed by the geometry of the unit cell,
-and solving the crystal means solving @schroedinger-k for every $avec(k)$ in it.
-In practice the dispersion is reported along a path joining the high-symmetry
-points, which is what the horizontal axis of slide 9 is.
-
 Two objects are now in play that are easy to conflate.
 The bandstructure is energy against wave vector, and it belongs to a material.
 The #term("band diagram"), which appears below, is energy against position, and
 it belongs to a structure assembled from several materials.
+
+=== Brillouin zone
+
+Only the phase $avec(k) dot avec(R)$ has meaning and it is defined modulo
+$2 pi$, so $avec(k)$ and $avec(k) + avec(G)$ label the same state for every
+$avec(G) in cal(R)^*$.
+#key[The wave vector is therefore not a point of $RR^3$ but of the quotient
+torus]
+$
+  TT^* = RR^3 \/ cal(R)^* .
+$
+A bounded region holding one $avec(k)$ per state is a fundamental domain of
+$TT^*$, and the #term("Brillouin zone") is the one built from the points closer
+to the origin than to any other reciprocal lattice point,
+$
+  "BZ" = { avec(k) in RR^3 mid(|) abs(avec(k)) <= abs(avec(k) - avec(G))
+    " for all " avec(G) in cal(R)^* } .
+$ <brillouin-zone>
+Its faces are the perpendicular bisectors of the $avec(G)$, which is the Bragg
+condition, and among all fundamental domains this is the one carrying the point
+group of the crystal, which is what makes the high-symmetry labels $Gamma$, $X$,
+$L$ mean anything.
+Solving the crystal means solving @schroedinger-k for every $avec(k)$ in the
+zone, and the dispersion is reported along a path joining those points, which is
+what the horizontal axis of slide 9 is.
 
 == Probability and occupation
 
