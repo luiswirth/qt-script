@@ -43,7 +43,8 @@ Moore observed in 1965 that the number of components per integrated circuit had
 doubled every year since 1958 and predicted the trend would hold for another
 decade;
 slide 19 reproduces his original sketch.
-Each generation reduces both the length and the width of a transistor by 30%,
+Each generation, arriving every 18 to 24 months,
+reduces both the length and the width of a transistor by 30%,
 so the area becomes
 $
   0.7 times 0.7 = 0.49,
