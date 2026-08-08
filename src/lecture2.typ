@@ -194,7 +194,7 @@ The bandstructure is energy against wave vector, and it belongs to a material.
 The #term("band diagram"), which appears below, is energy against position, and
 it belongs to a structure assembled from several materials.
 
-== Occupation
+== Probability and occupation
 
 === Probability density
 
@@ -283,6 +283,8 @@ a semiconductor accepts foreign atoms that shift $E_F$ toward one band or the
 other and make it $n$-type or $p$-type, and an oxide generally does not.
 Even this fails at the margin, gallium nitride having a gap near
 #qty(3, $"eV"$) and being dopable, while oxides of the same gap are not.
+
+== Carrier density and density of states
 
 === Carrier density
 
