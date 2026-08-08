@@ -187,19 +187,19 @@ applied.
 The argument is one-dimensional, along the field,
 so $cal(E)$ denotes the field component throughout it.
 Between collisions the carrier obeys Newton's law,
-$
-  m_s^* (dif v) / (dif t) = q_s cal(E),
-$
-in which $m_s^*$ is the #term("effective mass"),
-the mass a carrier appears to carry inside the crystal rather than in vacuum,
+carrying the mass it has inside the crystal rather than in vacuum.
+That is the #term("effective mass") $m_s^*$,
 fixed by the curvature of the band it occupies and computed in the next lecture,
-and $v$ is the velocity.
-The effective mass is customarily given as a multiple of the free electron mass
+and customarily given as a multiple of the free electron mass
 $m_0 = #qty($9.109 dot 10^(-31)$, $"kg"$)$,
 so that $m_n^* = 0.32 m_0$ in silicon is a number and not a measurement in
 kilograms.
-Its velocity therefore grows linearly in time.
-It then scatters, off another electron, an impurity, or a surface,
+Newton's law then reads
+$
+  m_s^* (dif v) / (dif t) = q_s cal(E),
+$
+and the velocity $v$ grows linearly in time.
+The carrier then scatters, off another electron, an impurity, or a surface,
 losing the momentum it had accumulated,
 and accelerates again over a different, randomly distributed interval until it
 leaves the device.
@@ -371,14 +371,13 @@ part company.
 
 #exam("L1.2")
 The criterion for needing @SE at all is again a length.
-An electron of energy $E$ carries momentum $p = sqrt(2 m^* E)$,
-from the non-relativistic $E = p^2 slash 2 m^*$,
-and hence the #term("de Broglie wavelength") $lambda$,
+A carrier of momentum $p$ has the #term("de Broglie wavelength") $lambda$,
 $
-  lambda = h / sqrt(2 m^* E) = h / p,
+  lambda = h / p = h / sqrt(2 m^* E),
 $ <dB>
-with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced,
-since the relation is $lambda = h slash p$ and not $planck slash p$.
+the second form reading the momentum off the energy through the
+non-relativistic $E = p^2 slash 2 m^*$,
+with $h = #qty($6.626 dot 10^(-34)$, $J thin s$)$ Planck's constant, unreduced.
 #key[Wave behavior matters once a device dimension becomes comparable to $lambda$,
 and it is enough that this holds along one of the three dimensions.]
 Confinement in a single direction already quantizes the spectrum.
