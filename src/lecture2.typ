@@ -349,7 +349,10 @@ so at any temperature and any bias.
 The distribution enters through $E_F$ and $T$ alone and knows nothing about the
 structure.
 Their product $g(E, avec(r)) f(E)$ is therefore the #term("density of occupied states"),
-electrons per unit energy per unit volume,
+electrons per unit energy per unit volume,#note[
+  Slide 17 pictures the crystal as a hotel, $g$ counting the rooms on floor $E$
+  and $f$ saying whether they are taken.
+]
 and it is what the energy integral of @c-from-g accumulates into a carrier
 density.
 The same product resolved in energy, rather than integrated, is what a transport
