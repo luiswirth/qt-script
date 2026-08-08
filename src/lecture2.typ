@@ -532,6 +532,7 @@ the assumption it was computed under.]
 
 === Bulk density of states
 
+#exam("L2.13")
 The same substitution in @DOS gives
 $
   g_"bulk" (E) = 1 / V sum_avec(k) delta(E - E(avec(k))),
@@ -669,7 +670,7 @@ problem plus a formula.
 
 === Infinite barriers
 
-#exam("L2.15")
+#exam("L2.15", "L2.16")
 @qw-1d has no closed-form solution for the well of @v-qw.
 It has one in the limit $Delta E_"CB" arrow.r infinity$, and that limit is worth
 solving because it exhibits the quantization with nothing else in the way.
@@ -794,6 +795,7 @@ essentially $abs(phi_1)^2$, peaked at the center of the well.]
 
 === Quantum well density of states
 
+#exam("L2.17")
 The same substitution in @DOS gives
 $
   g_"QW" (E, x)
