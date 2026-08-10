@@ -353,6 +353,18 @@ The weighting is the subject of the next chapter.
 The contacts are described and the device is discretized, and what remains is to
 join them.
 The join is where the infinite hierarchy is cut.
+The contact holds infinitely many unknown values, but not infinitely much
+information: being uniform it carries plane waves, so every value in it follows
+from the two amplitudes of @contact-ansatz once the wave vector is known.
+Of the three, $a_L$ is chosen, and two rows of @discrete-se suffice to dispose
+of the other two.
+A third row then receives the result.#note[
+  Luisier named the answer he most often gets and does not want, that the
+  contacts are joined by imposing continuity of the wave function and of the
+  current. Those hold, but they are contained in the discretization, which is
+  one difference equation on one grid with no interface in it, and they connect
+  nothing to a contact.
+]
 
 #key[The discretized equation @discrete-se holds everywhere, inside the device
 and inside the contacts alike, and the contacts are treated as discretized as
@@ -391,9 +403,10 @@ $
 $ <sampled-ansatz>
 Three unknown wave function values have been traded for three unknowns
 $a_L$, $b_L$ and $k_L$, which is no gain until each is disposed of.
-#key[The device enters only through $phi_1$, which appears in the equations at
-$i = 1$ and $i = 0$ and in no equation below them, so the two rows above the
-domain must be exactly where the contact closes on itself.]
+#key[The row at $i = -1$ is the first whose three points all lie in the uniform
+region, so it is the generic contact row and every row below it is the same row
+shifted, while the device enters only through $phi_1$, which appears at $i = 1$
+and $i = 0$ and nowhere below.]
 
 === Contact dispersion
 
@@ -462,8 +475,17 @@ reflecting from.
 
 === Self-energy and injection
 
-Putting @reflection into $phi_0 = a_L + b_L$ and that into the $i = 1$ row of
-@three-rows closes the system,
+Putting @reflection into $phi_0 = a_L + b_L$ gives the boundary relation itself,
+$
+  phi_0 = e^(i k_L Delta x) phi_1 + a_L (1 - e^(2 i k_L Delta x)),
+$ <boundary-relation>
+and its two terms carry the two roles.
+With $a_L = 0$ the contact holds only the outgoing wave, and the relation then
+says that stepping one point in the direction that wave travels multiplies it by
+$e^(i k_L Delta x)$, which is the statement that nothing comes back.
+The remaining term is there because a wave is being sent in.
+Substituting @boundary-relation into the $i = 1$ row of @three-rows closes the
+system,
 $
   (D_1 + T_L e^(i k_L Delta x)) phi_1 + T_(1 2) phi_2
     = - a_L T_L (1 - e^(2 i k_L Delta x)).
@@ -555,10 +577,7 @@ called the #term("quantum transmitting boundary method").#note[
   solution there analytic, and that the coupling proceeds by writing the rows at
   $i = 1$, $0$ and $-1$ and replacing $phi_0$, $phi_(-1)$ and $phi_(-2)$ by the
   ansatz, from which $k_L$, then $b_L$, then @OBC follow, ending at the final
-  form. He does not expect the algebra step by step. He also named the answer he
-  most often gets and does not want, that the contacts are joined by imposing
-  continuity of the wave function and of the current: those hold, but they are
-  already contained in the discretization and connect nothing to a contact.
+  form. He does not expect the algebra step by step.
 ]
 It is one of the two formalisms of the course.
 The other, the non-equilibrium Green's function method, solves the same physical
