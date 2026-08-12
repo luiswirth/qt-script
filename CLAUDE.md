@@ -64,7 +64,9 @@ holds the raw WebVTT in its history.
   reaches the chapters and their sections.
 - Headings are noun phrases and take no article. The script is read to find a
   subject again, not from front to back.
-- The equations the field names are `named-equations` in `setup.typ`.
+- Every labelled equation is named in `setup.typ`, by its own label through
+  dottyp's `named-equations` or by a symbol through the local `symbol-equations`,
+  which the library cannot carry because a label cannot spell a symbol.
 - Figures stay in the slides and are pointed at by slide number.
   They carry other people's copyright, and embedding them would make the script
   unpublishable.
