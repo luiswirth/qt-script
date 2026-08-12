@@ -21,6 +21,8 @@
   "row",
   "OBC",
   "LB",
+  "Poisson",
+  "GF",
 )
 
 #let symbol-equations = (
@@ -74,6 +76,32 @@
   "i-rl": $I_(R L)$,
   "T-symmetry": $T(E)$,
   "prob-current-1d": $j(x)$,
+  "charge-density": $rho$,
+  "discrete-poisson": $M Phi$,
+  "poisson-residual": $F(Phi)$,
+  "jacobian": $J$,
+  "newton": [NR],
+  "potential-energy": $V(x)$,
+  "source-problem": $L f$,
+  "GF-solution": $f(x)$,
+  "G-1D": $G_"1D"$,
+  "G-ansatz": $A^plus.minus$,
+  "G-jump": [jump],
+  "retarded": $G^R (x, x')$,
+  "advanced": $G^A (x, x')$,
+  "ieta": $E + i eta$,
+  "retarded-matrix": $G^R$,
+  "wf-from-GF": $phi = G^R S$,
+  "wf-square": $phi phi^dagger$,
+  "lesser-SE": $Sigma^(<)$,
+  "lesser-GF": $G^(<)$,
+  "n-lesser": $n(G^(<))$,
+  "lesser-contact": $Sigma^(<)_(c c)$,
+  "broadening": $Gamma$,
+  "broadening-contact": $Gamma_(c c)$,
+  "lesser-broadening": $Sigma^(<) (Gamma)$,
+  "lesser-split": $Sigma^(<) = i sum_c Gamma^c F$,
+  "g-GF": $g^c (Gamma)$,
 )
 
 // The metadata leaves what a question is answered by collectable without
