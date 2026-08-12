@@ -81,8 +81,9 @@ holds the raw WebVTT in its history.
   case where the dimension is itself the point, as it is for the wave function.
   Where the course overloads a letter, the script gives each meaning its own
   symbol and says nothing further about it, as the electric field is `cal(E)`
-  because `E` is an energy and the elementary charge is `q_0` because `e` is the
-  exponential base.
+  because `E` is an energy.
+  Everywhere else the symbols are the lectures', a symbol of the script's own
+  being one more thing to carry and one more collision to inherit downstream.
 - A term earns the `#term` mark by being load-bearing, the theory being
   unstatable without it, and takes it where it is properly introduced rather
   than where it is first mentioned. It is marked again wherever it carries a
@@ -116,5 +117,3 @@ how something is stated, never a symbol chosen differently.
   magnitudes, which is what forces them to split drift-diffusion into one
   equation per species where the script keeps a single one with the species as
   a parameter.
-- The carrier density is named as one, the lectures calling it the charge
-  density though it counts carriers and carries no charge.
