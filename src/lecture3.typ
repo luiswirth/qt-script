@@ -21,12 +21,12 @@ forces the numerical treatment that occupies the rest of the chapter.
 == Closed boundary conditions
 
 #exam("L3.1")
-The equation being solved is @qw-general, discretized as in the previous chapter
-into
+The equation being solved is the heterostructure problem @qw-general,
+discretized as in the previous chapter into
 $
   (E - H_(i i)) phi_i - H_(i, i+1) phi_(i+1) - H_(i, i-1) phi_(i-1) = 0
 $ <discrete-se>
-at every grid point $i$, which is @discrete-row rearranged.
+at every grid point $i$, which is the row equation @row rearranged.
 Each point is coupled to its two neighbors and to nothing else, the coupling
 being what the second derivative leaves behind.
 Written at the first point of a domain running from $i = 1$ to $i = N$, the
@@ -90,7 +90,8 @@ held at different potentials.
 #key[The task is therefore to find expressions for $phi_0$ and $phi_(N+1)$ rather
 than to declare them zero, and these are the #term("open boundary conditions").]
 They cannot be free unknowns.
-Writing @discrete-se at $i = 0$ introduces $phi_(-1)$, writing it at $i = -1$
+Writing the discretized equation @discrete-se at $i = 0$ introduces $phi_(-1)$,
+writing it at $i = -1$
 introduces $phi_(-2)$, and the hierarchy runs to $-infinity$.
 What is wanted is an expression that closes it.
 
@@ -162,8 +163,9 @@ $
   [1 / m^* (dif phi) / (dif x)]_(x^-) = [1 / m^* (dif phi) / (dif x)]_(x^+).
 $
 #key[It is the derivative divided by the mass that is continuous and not the
-derivative itself, which is the condition @BDD was constructed to satisfy and
-the reason the mass sits between the two derivatives there.]
+derivative itself, which is the condition the BenDaniel–Duke operator @BDD was
+constructed to satisfy and the reason the mass sits between the two derivatives
+there.]
 The two are the same statement met twice, once as a matching rule for analytic
 solutions and once as an operator ordering for a discretization.
 
@@ -195,7 +197,7 @@ part of the left-hand wave deliberately excluded from the denominator.
 The two sides carry the same potential and the same mass here, so the carrier
 leaves with the speed it arrived with and no velocity factor is needed;
 where they differ, the ratio of currents rather than of densities is what
-transmission means, and @transmission acquires a factor
+transmission means, and the transmission @transmission acquires a factor
 $(k_R slash m_R^*) slash (k_L slash m_L^*)$.
 
 Solving the four equations for $b_R$ in terms of $a_L$ is elimination and
@@ -209,8 +211,8 @@ per region, two conditions per interface, everything referred to the injection
 amplitude.]
 The energy has changed role in the process.
 In the closed problem it was the output, an eigenvalue to be found.
-Here it is an input, chosen before the calculation starts, and @transmission is
-evaluated by scanning it over a range.
+Here it is an input, chosen before the calculation starts, and the transmission
+@transmission is evaluated by scanning it over a range.
 
 === Transmission below and above the barrier
 
@@ -321,9 +323,10 @@ leave, whether by reflection or by transmission.]
 Direction, not position, is what distinguishes them:
 on the left the incoming wave moves to the right and on the right it moves to
 the left, which is why the sign in the exponent flips between the two lines of
-@contact-ansatz.
+the contact ansatz @contact-ansatz.
 
-This is @barrier-ansatz with the middle region replaced by something unknown.
+This is the barrier ansatz @barrier-ansatz with the middle region replaced by
+something unknown.
 What was solvable in three pieces is now solvable in two, and the piece between
 them is handed to a computer.
 
@@ -355,9 +358,10 @@ join them.
 The join is where the infinite hierarchy is cut.
 The contact holds infinitely many unknown values, but not infinitely much
 information: being uniform it carries plane waves, so every value in it follows
-from the two amplitudes of @contact-ansatz once the wave vector is known.
-Of the three, $a_L$ is chosen, and two rows of @discrete-se suffice to dispose
-of the other two.
+from the two amplitudes of the contact ansatz @contact-ansatz once the wave
+vector is known.
+Of the three, $a_L$ is chosen, and two rows of the discretized equation
+@discrete-se suffice to dispose of the other two.
 A third row then receives the result.#note[
   Luisier named the answer he most often gets and does not want, that the
   contacts are joined by imposing continuity of the wave function and of the
@@ -373,10 +377,10 @@ Two abbreviations shorten what follows,
 $
   D_i = E - H_(i i), quad T_(i, i plus.minus 1) = - H_(i, i plus.minus 1),
 $
-so that @discrete-se reads $D_i phi_i + T_(i, i+1) phi_(i+1) + T_(i, i-1)
-phi_(i-1) = 0$.
+so that the discretized equation @discrete-se reads
+$D_i phi_i + T_(i, i+1) phi_(i+1) + T_(i, i-1) phi_(i-1) = 0$.
 Inside the left contact the material and the potential do not vary and the grid
-is uniform, so both are constant there and, by @hopping,
+is uniform, so both are constant there and, by the hopping energy @hopping,
 $
   T_L = t_L = planck^2 / (2 m_L^* Delta x^2),
   quad
@@ -387,8 +391,8 @@ that $D_L$ serves for $i = 1, 0, -1$ alike.
 
 === Equations outside the domain
 
-Write @discrete-se at the first point inside the device and at the first two
-outside it,
+Write the discretized equation @discrete-se at the first point inside the device
+and at the first two outside it,
 $
   i = 1 &: quad D_1 phi_1 + T_(1 2) phi_2 + T_L phi_0 = 0, \
   i = 0 &: quad D_L phi_0 + T_L phi_1 + T_L phi_(-1) = 0, \
@@ -410,8 +414,8 @@ and $i = 0$ and nowhere below.]
 
 === Contact dispersion
 
-Substituting @sampled-ansatz into the $i = -1$ row of @three-rows and collecting
-the factors of $a_L$ and $b_L$,
+Substituting the sampled ansatz @sampled-ansatz into the $i = -1$ row of
+@three-rows and collecting the factors of $a_L$ and $b_L$,
 $
   a_L e^(-i k_L Delta x) (D_L + 2 T_L cos(k_L Delta x))
   + b_L e^(i k_L Delta x) (D_L + 2 T_L cos(k_L Delta x)) = 0,
@@ -436,31 +440,34 @@ vector gives
 $
   k_L = 1 / (Delta x) arccos(- D_L / (2 T_L)),
 $ <contact-dispersion>
-or, written as an energy through @contact-entries,
+or, written as an energy through the contact entries @contact-entries,
 $
   E = V_L + 4 t_L sin^2 ((k_L Delta x) / 2).
 $ <discrete-band>
 For $k_L Delta x << 1$ this is $E = V_L + planck^2 k_L^2 slash 2 m_L^*$, the
 parabolic band the effective mass approximation was built to reproduce.
-#key[Away from the band bottom the grid asserts itself: @discrete-band is
-periodic in $k_L$ and bounded by $V_L + 4 t_L$, so the discretization has
+#key[Away from the band bottom the grid asserts itself: the discrete band
+@discrete-band is periodic in $k_L$ and bounded by $V_L + 4 t_L$,
+so the discretization has
 replaced the parabola by a band of finite width, with a Brillouin zone set by
 the grid spacing rather than by a lattice constant.]
 The parabola is recovered as $Delta x arrow.r 0$, which sends the bandwidth to
 infinity.
 A carrier can be injected only at an energy inside that band; outside it the
-arccosine of @contact-dispersion has no real value, $k_L$ is imaginary, and the
+arccosine of the dispersion relation @contact-dispersion has no real value,
+$k_L$ is imaginary, and the
 contact carries an evanescent solution that transports nothing.
 
 === Reflection amplitude
 
 The $i = 0$ row is where the device is first felt.
-Substituting @sampled-ansatz into it and using @dispersion-row in the forms
+Substituting the sampled ansatz @sampled-ansatz into it and using the dispersion
+condition @dispersion-row in the forms
 $D_L + T_L e^(minus i k_L Delta x) = - T_L e^(plus i k_L Delta x)$ reduces it to
 $
   phi_1 = a_L e^(i k_L Delta x) + b_L e^(-i k_L Delta x),
 $
-which is @contact-ansatz evaluated at $x = Delta x$.
+which is the contact ansatz @contact-ansatz evaluated at $x = Delta x$.
 #key[The $i = 0$ equation says that the contact ansatz, continued one point into
 the device, must agree with the device solution there, and that is the entire
 content of the coupling.]
@@ -475,7 +482,8 @@ reflecting from.
 
 === Self-energy and injection
 
-Putting @reflection into $phi_0 = a_L + b_L$ gives the boundary relation itself,
+Putting the reflected amplitude @reflection into $phi_0 = a_L + b_L$ gives the
+boundary relation itself,
 $
   phi_0 = e^(i k_L Delta x) phi_1 + a_L (1 - e^(2 i k_L Delta x)),
 $ <boundary-relation>
@@ -484,14 +492,14 @@ With $a_L = 0$ the contact holds only the outgoing wave, and the relation then
 says that stepping one point in the direction that wave travels multiplies it by
 $e^(i k_L Delta x)$, which is the statement that nothing comes back.
 The remaining term is there because a wave is being sent in.
-Substituting @boundary-relation into the $i = 1$ row of @three-rows closes the
-system,
+Substituting the boundary relation @boundary-relation into the $i = 1$ row of
+@three-rows closes the system,
 $
   (D_1 + T_L e^(i k_L Delta x)) phi_1 + T_(1 2) phi_2
     = - a_L T_L (1 - e^(2 i k_L Delta x)).
 $
-Nothing unknown is left: $T_L$ is a material parameter, $k_L$ comes from
-@contact-dispersion and $a_L$ is chosen.
+Nothing unknown is left: $T_L$ is a material parameter, the wave vector comes
+from the dispersion relation @contact-dispersion and $a_L$ is chosen.
 The two new quantities are named
 $
   Sigma_(1 1) = - T_L e^(i k_L Delta x),
@@ -533,8 +541,8 @@ whose only nonzero entries are $Sigma_(1 1)$ and $Sigma_(N N)$.
 contact, and everything else is unchanged from the closed calculation.]
 
 #key[Closed boundary conditions are the special case $Sigma = 0$ and $S = 0$,
-where @OBC collapses to $(E - H) phi = 0$ and has a nontrivial solution only at
-the eigenvalues of $H$.]
+where the open system @OBC collapses to $(E - H) phi = 0$ and has a nontrivial
+solution only at the eigenvalues of $H$.]
 That is the difference between the two, stated in one line.
 An open system has a solution at every energy, and the energy is supplied rather
 than found;
@@ -561,7 +569,8 @@ One factorization serves both, the left-hand side being common.
 #key[The number of right-hand sides is the number of contacts, since each
 contact is an independent way of populating the device at a given energy, and a
 structure with $n$ contacts has $n$ of them.]
-The interpretation is that @OBC has no single solution at a given energy.
+The interpretation is that the open system @OBC has no single solution at a
+given energy.
 It has one scattering state per injecting contact, and the physical state is a
 superposition of them weighted by how populated each contact is.
 Those weights are the Fermi distributions of the reservoirs, which under bias
@@ -576,16 +585,16 @@ called the #term("quantum transmitting boundary method").#note[
   extended by flat semi-infinite contacts, that flatness is what makes the
   solution there analytic, and that the coupling proceeds by writing the rows at
   $i = 1$, $0$ and $-1$ and replacing $phi_0$, $phi_(-1)$ and $phi_(-2)$ by the
-  ansatz, from which $k_L$, then $b_L$, then @OBC follow, ending at the final
-  form. He does not expect the algebra step by step.
+  ansatz, from which $k_L$, then $b_L$, then the open system @OBC follow,
+  ending at the final form. He does not expect the algebra step by step.
 ]
 It is one of the two formalisms of the course.
 The other, the non-equilibrium Green's function method, solves the same physical
 problem by computing the inverse of the same operator $E - H - Sigma$ instead of
 its action on a source.
 
-What @OBC delivers is a wave function per contact and per energy, which is not
-yet an observable.
+What the open system @OBC delivers is a wave function per contact and per
+energy, which is not yet an observable.
 The next chapter weights those states by the occupation of the contact they came
 from and integrates over energy, giving the carrier density in the device and
 the current through it, and the transmission of this chapter reappears there as

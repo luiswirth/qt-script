@@ -1,8 +1,8 @@
 #import "setup.typ": *
 #show: chapter.with("Carrier density and current")
 
-@OBC delivers one wave function per contact and per energy, and neither is an
-observable.
+The open system @OBC delivers one wave function per contact and per energy, and
+neither is an observable.
 This chapter turns them into the two quantities a device simulation reports,
 the carrier density inside the device and the current through it.
 
@@ -18,7 +18,8 @@ groups of wave vectors that are traded in opposite directions.
 
 Contacts are labeled $alpha in {L, R}$ throughout.
 A superscript names the contact a state was injected from, so that $phi^alpha$
-is the wave function of @OBC and $E_F^alpha$ the Fermi level weighting it,
+is the wave function of the open system @OBC and $E_F^alpha$ the Fermi level
+weighting it,
 and a subscript names the contact a quantity lives in, so that $k_alpha$,
 $v_alpha$ and $m_alpha^*$ belong to the material there.#note[
   The lectures index the contacts by $c$, which is the carrier density here,
@@ -46,8 +47,9 @@ contact to the other and the two Fermi levels flat in their own reservoirs.
 
 #key[A single Fermi level throughout is equilibrium, and two differing Fermi
 levels is the definition of a system driven #term("out of equilibrium").]
-Nothing else in the description changes: @OBC is the same equation, the contacts
-are the same flat regions, and the entire non-equilibrium content of the
+Nothing else in the description changes: the open system @OBC is the same
+equation, the contacts are the same flat regions,
+and the entire non-equilibrium content of the
 calculation enters through the two numbers $E_F^L$ and $E_F^R$.
 
 === Left- and right-injected states
@@ -61,7 +63,8 @@ two may not be added before that weight is applied.]
 A state arriving from the left is present with probability $f(E, E_F^L)$ and a
 state arriving from the right with probability $f(E, E_F^R)$, with $f$ the
 Fermi distribution @FD of the second chapter.
-Under bias @bias these differ, so $phi^L + phi^R$ is not a state of the system
+Under the applied bias @bias these differ, so $phi^L + phi^R$ is not a state of
+the system
 and no equation it satisfies would mean anything.
 
 The two are separate for a physical reason and not an algebraic one.
@@ -72,8 +75,8 @@ contacts at zero bias and must be kept apart at any other.
 == Carrier density
 
 #exam("L4.2")
-The second chapter built the carrier density from a probability density and an
-occupation, @carrier-density, under a single Fermi level.
+The second chapter built the carrier density @carrier-density from a probability
+density and an occupation, under a single Fermi level.
 Two changes carry it over to an open system.
 The states are labeled by the contact they were injected from as well as by
 their wave vector, and each contact brings its own Fermi level,
@@ -81,8 +84,8 @@ $
   c(avec(r)) = sum_alpha sum_avec(k) P^alpha_avec(k) (avec(r))
     thin f(E(avec(k)), E_F^alpha).
 $ <c-noneq>
-Nothing else is new. The rest of this section evaluates @c-noneq for the
-one-dimensional device of the previous chapter.
+Nothing else is new. The rest of this section evaluates the non-equilibrium
+density @c-noneq for the one-dimensional device of the previous chapter.
 
 === Probability density of a scattering state
 
@@ -92,15 +95,16 @@ $
   Psi^alpha_(k_alpha, avec(k)_t) (avec(r))
     = 1 / sqrt(L) phi^alpha_(k_alpha) (x)
       1 / sqrt(A) e^(i avec(k)_t dot avec(r)_t),
-$ <obc-ansatz>
+$
 with $A = L_y L_z$ the transverse area and $avec(k)_t = {k_y, k_z}$ the
 transverse wave vector, and with
 $
   P^alpha_(k_alpha, avec(k)_t) (avec(r))
     = 1 / (L A) abs(phi^alpha_(k_alpha) (x))^2.
 $ <obc-prob>
-This is @qw-ansatz with the bound state along $x$ replaced by a scattering
-state, and the replacement is what changes the normalization.
+This is the quantum well ansatz @qw-ansatz with the bound state along $x$
+replaced by a scattering state, and the replacement is what changes the
+normalization.
 #key[A scattering state does not decay, so $integral dif x thin abs(phi)^2$
 diverges and the condition used for a bound state cannot be imposed;
 $phi$ is instead normalized over a length $L$, which plays the role the volume
@@ -109,8 +113,8 @@ That length is taken to be the length of the device, so that $x = L$ is its
 right end as in the previous chapter.
 
 The label $k_alpha$ is the wave vector the state has in the contact it was
-injected from, fixed by the energy through the discrete dispersion
-@discrete-band of that contact.
+injected from, fixed by the energy through the discrete band @discrete-band of
+that contact.
 It is not a quantum number of the device, which has no periodicity, and it
 enters only as a way of parametrizing the injection.
 
@@ -121,15 +125,16 @@ $
   E(k_alpha, avec(k)_t) = E(k_alpha)
     + (planck^2 abs(avec(k)_t)^2) / (2 m_t^*),
 $ <energy-split>
-the first term being the contact band @discrete-band and the second the free
+the first term being the discrete band @discrete-band and the second the free
 motion in the transverse plane, with $m_t^*$ the effective mass there, taken
 equal along $y$ and $z$.
-Substituting @obc-prob and @energy-split into @c-noneq,
+Substituting the probability density @obc-prob and the energy split
+@energy-split into the non-equilibrium density @c-noneq,
 $
   c(x) = 1 / (L A) sum_alpha sum_(k_alpha) sum_(avec(k)_t)
     abs(phi^alpha_(k_alpha) (x))^2
     thin f(E(k_alpha) + E(avec(k)_t), E_F^alpha),
-$ <c-obc-sums>
+$
 a function of $x$ alone, the transverse plane being homogeneous.
 
 Two sums over wave vectors remain, and they are disposed of in opposite
@@ -151,7 +156,8 @@ Converting the longitudinal sum in one dimension,
 $
   1 / L sum_(k_alpha) arrow.r 1 / (2 pi) integral dif k_alpha,
 $ <sum-to-integral-1d>
-which is @sum-to-integral in one dimension and carries no spin factor, spin
+which is the conversion @sum-to-integral in one dimension and carries no spin
+factor, spin
 being accounted for once in the transverse sum below.
 Changing the variable of integration from $k_alpha$ to the energy
 $E' = E(k_alpha)$ of the contact band,
@@ -166,7 +172,7 @@ $
 $ <g-obc>
 carrying #unit($J^(-1) m^(-1)$), states per unit energy per unit length.
 The Jacobian is evaluated at the wave vector the injected state has at energy
-$E$, and $phi^alpha_E$ is the solution of @OBC at that energy.
+$E$, and $phi^alpha_E$ is the solution of the open system @OBC at that energy.
 
 The Jacobian is a velocity.
 The #term("band velocity") of the first chapter, $v = planck^(-1) dif E slash
@@ -177,13 +183,14 @@ $
   v_alpha (E) = 1 / planck (dif E(k_alpha)) / (dif k_alpha).
 $ <g-velocity>
 #key[States that move slowly are weighted heavily, since a flat band puts many
-wave vectors into a given energy window, and the divergence of @g-velocity at a
-band edge, where $v_alpha$ vanishes, is the one-dimensional density of states
+wave vectors into a given energy window, and the divergence of the density of
+states @g-velocity at a band edge, where $v_alpha$ vanishes,
+is the one-dimensional density of states
 growing as $1 slash sqrt(E)$ where the bulk one of @g-bulk grew as $sqrt(E)$.]
 Evaluating $v_alpha$ from the discrete band @discrete-band,
 $
   planck v_alpha (E) = 2 t_alpha Delta x sin(k_alpha Delta x),
-$ <contact-velocity>
+$
 which vanishes at both ends of the discrete band and is largest at its middle.
 The same quantity has already been met: the imaginary part of the boundary
 self-energy of the previous chapter is $- t_alpha sin(k_alpha Delta x)$, so it
@@ -204,8 +211,8 @@ There the sum over all of $avec(k)$ went into $g$, which is what produced the
 $sqrt(E)$ of bulk and the staircase of a quantum well;
 here the transverse sum goes into the occupation instead.
 Both routes give the same carrier density, and it is the intermediate quantity
-that differs, so @g-obc plotted against energy is not expected to look like
-@g-bulk.
+that differs, so the contact density of states @g-obc plotted against energy is
+not expected to look like the bulk one @g-bulk.
 
 === Fermi integral
 
@@ -243,8 +250,8 @@ Boltzmann tail of @FD again;
 for $E_F - E' >> k_B T$ the exponential dominates its own logarithm and
 $F approx (m_t^* slash pi planck^2)(E_F - E')$, one transverse subband's worth
 of states filled up to the Fermi level.
-Having @FI in closed form means the transverse dimensions never enter a
-numerical calculation at all.
+Having the Fermi integral @FI in closed form means the transverse dimensions
+never enter a numerical calculation at all.
 
 === Non-equilibrium carrier density
 
@@ -257,7 +264,8 @@ $
 $ <c-obc>
 #key[Each contact contributes its own density of states weighted by its own
 occupation, and the two contributions are added only after that weighting.]
-This is @c-from-g with one term per contact and with the Fermi function replaced
+This is the energy integral @c-from-g with one term per contact and with the
+Fermi function replaced
 by the Fermi integral, the replacement being the price of having summed the
 transverse dimensions away.
 A structure with more than two contacts carries one term per contact, nothing in
@@ -293,8 +301,9 @@ would put none.]
 
 === Energy range
 
-@c-obc is an integral over energy and is evaluated on a grid, one solution of
-@OBC per point, so the range has to be bounded at both ends.
+The carrier density @c-obc is an integral over energy and is evaluated on a
+grid, one solution of the open system @OBC per point, so the range has to be
+bounded at both ends.
 #key[The lower limit is the lower of the two contact band edges, below which
 neither contact has a propagating state to inject, and the upper limit is set
 by the occupation rather than by the structure.]
@@ -314,7 +323,8 @@ features of $g^alpha$, the resonances being the narrowest thing in it.
 
 === Carrier density under bias
 
-Slide 17 shows @c-obc evaluated for the barrier structure at three biases,
+Slide 17 shows the carrier density @c-obc evaluated for the barrier structure at
+three biases,
 beside the band diagram it was computed from.
 At zero bias the density is symmetric, as the structure is.
 Applying a bias depletes the right side and accumulates carriers on the left,
@@ -323,8 +333,8 @@ and both follow from where the band edge sits relative to the Fermi level.
 #key[Under bias the band edge at a given point moves down by less than the
 Fermi level of the contact feeding it, so the states there sit higher above the
 Fermi level than before and their occupation falls.]
-That is the depletion, and it is a statement about @FI alone, the Fermi integral
-decaying exponentially in $E - E_F$.
+That is the depletion, and it is a statement about the Fermi integral @FI alone,
+which decays exponentially in $E - E_F$.
 The accumulation is a statement about $g$ instead: the sloping band edge and the
 barrier form a triangular well on the source side, which holds bound states of
 the kind computed in the second chapter, and those states fill.
@@ -351,8 +361,8 @@ Slide 20 draws the two arrows.
 their cancellation rather than the absence of motion.]
 Carriers cross the device in both directions at equilibrium, in equal numbers,
 because the two reservoirs are equally populated.
-This is worth holding onto, since it is what makes @i-tot a difference of two
-large numbers in the regime where the current is small.
+This is worth holding onto, since it is what makes the total current @i-tot a
+difference of two large numbers in the regime where the current is small.
 
 Each flux is a sum over the states carrying it,
 $
@@ -412,12 +422,13 @@ the carrier density that the left contact has put into the first point of the
 right reservoir, times the speed at which the right reservoir removes it, times
 the electron charge.
 The modulus of the velocity makes $I_(L R)$ the magnitude of a flux, which is
-what @i-tot subtracts.
+what the total current @i-tot subtracts.
 
 === Current from the left
 
-The carrier density in @i-charge-velocity is @obc-prob evaluated at one point
-and weighted by one occupation, without any sum,
+The carrier density in the flux @i-charge-velocity is the probability density
+@obc-prob evaluated at one point and weighted by one occupation, without any
+sum,
 $
   c^L (E, E(avec(k)_t), x = L)
     = 1 / (L A) abs(phi^L_E (L))^2 thin f(E + E(avec(k)_t), E_F^L),
@@ -438,7 +449,7 @@ $
   I_(L R) (E, E(avec(k)_t))
     = - q_0 / (L A) abs(b_R^L (E))^2 / abs(a_L)^2
       abs(v_R (E)) thin f(E + E(avec(k)_t), E_F^L),
-$ <i-lr-infinitesimal>
+$
 divided through by the injection amplitude $abs(a_L)^2$.
 #key[Every amplitude of the left-injection problem is proportional to $a_L$,
 which is chosen and not computed, so dividing by it removes a choice that no
@@ -446,8 +457,8 @@ measurable quantity may depend on.]
 
 The two sums are performed as they were for the carrier density.
 The transverse one gives the Fermi integral @FI.
-The longitudinal one is converted by @sum-to-integral-1d and changed to an
-integral over energy, and the Jacobian this time is written as a velocity from
+The longitudinal one is converted into an integral over energy by
+@sum-to-integral-1d, and the Jacobian this time is written as a velocity from
 the outset,
 $
   abs((dif E(k_L)) / (dif k_L)) dif k_L = planck abs(v_L (E')) dif k_L
@@ -463,10 +474,10 @@ with the #term("transmission probability")
 $
   T_(L R) (E) = abs(b_R^L (E))^2 / abs(a_L)^2
     thin abs(v_R (E)) / abs(v_L (E)).
-$ <T-lr>
+$
 
-@T-lr is @transmission of the previous chapter with the velocity ratio that was
-flagged there and not needed.
+This is the transmission @transmission of the previous chapter with the velocity
+ratio that was flagged there and not needed.
 #key[Transmission is a ratio of currents and not of probability densities, so
 where the two contacts carry different potentials or different masses the
 carrier leaves at a different speed than it arrived with and the ratio of speeds
@@ -498,15 +509,16 @@ $ <T-symmetry>
 which is a consequence of time-reversal symmetry: a trajectory traversed
 backwards in time returns to where it started, so the structure transmits
 equally in both directions.#note[
-  Luisier stated @T-symmetry without proof, saying a proof is beyond the scope
+  Luisier stated the symmetry @T-symmetry without proof, saying a proof is
+  beyond the scope
   of the lecture, and pointed at the third exercise, where both transmissions
   are computed and come out identical in every configuration.
 ]
 It is a property of the structure and not of the bias, both transmissions being
 computed from the same $V(x)$.
 
-Putting @i-lr and @i-rl into @i-tot and using @T-symmetry gives one equation for
-the current,
+Putting the two fluxes @i-lr and @i-rl into the total current @i-tot and using
+the symmetry @T-symmetry gives one equation for the current,
 $
   I_"tot" = - q_0 / planck integral (dif E) / (2 pi)
     thin T(E) thin (F(E, E_F^L) - F(E, E_F^R)).
@@ -522,22 +534,24 @@ This is the #term("Landauer-Büttiker formula").#note[
 ]
 The formula as it is usually written carries the Fermi functions of the two
 contacts rather than the Fermi integrals;
-@LB is the form the transverse dimensions leave behind once they have been
-summed over, and it reduces to the usual one for a device confined in those
-dimensions.
+the Landauer-Büttiker formula @LB is the form the transverse dimensions leave
+behind once they have been summed over,
+and it reduces to the usual one for a device confined in those dimensions.
 
 Two consequences are immediate.
 Equal Fermi levels give zero current, the two fluxes cancelling exactly at every
 energy, which is the equilibrium statement made quantitative.
 And a difference of Fermi levels is not the only way to make the difference in
-@LB nonzero: holding the two contacts at the same Fermi level but at different
-temperatures also leaves it nonzero, since $F$ depends on $T$ through
+the Landauer-Büttiker formula @LB nonzero:
+holding the two contacts at the same Fermi level but at different temperatures
+also leaves it nonzero, since $F$ depends on $T$ through
 $(E - E_F) slash k_B T$, and the current that results is the
 #term("Seebeck effect"), taken up in a later chapter.
 
 === Spectral current
 
-The integrand of @LB is worth more than the number the integral returns.
+The integrand of the Landauer-Büttiker formula @LB is worth more than the number
+the integral returns.
 #key[The product $T(E)(F(E, E_F^L) - F(E, E_F^R))$ says at which energies the
 current flows, and since the current is the same at every position it may be
 drawn across the whole device on top of the band diagram.]
@@ -569,27 +583,29 @@ $
   partial / (partial t) rho(avec(r), t) + nabla dot avec(j)(avec(r), t) = 0,
   quad
   rho = abs(psi)^2,
-$ <continuity>
+$
 with the #term("probability current")
 $
   avec(j)(avec(r), t) = (i planck) / (2 m^*) lim_(avec(r)' arrow.r avec(r))
     (nabla_(avec(r)') - nabla_avec(r)) psi^*(avec(r)', t) psi(avec(r), t),
-$ <prob-current>
+$
 which in one dimension is
 $
   j(x, t) = (i planck) / (2 m^*) (
     (partial psi^*) / (partial x) psi - psi^* (partial psi) / (partial x)
   ).
 $ <prob-current-1d>
-#key[@prob-current-1d is more general than @LB, giving the current at every
-position rather than one number for the device.]
+#key[The probability current @prob-current-1d is more general than the
+Landauer-Büttiker formula @LB, giving the current at every position rather than
+one number for the device.]
 It is what a later chapter uses to resolve a current in space, and it is what
 makes current conservation checkable rather than assumed.
 
 The interface conditions follow from it.
 At a material interface the wave function is continuous, since a jump in it
 would be a jump in the probability density, and so is its complex conjugate.
-Requiring in addition that @prob-current-1d take the same value on both sides
+Requiring in addition that the probability current @prob-current-1d take the
+same value on both sides
 forces $(1 slash m^*) partial psi slash partial x$ to be continuous there, the
 mass entering through the prefactor and the derivative through the bracket.
 #key[Continuity of the wave function alone does not conserve the current across
@@ -601,14 +617,15 @@ derived rather than asserted.
 == Outlook
 
 The wave function formalism is complete.
-@OBC is solved once per energy, its solutions give the carrier density through
-@c-obc and the current through @LB, and both are computed from a tridiagonal
-linear system with two right-hand sides.
+The open system @OBC is solved once per energy, its solutions give the carrier
+density through @c-obc and the current through the Landauer-Büttiker formula
+@LB, and both are computed from a tridiagonal linear system with two right-hand
+sides.
 
 One thing has been assumed throughout and never computed.
 The potential $V(x)$ entering $H$ was taken as given, flat in the contacts and
-sloping across the device, and it is in fact produced by the charges that
-@c-obc returns.
+sloping across the device, and it is in fact produced by the charges that the
+carrier density @c-obc returns.
 The next chapter closes that loop with Poisson's equation, which turns the
 calculation into a self-consistent one and supplies the band diagrams this
 chapter read off the slides.

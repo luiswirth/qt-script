@@ -1,8 +1,8 @@
 #import "setup.typ": *
 #show: chapter.with("Bandstructure and the effective mass approximation")
 
-The previous chapter left @SE standing with two unexplained symbols in
-it, an effective mass and a potential.
+The previous chapter left the Schrödinger equation @SE standing with two
+unexplained symbols in it, an effective mass and a potential.
 This chapter produces both.
 The route runs from the equation that is exactly right and unsolvable to the one
 that is approximate and tridiagonal:
@@ -58,8 +58,8 @@ The ions are taken to sit at fixed positions, which already discards their
 kinetic energy and is the #term("Born-Oppenheimer approximation");
 the lattice vibrations dropped here return in a later chapter as phonons.
 
-#key[@MBSE cannot be solved exactly beyond a few special cases, and the
-obstruction is the electron-electron term.]
+#key[The many-body Schrödinger equation @MBSE cannot be solved exactly beyond a
+few special cases, and the obstruction is the electron-electron term.]
 Without it the Hamiltonian would be a sum of identical one-electron operators
 and $Psi$ would factorize;
 with it every coordinate is coupled to every other, and the dimension of the
@@ -132,7 +132,7 @@ Collected into the columns of a matrix $amat(A) = [avec(a)_1 avec(a)_2
 avec(a)_3]$, they generate the #term("Bravais lattice") of translations,
 $
   cal(R) = { sum_(i=1)^3 n_i avec(a)_i mid(|) avec(n) in ZZ^3 } = amat(A) ZZ^3 .
-$ <bravais-lattice>
+$
 The effective potential inherits this periodicity, all cells being identical,
 $
   V_"eff" (avec(r) + avec(R)) = V_"eff" (avec(r)),
@@ -148,7 +148,7 @@ direct one scaled so that $avec(k) dot avec(r)$ is a phase,]
 $
   cal(R)^* = { avec(G) in RR^3 mid(|) e^(i avec(G) dot avec(R)) = 1
     " for all " avec(R) in cal(R) } = 2 pi amat(A)^(-transp) ZZ^3 .
-$ <reciprocal-lattice>
+$
 The second equality is $avec(a)_i dot avec(b)_j = 2 pi delta_(i j)$ written for
 all $i$ and $j$ at once.
 
@@ -176,7 +176,7 @@ A linear function of $avec(R)$ is a scalar product with some vector, which is
 named $avec(k)$ and called the #term("wave vector"),
 $
   psi_avec(k) (avec(r) + avec(R)) = e^(i avec(k) dot avec(R)) psi_avec(k) (avec(r)).
-$ <bloch-phase>
+$ <phase>
 #key[#term("Bloch's theorem") is the statement that a function with this
 property is a plane wave times something with the periodicity of the lattice,]
 $
@@ -184,8 +184,9 @@ $
   quad
   u_avec(k) (avec(r) + avec(R)) = u_avec(k) (avec(r)).
 $ <Bloch>
-The two forms are equivalent: substituting @Bloch into the left of
-@bloch-phase and using the periodicity of $u_avec(k)$ returns the right.
+The two forms are equivalent: substituting the Bloch form @Bloch into the left
+of the phase relation @phase and using the periodicity of $u_avec(k)$
+returns the right.
 The plane wave carries the phase between cells and $u_avec(k)$ carries the
 structure within one.
 
@@ -222,14 +223,14 @@ to the origin than to any other reciprocal lattice point,
 $
   "BZ" = { avec(k) in RR^3 mid(|) abs(avec(k)) <= abs(avec(k) - avec(G))
     " for all " avec(G) in cal(R)^* } .
-$ <brillouin-zone>
+$
 Its faces are the perpendicular bisectors of the $avec(G)$, which is the Bragg
 condition, and among all fundamental domains this is the one carrying the point
 group of the crystal, which is what makes the high-symmetry labels $Gamma$, $X$,
 $L$ mean anything.
-Solving the crystal means solving @schroedinger-k for every $avec(k)$ in the
-zone, and the dispersion is reported along a path joining those points, which is
-what the horizontal axis of slide 9 is.
+Solving the crystal means solving the eigenvalue problem @schroedinger-k for
+every $avec(k)$ in the zone, and the dispersion is reported along a path joining
+those points, which is what the horizontal axis of slide 9 is.
 
 == Probability and occupation
 
@@ -242,16 +243,17 @@ $
 $ <prob-density>
 of being found at $avec(r)$, carrying #unit($m^(-3)$).
 It is a density and not a probability:
-the probability of finding the electron in a region is the integral of
-@prob-density over that region, and the probability of finding it at any single
-point is zero.
+the probability of finding the electron in a region is the integral of the
+probability density @prob-density over that region,
+and the probability of finding it at any single point is zero.
 The condition attached to it is that the electron is somewhere,
 $
   integral_V dif^3 avec(r) thin P_avec(k) (avec(r)) = 1,
-$ <normalization>
+$ <norm>
 the integral running over the volume the electron is confined to, which for a
 device is the device.
-#key[@normalization is what fixes the prefactor of every wave function below,
+#key[The normalization condition @norm is what fixes the prefactor of
+every wave function below,
 and it is why $psi$ carries #unit($m^(-3 slash 2)$) rather than being
 dimensionless.]
 
@@ -272,14 +274,15 @@ $T$ the temperature,
 and $E_F$ the #term("Fermi level"), the energy at which the occupation
 is exactly one half.
 The combination $k_B T$ is an energy, #qty(25.9, $"meV"$) at #qty(300, $K$), and
-it is the only scale in @FD:
+it is the only scale in the Fermi distribution @FD:
 the distribution depends on $E$ and $E_F$ only through $(E - E_F) slash k_B T$,
 so $k_B T$ measures the width of the region over which $f$ falls from one to
 zero.
 
-#key[At $T = 0$ @FD degenerates to a step, every state below the Fermi level
-filled and every state above it empty, and raising the temperature rounds that
-step symmetrically about $E_F$ over a range of a few $k_B T$ to either side.]
+#key[At $T = 0$ the Fermi distribution @FD degenerates to a step, every state
+below the Fermi level filled and every state above it empty,
+and raising the temperature rounds that step symmetrically about $E_F$ over a
+range of a few $k_B T$ to either side.]
 The step is what the exponent leaves, $minus infinity$ below $E_F$ and
 $plus infinity$ above it, and the rounding empties states just below the Fermi
 level and fills states just above it.
@@ -340,15 +343,15 @@ It counts carriers, the charge density proper being $q_s c$
 Neither factor alone would do.
 Dropping $f$ would count every state as full, dropping $P_avec(k)$ would give a
 number of electrons and not a density.
-Slide 15 shows @carrier-density evaluated for a resonant tunneling diode and for
-a double-gate transistor, the internal quantities of the previous chapter that
-no measurement reaches.
+Slide 15 shows the carrier density @carrier-density evaluated for a resonant
+tunneling diode and for a double-gate transistor,
+the internal quantities of the previous chapter that no measurement reaches.
 
 === Density of states
 
 #exam("L2.9")
-@carrier-density is a sum over the Brillouin zone, and $avec(k)$ is an
-inconvenient variable to work in.
+The carrier density @carrier-density is a sum over the Brillouin zone, and
+$avec(k)$ is an inconvenient variable to work in.
 It can be traded for energy at no cost. Insert a delta function and an integral
 that undoes it,
 $
@@ -378,9 +381,10 @@ $
 $ <c-from-g>
 
 #exam("L2.10")
-#key[The two factors of @c-from-g separate cleanly, the density of states being
-a property of the structure alone and the distribution a property of the
-reservoir the structure is in equilibrium with.]
+#key[The two factors of the energy integral @c-from-g separate cleanly,
+the density of states being a property of the structure alone
+and the distribution a property of the reservoir the structure is in equilibrium
+with.]
 The density of states belongs to the geometry and the materials and is fixed
 once the structure is:
 it says how many states exist at energy $E$ and position $avec(r)$ and would say
@@ -428,13 +432,13 @@ $ <effective-mass>
 evaluated at the extremum, so that
 $
   E(avec(k)) = E_"CB" + (planck^2 abs(avec(k))^2) / (2 m^*).
-$ <parabolic>
+$ <parabola>
 #key[It is a curvature and nothing else: a flat band means a heavy electron, a
 sharply curved one a light electron, and the sign of the curvature is what
 distinguishes the electron-like minimum of the conduction band from the
 hole-like maximum of the valence band.]
-Slide 18 sets @parabolic against the computed bands of silicon and indium
-arsenide.
+Slide 18 sets the parabolic dispersion @parabola against the computed bands of
+silicon and indium arsenide.
 The fit is good over a wider range for silicon, whose $m^* = 0.91$ at the $X$
 valley is heavy, than for indium arsenide, whose $m^* = 0.023$ at $Gamma$ is
 light and whose band leaves the parabola within a few tenths of an
@@ -444,8 +448,10 @@ a light mass is a sharply curved band, a sharply curved band is one whose higher
 derivatives are large, and the quadratic truncation is exactly what those
 derivatives measure the error of.
 
-The value of @effective-mass is that it removes $V_"eff"$ from the problem.
-#key[The periodic potential of the crystal was what made @SPSE hard,
+The value of the effective mass @effective-mass is that it removes $V_"eff"$
+from the problem.
+#key[The periodic potential of the crystal was what made the one-electron
+problem @SPSE hard,
 and its entire effect on a carrier near a band edge is to change the coefficient
 of $k^2$ in the dispersion.]
 Replacing $m_0$ by $m^*$ therefore reproduces that dispersion with no potential
@@ -459,7 +465,8 @@ rest of the course.
 An electron in a crystal is treated as a free electron carrying a mass the
 crystal has given it.
 
-The potential that reappears in @EMA is not the one that was removed.
+The potential that reappears in the effective mass approximation @EMA is not the
+one that was removed.
 $V_"eff"$ was the periodic potential of the lattice, and it is gone, absorbed
 into $m^*$.
 $V_"ext" (avec(r))$ is everything the lattice does not supply:
@@ -469,22 +476,23 @@ different gap meet.
 The effective mass may itself depend on position, since it is a property of the
 local material, and in a heterostructure it does.
 
-Two limitations come with @EMA.
+Two limitations come with the effective mass approximation @EMA.
 It holds near a band extremum and nowhere else, so a process reaching far into a
 band is outside it.
 And $m^*$ need not be isotropic.
 
 === Anisotropy and valley degeneracy
 
-@effective-mass is a second derivative along one direction, and a band curved
-differently along different directions yields a different mass for each.
+The effective mass @effective-mass is a second derivative along one direction,
+and a band curved differently along different directions yields a different mass
+for each.
 Taken along the axes in which the curvature is extremal, where the mixed
 derivatives vanish, the dispersion is
 $
   E(avec(k)) = planck^2 / 2 (
     k_x^2 / m_x^* + k_y^2 / m_y^* + k_z^2 / m_z^*
   ),
-$ <aniso-dispersion>
+$ <aniso>
 whose surfaces of constant energy are ellipsoids rather than spheres;
 slide 24 shows both.
 Silicon is the case that matters.
@@ -513,8 +521,9 @@ the value the previous chapter used for the de Broglie wavelength.#note[
 == Bulk
 
 #exam("L2.12")
-The first geometry @EMA is solved in is a #term("bulk") crystal, a chunk of one
-material of volume $V = L_x L_y L_z$ with nothing done to it.
+The effective mass approximation @EMA is first solved in a #term("bulk")
+crystal, a chunk of one material of volume $V = L_x L_y L_z$ with nothing done
+to it.
 Homogeneity is the whole of the assumption: no material changes and no
 electrostatics, so
 $
@@ -526,21 +535,24 @@ The #term("periodic boundary condition") is a device for counting states in a
 finite volume and not a physical statement;
 nothing below depends on it once $V$ has cancelled.
 
-What remains of @EMA is the free-particle equation
+What remains of the effective mass approximation @EMA is the free-particle
+equation
 $
   - planck^2 / (2 m^*) lapl psi_avec(k) (avec(r))
     = E(avec(k)) psi_avec(k) (avec(r)),
-$ <bulk-schroedinger>
+$
 solved by plane waves.
-Normalizing over $V$ through @normalization, the modulus of the plane wave being
-one so that the integrand is constant,
+Normalizing over $V$ through the normalization condition @norm,
+the modulus of the plane wave being one so that the integrand is constant,
 $
   psi_avec(k) (avec(r)) = 1 / sqrt(V) e^(i avec(k) dot avec(r)),
   quad
   E(avec(k)) = (planck^2 abs(avec(k))^2) / (2 m^*),
 $ <bulk-solution>
-with @aniso-dispersion in place of the energy when the mass is anisotropic.
-#key[The dispersion is the parabola that @EMA was built to reproduce, which is
+with the anisotropic dispersion @aniso in place of the energy when
+the mass is anisotropic.
+#key[The dispersion is the parabola the effective mass approximation @EMA was
+built to reproduce, which is
 the consistency check on the whole construction: the equation whose solution
 defines the effective mass returns the band it was fitted to.]
 
@@ -552,7 +564,7 @@ satisfy $k_j L_j in 2 pi ZZ$, so
 $
   k_j = n_j (2 pi) / L_j,
   quad n_j in ZZ.
-$ <k-quantization>
+$
 The conversion is
 $
   sum_avec(k) arrow.r V / (8 pi^3) integral dif^3 avec(k),
@@ -563,14 +575,14 @@ here because $L_j$ is macroscopic.
 === Bulk carrier density
 
 #exam("L2.13")
-The probability density of @bulk-solution is
+The probability density of the bulk plane wave @bulk-solution is
 $
   P_avec(k) (avec(r)) = abs(psi_avec(k) (avec(r)))^2 = 1 / V,
 $
-independent of position, and @carrier-density collapses to
+independent of position, and the carrier density @carrier-density collapses to
 $
   c_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
-$ <c-bulk>
+$
 The position dependence is gone.
 #key[This is forced rather than fortunate: the structure was assumed
 homogeneous, so a carrier density varying with position would have contradicted
@@ -579,12 +591,12 @@ the assumption it was computed under.]
 === Bulk density of states
 
 #exam("L2.13")
-The same substitution in @DOS gives
+The same substitution in the density of states @DOS gives
 $
   g_"bulk" (E) = 1 / V sum_avec(k) delta(E - E(avec(k))),
 $
-and the sum is converted by @sum-to-integral, with a factor $2$ for the two spin
-orientations each $avec(k)$ accommodates,
+and the sum is converted into an integral by @sum-to-integral, with a factor $2$
+for the two spin orientations each $avec(k)$ accommodates,
 $
   g_"bulk" (E) = 2 / (8 pi^3) integral dif^3 avec(k) thin delta(E - E(avec(k))).
 $
@@ -604,9 +616,9 @@ $ <g-bulk>
 Here the energy is measured from the band edge, and $g_"bulk"$ vanishes below
 it, there being no states in the gap.
 
-#key[Two features of @g-bulk carry the physics, growth as $sqrt(E)$ from the
-band edge and growth as $m^(*3 slash 2)$ with the mass, and the prefactor
-carries none.]#note[
+#key[Two features of the bulk density of states @g-bulk carry the physics,
+growth as $sqrt(E)$ from the band edge and growth as $m^(*3 slash 2)$ with the
+mass, and the prefactor carries none.]#note[
   Luisier said in the lecture that he likes to ask for the $sqrt(E)$ behavior
   and for two curves of different effective mass to be drawn and identified,
   and that he does not expect the $m^(*3 slash 2)$ prefactor to be recalled.
@@ -618,12 +630,13 @@ The growth in mass means a heavy band carries more states at a given energy than
 a light one:
 a heavy mass is a flat band, a flat band reaches a given energy only at large
 $abs(avec(k))$, and a large $abs(avec(k))$ encloses many states.
-Slide 27 plots @g-bulk for the three masses $0.023 m_0$, $0.065 m_0$ and
-$0.32 m_0$, of indium arsenide, gallium arsenide and silicon, and the ordering
-of the three curves is the ordering of the masses.
+Slide 27 plots the bulk density of states @g-bulk for the three masses
+$0.023 m_0$, $0.065 m_0$ and $0.32 m_0$,
+of indium arsenide, gallium arsenide and silicon,
+and the ordering of the three curves is the ordering of the masses.
 For silicon the mass to use is $m_"DOS"$ of @m-dos.
 
-@g-bulk is exact only for a parabolic band.
+The bulk density of states @g-bulk is exact only for a parabolic band.
 Performed against a real bandstructure the sum over $avec(k)$ has no closed form
 and is evaluated numerically, with the delta function broadened into a Gaussian
 or a Lorentzian.
@@ -640,8 +653,8 @@ Everything below follows from that one asymmetry.
 
 === Band diagram
 
-The potential $V_"QW" (x)$ that enters @EMA comes from the bands of the two
-materials.
+The potential $V_"QW" (x)$ that enters the effective mass approximation @EMA
+comes from the bands of the two materials.
 Slide 30 superimposes the bandstructures of gallium arsenide and
 $"Al"_(0.3)"Ga"_(0.7)"As"$ near $Gamma$.
 The conduction band minimum of the alloy lies above that of gallium arsenide by
@@ -666,7 +679,7 @@ bandstructure.
 === Schrödinger equation in a quantum well
 
 #exam("L2.14")
-With @v-qw the equation @EMA reads
+With the well potential @v-qw the effective mass approximation @EMA reads
 $
   (- planck^2 / (2 m^*) lapl + V_"QW" (x)) psi_(avec(k)_t) (avec(r))
     = E(avec(k)_t) psi_(avec(k)_t) (avec(r)).
@@ -684,13 +697,13 @@ $ <qw-ansatz>
 in which $avec(k)_t = {k_y, k_z}$ has lost the component $k_x$, there being no
 periodicity along $x$ for a wave vector to label.
 The normalization splits between the two factors, $1 slash sqrt(A)$ handling the
-transverse plane wave and the condition on $phi$ handling $x$, so that
-@normalization holds for the product;
+transverse plane wave and the condition on $phi$ handling $x$,
+so that the product satisfies the normalization condition @norm;
 $phi$ therefore carries #unit($m^(-1 slash 2)$).
 
-Substituting @qw-ansatz into @qw-schroedinger, the transverse Laplacian acts on
-the plane wave and returns $-abs(avec(k)_t)^2$, while the $x$ derivative acts on
-$phi$ alone.
+Substituting the ansatz @qw-ansatz into the well equation @qw-schroedinger,
+the transverse Laplacian acts on the plane wave and returns
+$-abs(avec(k)_t)^2$, while the $x$ derivative acts on $phi$ alone.
 Dividing out the common transverse factor leaves
 $
   (- planck^2 / (2 m^*) (dif^2) / (dif x^2) + V_"QW" (x)) phi(x)
@@ -702,13 +715,14 @@ Calling it $E_n$, the eigenvalues of the one-dimensional problem, the dispersion
 of the well is
 $
   E_n (avec(k)_t) = E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*).
-$ <subband>
+$
 #key[Each $E_n$ is the bottom of a parabolic #term("subband") in the transverse
 plane, free motion along $y$ and $z$ built on a confined state along
 $x$.]#note[
-  The slides write the eigenvalue of @qw-1d as $cal(E)$ and reserve $E$ for the
-  total. Since $cal(E)$ is already the electric field here, and since $E_n$ is
-  exactly $E_n (avec(k)_t)$ at $avec(k)_t = 0$, the script writes $E_n$
+  The slides write the eigenvalue of the one-dimensional problem @qw-1d as
+  $cal(E)$ and reserve $E$ for the total.
+  Since $cal(E)$ is already the electric field here,
+  and since $E_n$ is exactly $E_n (avec(k)_t)$ at $avec(k)_t = 0$, the script writes $E_n$
   throughout, as slide 38 does.
 ]
 A three-dimensional problem has been reduced to a one-dimensional eigenvalue
@@ -717,7 +731,8 @@ problem plus a formula.
 === Infinite barriers
 
 #exam("L2.15", "L2.16")
-@qw-1d has no closed-form solution for the well of @v-qw.
+The one-dimensional problem @qw-1d has no closed-form solution for the square
+well @v-qw.
 It has one in the limit $Delta E_"CB" arrow.r infinity$, and that limit is worth
 solving because it exhibits the quantization with nothing else in the way.
 
@@ -737,9 +752,9 @@ $
 $ <infinite-well>
 the potential being zero throughout the region where the equation is solved.
 
-The general solution of @infinite-well is $phi(x) = a cos(k_x x) + b sin(k_x x)$
-with $E = planck^2 k_x^2 slash 2 m^*$, both signs of $k_x$ giving the same
-energy and so both entering.
+The general solution of the infinite well @infinite-well is
+$phi(x) = a cos(k_x x) + b sin(k_x x)$ with $E = planck^2 k_x^2 slash 2 m^*$,
+both signs of $k_x$ giving the same energy and so both entering.
 The condition $phi(0) = 0$ kills the cosine, $a = 0$.
 The condition $phi(L_"QW") = 0$ then requires $b sin(k_x L_"QW") = 0$, and
 $b = 0$ returns the trivial solution $phi equiv 0$, which is no state at all.
@@ -758,7 +773,8 @@ $
 $ <infinite-well-solution>
 the prefactor of $phi_n$ fixed by $integral dif x thin abs(phi_n)^2 = 1$.
 
-Everything about the spectrum is in @infinite-well-solution.
+Everything about the spectrum is in the infinite-well solution
+@infinite-well-solution.
 #key[It is discrete, which is #term("energy quantization"), and this is the
 quantized bandstructure the previous chapter showed on slide 37 without
 computing.]
@@ -797,15 +813,15 @@ $
   k_x tan((k_x L_"QW") / 2) = m_w^* / m_b^* kappa,
   quad
   - k_x cot((k_x L_"QW") / 2) = m_w^* / m_b^* kappa,
-$ <finite-well-matching>
+$
 the first selecting the states even under $x arrow.r -x$ and the second the odd
 ones, with $m_w^*$ and $m_b^*$ the masses in well and barrier.
 These are transcendental and are solved numerically or graphically.
 
 The number of #term("bound states") is finite.
-A state requires $E < Delta E_"CB"$ for @kappa to describe a decaying solution
-at all, so the ladder of @infinite-well-solution is truncated where it crosses
-the barrier top;
+A state requires $E < Delta E_"CB"$ for the decay constant @kappa to describe a
+decaying solution at all, so the ladder of levels @infinite-well-solution is
+truncated where it crosses the barrier top;
 above that the spectrum is continuous and the states are unbound.
 In one dimension a symmetric well always binds at least one state however
 shallow it is.
@@ -819,12 +835,12 @@ which therefore leaks furthest.
 === Quantum well carrier density
 
 #exam("L2.17")
-Two things change in @carrier-density.
+Two things change in the carrier density @carrier-density.
 The label $avec(k)$ becomes the pair $(avec(k)_t, n)$, a transverse wave vector
 and a subband index, so the sum runs over both.
 And $P$ regains a position dependence that it did not have in bulk, since the
 well is inhomogeneous along $x$:
-from @qw-ansatz,
+from the ansatz @qw-ansatz,
 $
   P_(avec(k)_t, n) (avec(r)) = 1 / A abs(phi_n (x))^2 .
 $
@@ -833,7 +849,7 @@ $
   c_"QW" (x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
       f(E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*)),
-$ <c-qw>
+$
 a function of $x$ alone, constant in the transverse plane.
 #key[Its shape along $x$ is the sum of the $abs(phi_n)^2$ weighted by how
 populated each subband is, so at low temperature and low filling it is
@@ -842,7 +858,7 @@ essentially $abs(phi_1)^2$, peaked at the center of the well.]
 === Quantum well density of states
 
 #exam("L2.17")
-The same substitution in @DOS gives
+The same substitution in the density of states @DOS gives
 $
   g_"QW" (E, x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
@@ -873,8 +889,8 @@ nothing.
 energy, and a quantum well is a stack of them, one per subband, switched on at
 $E_n$.]
 
-Averaging @g-qw over the well removes the $x$ dependence and gives the quantity
-that is plotted,
+Averaged over the well, the quantum well density of states @g-qw loses its $x$
+dependence and gives the quantity that is plotted,
 $
   g_("QW","av") (E)
     = 1 / L_"QW" integral dif x thin g_"QW" (E, x)
@@ -907,8 +923,10 @@ a drift-diffusion model uses the former in a channel thin enough to require the
 latter.
 
 The two are not merely similar in trend. They touch.
-At an energy just above the $n$-th step, @g-qw-av has value $n m^* slash
-(L_"QW" pi planck^2)$, and evaluating @g-bulk at that same energy $E_n$, using
+At an energy just above the $n$-th step, the averaged density of states
+@g-qw-av has value $n m^* slash (L_"QW" pi planck^2)$,
+and evaluating the bulk density of states @g-bulk at that same energy $E_n$,
+using
 $sqrt(E_n) = pi planck n slash (L_"QW" sqrt(2 m^*))$ from
 @infinite-well-solution, gives
 $
@@ -927,23 +945,24 @@ confinement is released, as it must be.
 == Numerical solution
 
 #exam("L2.18")
-Outside the infinite well there is no analytical solution, and @qw-1d has to be
-solved on a computer.
-For a heterostructure the operator is not the one written there.
-The effective mass varies with position, and the kinetic term is the
-#term("BenDaniel–Duke operator")
+Outside the infinite well there is no analytical solution, and the
+one-dimensional problem @qw-1d has to be solved on a computer.
+For a heterostructure its kinetic term $- planck^2 slash 2 m^* thin dif^2 slash
+dif x^2$ is the wrong one, the effective mass varying with position.
+What replaces it is the #term("BenDaniel–Duke operator")
 $
   - planck^2 / 2 dif / (dif x) 1 / (m^* (x)) dif / (dif x),
 $ <BDD>
 with the mass between the derivatives rather than in front of them.
 The ordering is forced.
-#key[Integrating @qw-1d across an interface where $m^*$ jumps, the potential and
+#key[Integrating the one-dimensional problem @qw-1d across an interface where
+$m^*$ jumps, the potential and
 eigenvalue terms contribute nothing in the limit of a vanishing interval, so
 $(1 slash m^*) dif phi slash dif x$ must be continuous there.]
 Writing $(1 slash m^*) dif^2 phi slash dif x^2$ instead would make $dif phi
 slash dif x$ continuous, which is the wrong condition and does not conserve
 probability current across the interface.
-@BDD is also self-adjoint, which
+The BenDaniel–Duke operator @BDD is also self-adjoint, which
 $(1 slash m^*) dif^2 slash dif x^2$ is not, and only a self-adjoint operator has
 the real eigenvalues an energy needs.
 
@@ -965,7 +984,8 @@ lowest states of the resulting spectrum are trustworthy.]
 === Discretized Hamiltonian
 
 #exam("L2.19")
-@BDD is a derivative of a flux, and it is discretized as one.
+The BenDaniel–Duke operator @BDD is a derivative of a flux, and it is
+discretized as one.
 Evaluate the inner derivative on the midpoints between grid points, where the
 mass is $m^*_(i plus.minus 1 slash 2) = (m^*_i + m^*_(i plus.minus 1)) slash 2$,
 and the outer derivative on the grid points themselves:
@@ -982,10 +1002,10 @@ $
     1 / m^*_(i + 1 slash 2) + 1 / m^*_(i - 1 slash 2)
   ) + V_i,
 $ <discrete-hamiltonian>
-so that @qw-general becomes, row by row,
+so that the heterostructure problem @qw-general becomes, row by row,
 $
   H_(i, i-1) phi_(i-1) + H_(i, i) phi_i + H_(i, i+1) phi_(i+1) = E phi_i .
-$ <discrete-row>
+$ <row>
 For a constant mass on a uniform grid this reduces to the familiar form
 $
   H_(i, i plus.minus 1) = - t,
@@ -996,13 +1016,14 @@ in which $t$ is the only parameter, an energy set by the grid
 spacing, and the same $t$ will reappear as the hopping energy of a
 nearest-neighbor tight-binding chain.
 
-@discrete-hamiltonian satisfies $H_(i,i) = V_i - H_(i,i+1) - H_(i,i-1)$, so a
+The Hamiltonian entries @discrete-hamiltonian satisfy
+$H_(i,i) = V_i - H_(i,i+1) - H_(i,i-1)$, so a
 constant $phi$ on a flat potential gives $H phi = V phi$:
 the discrete kinetic operator annihilates constants, as the continuous one does.
 A discretization failing this would assign a kinetic energy to an electron at
 rest.
 
-Assembled, @discrete-row is the eigenvalue problem
+Assembled, the rows @row are the eigenvalue problem
 $
   H phi = E phi.
 $
