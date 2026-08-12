@@ -16,14 +16,13 @@ The rest is bookkeeping of a kind already met in the second chapter, trading
 sums over wave vectors for an integral over energy, performed here on two
 groups of wave vectors that are traded in opposite directions.
 
-Contacts are labeled $alpha in {L, R}$ throughout.
-A superscript names the contact a state was injected from, so that $phi^alpha$
-is the wave function of the open system @OBC and $E_F^alpha$ the Fermi level
+Contacts are labeled $c in {L, R}$ throughout.
+A superscript names the contact a state was injected from, so that $phi^c$
+is the wave function of the open system @OBC and $E_F^c$ the Fermi level
 weighting it,
-and a subscript names the contact a quantity lives in, so that $k_alpha$,
-$v_alpha$ and $m_alpha^*$ belong to the material there.#note[
-  The lectures index the contacts by $c$, which is the carrier density here,
-  and write $E_(F L)$ and $E_(F R)$ for the two Fermi levels.
+and a subscript names the contact a quantity lives in, so that $k_c$,
+$v_c$ and $m_c^*$ belong to the material there.#note[
+  The lectures write $E_(F L)$ and $E_(F R)$ for the two Fermi levels.
 ]
 
 == Non-equilibrium
@@ -37,7 +36,7 @@ Applying the #term("external voltage") $V_"ext"$ to the right contact with the
 left one grounded raises its electric potential, which lowers the energy of an
 electron there, the electron charge being negative:
 $
-  E_F^R = E_F^L - q_0 V_"ext".
+  E_F^R = E_F^L - q V_"ext".
 $ <bias>
 The elementary charge converts a voltage into an energy, and quoting energies in
 #unit($"eV"$) makes the conversion numerically invisible, a bias of
@@ -81,26 +80,26 @@ Two changes carry it over to an open system.
 The states are labeled by the contact they were injected from as well as by
 their wave vector, and each contact brings its own Fermi level,
 $
-  c(avec(r)) = sum_alpha sum_avec(k) P^alpha_avec(k) (avec(r))
-    thin f(E(avec(k)), E_F^alpha).
-$ <c-noneq>
+  n(avec(r)) = sum_c sum_avec(k) P^c_avec(k) (avec(r))
+    thin f(E(avec(k)), E_F^c).
+$ <n-noneq>
 Nothing else is new. The rest of this section evaluates the non-equilibrium
-density @c-noneq for the one-dimensional device of the previous chapter.
+density @n-noneq for the one-dimensional device of the previous chapter.
 
 === Probability density of a scattering state
 
 The device varies along $x$ alone and is homogeneous in the transverse plane, so
 the wave function separates exactly as in a quantum well,
 $
-  Psi^alpha_(k_alpha, avec(k)_t) (avec(r))
-    = 1 / sqrt(L) phi^alpha_(k_alpha) (x)
+  Psi^c_(k_c, avec(k)_t) (avec(r))
+    = 1 / sqrt(L) phi^c_(k_c) (x)
       1 / sqrt(A) e^(i avec(k)_t dot avec(r)_t),
 $
 with $A = L_y L_z$ the transverse area and $avec(k)_t = {k_y, k_z}$ the
 transverse wave vector, and with
 $
-  P^alpha_(k_alpha, avec(k)_t) (avec(r))
-    = 1 / (L A) abs(phi^alpha_(k_alpha) (x))^2.
+  P^c_(k_c, avec(k)_t) (avec(r))
+    = 1 / (L A) abs(phi^c_(k_c) (x))^2.
 $ <obc-prob>
 This is the quantum well ansatz @qw-ansatz with the bound state along $x$
 replaced by a scattering state, and the replacement is what changes the
@@ -112,7 +111,7 @@ $V$ played in the bulk calculation and cancels in the same way.]
 That length is taken to be the length of the device, so that $x = L$ is its
 right end as in the previous chapter.
 
-The label $k_alpha$ is the wave vector the state has in the contact it was
+The label $k_c$ is the wave vector the state has in the contact it was
 injected from, fixed by the energy through the discrete band @discrete-band of
 that contact.
 It is not a quantum number of the device, which has no periodicity, and it
@@ -122,18 +121,18 @@ enters only as a way of parametrizing the injection.
 
 The energy of a state separates into a longitudinal and a transverse part,
 $
-  E(k_alpha, avec(k)_t) = E(k_alpha)
+  E(k_c, avec(k)_t) = E(k_c)
     + (planck^2 abs(avec(k)_t)^2) / (2 m_t^*),
 $ <energy-split>
 the first term being the discrete band @discrete-band and the second the free
 motion in the transverse plane, with $m_t^*$ the effective mass there, taken
 equal along $y$ and $z$.
 Substituting the probability density @obc-prob and the energy split
-@energy-split into the non-equilibrium density @c-noneq,
+@energy-split into the non-equilibrium density @n-noneq,
 $
-  c(x) = 1 / (L A) sum_alpha sum_(k_alpha) sum_(avec(k)_t)
-    abs(phi^alpha_(k_alpha) (x))^2
-    thin f(E(k_alpha) + E(avec(k)_t), E_F^alpha),
+  n(x) = 1 / (L A) sum_c sum_(k_c) sum_(avec(k)_t)
+    abs(phi^c_(k_c) (x))^2
+    thin f(E(k_c) + E(avec(k)_t), E_F^c),
 $
 a function of $x$ alone, the transverse plane being homogeneous.
 
@@ -144,66 +143,66 @@ variable the calculation is organized by, while the transverse sum is performed
 in closed form and disappears into the occupation.]
 Grouping each with the prefactor it belongs to,
 $
-  c(x) = sum_alpha [1 / L sum_(k_alpha) abs(phi^alpha_(k_alpha) (x))^2
-    (1 / A sum_(avec(k)_t) f(E(k_alpha) + E(avec(k)_t), E_F^alpha))].
+  n(x) = sum_c [1 / L sum_(k_c) abs(phi^c_(k_c) (x))^2
+    (1 / A sum_(avec(k)_t) f(E(k_c) + E(avec(k)_t), E_F^c))].
 $
 The inner bracket is treated first because it depends on $avec(k)_t$ alone and
-its value is a function of $E(k_alpha)$.
+its value is a function of $E(k_c)$.
 
 === Density of states of a contact
 
 Converting the longitudinal sum in one dimension,
 $
-  1 / L sum_(k_alpha) arrow.r 1 / (2 pi) integral dif k_alpha,
+  1 / L sum_(k_c) arrow.r 1 / (2 pi) integral dif k_c,
 $ <sum-to-integral-1d>
 which is the conversion @sum-to-integral in one dimension and carries no spin
 factor, spin
 being accounted for once in the transverse sum below.
-Changing the variable of integration from $k_alpha$ to the energy
-$E' = E(k_alpha)$ of the contact band,
+Changing the variable of integration from $k_c$ to the energy
+$E' = E(k_c)$ of the contact band,
 $
-  abs((dif E(k_alpha)) / (dif k_alpha)) dif k_alpha = dif E',
+  abs((dif E(k_c)) / (dif k_c)) dif k_c = dif E',
 $
 and reading off the bracket multiplying the occupation gives the
-#term("density of states") of contact $alpha$,
+#term("density of states") of contact $c$,
 $
-  g^alpha (E, x) = 1 / (2 pi) abs(phi^alpha_E (x))^2
-    abs((dif E(k_alpha)) / (dif k_alpha))^(-1)_(E(k_alpha) = E),
+  g^c (E, x) = 1 / (2 pi) abs(phi^c_E (x))^2
+    abs((dif E(k_c)) / (dif k_c))^(-1)_(E(k_c) = E),
 $ <g-obc>
 carrying #unit($J^(-1) m^(-1)$), states per unit energy per unit length.
 The Jacobian is evaluated at the wave vector the injected state has at energy
-$E$, and $phi^alpha_E$ is the solution of the open system @OBC at that energy.
+$E$, and $phi^c_E$ is the solution of the open system @OBC at that energy.
 
 The Jacobian is a velocity.
 The #term("band velocity") of the first chapter, $v = planck^(-1) dif E slash
 dif k$, is exactly what the derivative produces, so
 $
-  g^alpha (E, x) = abs(phi^alpha_E (x))^2 / (2 pi planck abs(v_alpha (E))),
+  g^c (E, x) = abs(phi^c_E (x))^2 / (2 pi planck abs(v_c (E))),
   quad
-  v_alpha (E) = 1 / planck (dif E(k_alpha)) / (dif k_alpha).
+  v_c (E) = 1 / planck (dif E(k_c)) / (dif k_c).
 $ <g-velocity>
 #key[States that move slowly are weighted heavily, since a flat band puts many
 wave vectors into a given energy window, and the divergence of the density of
-states @g-velocity at a band edge, where $v_alpha$ vanishes,
+states @g-velocity at a band edge, where $v_c$ vanishes,
 is the one-dimensional density of states
 growing as $1 slash sqrt(E)$ where the bulk one of @g-bulk grew as $sqrt(E)$.]
-Evaluating $v_alpha$ from the discrete band @discrete-band,
+Evaluating $v_c$ from the discrete band @discrete-band,
 $
-  planck v_alpha (E) = 2 t_alpha Delta x sin(k_alpha Delta x),
+  planck v_c (E) = 2 t_c Delta x sin(k_c Delta x),
 $
 which vanishes at both ends of the discrete band and is largest at its middle.
 The same quantity has already been met: the imaginary part of the boundary
-self-energy of the previous chapter is $- t_alpha sin(k_alpha Delta x)$, so it
-is $- planck v_alpha slash 2 Delta x$, and the rate at which a contact absorbs
+self-energy of the previous chapter is $- t_c sin(k_c Delta x)$, so it
+is $- planck v_c slash 2 Delta x$, and the rate at which a contact absorbs
 probability is the speed at which it carries it away.
 
-The sum over $k_alpha$ runs over one branch of the contact band and not over
+The sum over $k_c$ runs over one branch of the contact band and not over
 the whole Brillouin zone.
 Only states travelling toward the device are injected, and those are the ones
-with velocity of one sign, so the map $k_alpha arrow.bar E$ is one-to-one on
+with velocity of one sign, so the map $k_c arrow.bar E$ is one-to-one on
 that branch and the energy integral covers the band exactly once.
 The states with the opposite velocity are the outgoing ones, and they are
-already contained in $phi^alpha$ through its reflected part.
+already contained in $phi^c$ through its reflected part.
 
 #key[The density of states defined here is not the one defined in the second
 chapter, the transverse wave vectors having been left out of it.]
@@ -258,13 +257,13 @@ never enter a numerical calculation at all.
 Collecting the two results, the carrier density of a one-dimensional device
 between two contacts is
 $
-  c(x) = integral dif E thin (
+  n(x) = integral dif E thin (
     g^L (E, x) thin F(E, E_F^L) + g^R (E, x) thin F(E, E_F^R)
   ).
-$ <c-obc>
+$ <n-obc>
 #key[Each contact contributes its own density of states weighted by its own
 occupation, and the two contributions are added only after that weighting.]
-This is the energy integral @c-from-g with one term per contact and with the
+This is the energy integral @n-from-g with one term per contact and with the
 Fermi function replaced
 by the Fermi integral, the replacement being the price of having summed the
 transverse dimensions away.
@@ -301,7 +300,7 @@ would put none.]
 
 === Energy range
 
-The carrier density @c-obc is an integral over energy and is evaluated on a
+The carrier density @n-obc is an integral over energy and is evaluated on a
 grid, one solution of the open system @OBC per point, so the range has to be
 bounded at both ends.
 #key[The lower limit is the lower of the two contact band edges, below which
@@ -319,11 +318,11 @@ contributes nothing.
 Neither limit has anything to do with the height of the barrier in the middle,
 which decides how much of the range carries current but not which states exist.
 The grid between them is uniform and has to be fine enough to resolve the
-features of $g^alpha$, the resonances being the narrowest thing in it.
+features of $g^c$, the resonances being the narrowest thing in it.
 
 === Carrier density under bias
 
-Slide 17 shows the carrier density @c-obc evaluated for the barrier structure at
+Slide 17 shows the carrier density @n-obc evaluated for the barrier structure at
 three biases,
 beside the band diagram it was computed from.
 At zero bias the density is symmetric, as the structure is.
@@ -416,7 +415,7 @@ The current is then charge times velocity.
 For the left-injected flux, at $x = L$,
 $
   I_(L R) (E, E(avec(k)_t))
-    = - q_0 thin c^L (E, E(avec(k)_t), x = L) thin abs(v_R (E)),
+    = - q thin n^L (E, E(avec(k)_t), x = L) thin abs(v_R (E)),
 $ <i-charge-velocity>
 the carrier density that the left contact has put into the first point of the
 right reservoir, times the speed at which the right reservoir removes it, times
@@ -430,7 +429,7 @@ The carrier density in the flux @i-charge-velocity is the probability density
 @obc-prob evaluated at one point and weighted by one occupation, without any
 sum,
 $
-  c^L (E, E(avec(k)_t), x = L)
+  n^L (E, E(avec(k)_t), x = L)
     = 1 / (L A) abs(phi^L_E (L))^2 thin f(E + E(avec(k)_t), E_F^L),
 $
 and the wave function there is known from the contact ansatz @contact-ansatz.
@@ -439,15 +438,15 @@ with nothing incoming, so
 $
   phi^L_E (L) = b_R^L (E),
 $
-writing $b_beta^alpha$ for the amplitude in contact $beta$ of the state injected
-from contact $alpha$.#note[
+writing $b_(c')^c$ for the amplitude in contact $c'$ of the state injected
+from contact $c$.#note[
   The lectures write $b_(R L)$ for $b_R^L$ and $b_(L R)$ for $b_L^R$, ordering
   the two indices the other way round from the transmission $T_(L R)$ below.
 ]
 The infinitesimal current is therefore
 $
   I_(L R) (E, E(avec(k)_t))
-    = - q_0 / (L A) abs(b_R^L (E))^2 / abs(a_L)^2
+    = - q / (L A) abs(b_R^L (E))^2 / abs(a_L)^2
       abs(v_R (E)) thin f(E + E(avec(k)_t), E_F^L),
 $
 divided through by the injection amplitude $abs(a_L)^2$.
@@ -467,7 +466,7 @@ $
 so that the velocity of the injecting contact appears in a denominator.
 What comes out is
 $
-  I_(L R) = - q_0 / planck integral (dif E) / (2 pi)
+  I_(L R) = - q / planck integral (dif E) / (2 pi)
     thin T_(L R) (E) thin F(E, E_F^L),
 $ <i-lr>
 with the #term("transmission probability")
@@ -490,7 +489,7 @@ which is why the factor could be omitted there.
 The current from the right is the same construction mirrored, evaluated just
 inside the left contact,
 $
-  I_(R L) = - q_0 / planck integral (dif E) / (2 pi)
+  I_(R L) = - q / planck integral (dif E) / (2 pi)
     thin T_(R L) (E) thin F(E, E_F^R),
   quad
   T_(R L) (E) = abs(b_L^R (E))^2 / abs(a_R)^2
@@ -520,7 +519,7 @@ computed from the same $V(x)$.
 Putting the two fluxes @i-lr and @i-rl into the total current @i-tot and using
 the symmetry @T-symmetry gives one equation for the current,
 $
-  I_"tot" = - q_0 / planck integral (dif E) / (2 pi)
+  I_"tot" = - q / planck integral (dif E) / (2 pi)
     thin T(E) thin (F(E, E_F^L) - F(E, E_F^R)).
 $ <LB>
 #key[The current is an integral over energy of a transmission times the
@@ -530,7 +529,7 @@ difference.]
 This is the #term("Landauer-Büttiker formula").#note[
   Luisier said what he expects on this equation: an integral over energy, a
   transmission function, and the difference of the two Fermi integrals. He said
-  the prefactor $- q_0 slash planck$ and the $2 pi$ are not part of the answer.
+  the prefactor $- q slash planck$ and the $2 pi$ are not part of the answer.
 ]
 The formula as it is usually written carries the Fermi functions of the two
 contacts rather than the Fermi integrals;
@@ -580,9 +579,9 @@ interface conditions used since the second chapter.
 #key[The Schrödinger equation conserves probability, in the sense that the
 probability density and a probability current satisfy a continuity equation,]
 $
-  partial / (partial t) rho(avec(r), t) + nabla dot avec(j)(avec(r), t) = 0,
+  partial / (partial t) P(avec(r), t) + nabla dot avec(j)(avec(r), t) = 0,
   quad
-  rho = abs(psi)^2,
+  P = abs(psi)^2,
 $
 with the #term("probability current")
 $
@@ -618,14 +617,14 @@ derived rather than asserted.
 
 The wave function formalism is complete.
 The open system @OBC is solved once per energy, its solutions give the carrier
-density through @c-obc and the current through the Landauer-Büttiker formula
+density through @n-obc and the current through the Landauer-Büttiker formula
 @LB, and both are computed from a tridiagonal linear system with two right-hand
 sides.
 
 One thing has been assumed throughout and never computed.
 The potential $V(x)$ entering $H$ was taken as given, flat in the contacts and
 sloping across the device, and it is in fact produced by the charges that the
-carrier density @c-obc returns.
+carrier density @n-obc returns.
 The next chapter closes that loop with Poisson's equation, which turns the
 calculation into a self-consistent one and supplies the band diagrams this
 chapter read off the slides.

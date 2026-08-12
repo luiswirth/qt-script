@@ -146,26 +146,26 @@ and the comparison decides whether the model applies at all.]
 
 === Drift-diffusion and mobility
 
-At the classical level the unknowns are the carrier densities $c_s$
+At the classical level the unknowns are the carrier densities $n_s$
 #unit($m^(-3)$), the species $s in {n, p}$ being electrons and holes,
+written $n$ and $p$ where one species is meant,
 and the current density is
 $
-  avec(J)_s = q_s mu_s c_s avec(cal(E)) - q_s D_s nabla c_s.
+  avec(J)_s = q_s mu_s n_s avec(cal(E)) - q_s D_s nabla n_s.
 $ <DD>
 The quantities appearing here are the #term("current density")
 $avec(J)$, charge crossing unit area per unit time;
 the charge of the species $q_s$,
-$q_n = -q_0$ and $q_p = +q_0$ for the elementary charge
-$q_0 = #qty($1.602 dot 10^(-19)$, $C$)$;
+$q_n = -q$ and $q_p = +q$ for the elementary charge
+$q = #qty($1.602 dot 10^(-19)$, $C$)$;
 the electric field $avec(cal(E))$;
 the #term("mobility") $mu_s$ #unit($m^2 slash (V thin s)$), defined below;
 and the #term("diffusion coefficient") $D_s$ #unit($m^2 slash s$),
 which relates a particle flux to the density gradient driving it,
 no charge entering it.
 The charge is signed, and every quantity derived from it carries that sign.#note[
-  The lectures and the experimental literature leave it unsigned, write $q$ for
-  $q_0$ and carry the magnitudes $abs(mu_s)$, the sign sitting in the species
-  label, write $n$ and $p$ for $c_n$ and $c_p$,
+  The lectures and the experimental literature leave it unsigned and carry the
+  magnitudes $abs(mu_s)$, the sign sitting in the species label,
   and split the drift-diffusion current @DD into one equation per species.
 ]
 
@@ -423,7 +423,7 @@ that is, through Poisson's equation.
   align: (left, left, left, left, left),
   table.header([*model*], [*unknown*], [*applies when*], [*resolves*], [*cost*]),
   [drift-diffusion],
-  [$c_n$, $c_p$],
+  [$n$, $p$],
   [$L >> lambda_"mfp"$],
   [scattering on average],
   [low],

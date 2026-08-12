@@ -33,13 +33,13 @@ $
 in which $Psi = Psi(avec(r)_1, avec(r)_2, ..., avec(r)_N)$ is a single function
 of the coordinates of all $N$ electrons simultaneously,
 and $E$ is the total energy of the system.
-For a crystal of $N$ electrons and $M$ ions, the ion $j$ carrying charge $Z_j q_0$
+For a crystal of $N$ electrons and $M$ ions, the ion $j$ carrying charge $Z_j q$
 at the fixed position $avec(R)_j$, the Hamiltonian is
 $
   hat(H) = sum_(i=1)^N (
     - planck^2 / (2 m_0) lapl_i
-    - sum_(j=1)^M (Z_j q_0^2) / (4 pi epsilon_0 abs(avec(r)_i - avec(R)_j))
-    + sum_(j > i) q_0^2 / (4 pi epsilon_0 abs(avec(r)_i - avec(r)_j))
+    - sum_(j=1)^M (Z_j q^2) / (4 pi epsilon_0 abs(avec(r)_i - avec(R)_j))
+    + sum_(j > i) q^2 / (4 pi epsilon_0 abs(avec(r)_i - avec(r)_j))
   ).
 $ <MBSE>
 The three terms are the kinetic energy of the electrons,
@@ -51,7 +51,7 @@ and the electron-electron repulsion, which is positive and counts each pair once
 through the restriction $j > i$.
 Here $epsilon_0 = #qty($8.854 dot 10^(-12)$, $F slash m$)$ is the vacuum
 permittivity.#note[
-  The slides write the Coulomb terms in Gaussian units, as $Z_j q_0^2 slash
+  The slides write the Coulomb terms in Gaussian units, as $Z_j q^2 slash
   abs(avec(r)_i - avec(R)_j)$ without the $4 pi epsilon_0$.
 ]
 The ions are taken to sit at fixed positions, which already discards their
@@ -330,16 +330,16 @@ Even this fails at the margin, gallium nitride having a gap near
 
 #exam("L2.8")
 The two ingredients now combine.
-#key[The #term("carrier density") $c(avec(r))$ #unit($m^(-3)$) counts electrons
+#key[The #term("carrier density") $n(avec(r))$ #unit($m^(-3)$) counts electrons
 per unit volume at $avec(r)$, each state contributing the probability density of
 finding its electron there weighted by the probability that the state is
 occupied.]
 Summing over the states,
 $
-  c(avec(r)) = sum_(avec(k) in "BZ") P_avec(k) (avec(r)) thin f(E(avec(k))).
+  n(avec(r)) = sum_(avec(k) in "BZ") P_avec(k) (avec(r)) thin f(E(avec(k))).
 $ <carrier-density>
-It counts carriers, the charge density proper being $q_s c$
-#unit($C slash m^3$).#note[The lectures call $c$ itself the charge density.]
+It counts carriers, the charge density proper being $-q n$
+#unit($C slash m^3$).
 Neither factor alone would do.
 Dropping $f$ would count every state as full, dropping $P_avec(k)$ would give a
 number of electrons and not a density.
@@ -355,7 +355,7 @@ $avec(k)$ is an inconvenient variable to work in.
 It can be traded for energy at no cost. Insert a delta function and an integral
 that undoes it,
 $
-  c(avec(r))
+  n(avec(r))
     &= integral dif E sum_avec(k) P_avec(k) (avec(r)) thin
        delta(E - E(avec(k))) thin f(E(avec(k))) \
     &= integral dif E underbrace(
@@ -377,11 +377,11 @@ performed once, in the definition of $g$, rather than every time a carrier
 density is wanted.]
 The carrier density is then
 $
-  c(avec(r)) = integral dif E thin g(E, avec(r)) f(E).
-$ <c-from-g>
+  n(avec(r)) = integral dif E thin g(E, avec(r)) f(E).
+$ <n-from-g>
 
 #exam("L2.10")
-#key[The two factors of the energy integral @c-from-g separate cleanly,
+#key[The two factors of the energy integral @n-from-g separate cleanly,
 the density of states being a property of the structure alone
 and the distribution a property of the reservoir the structure is in equilibrium
 with.]
@@ -396,7 +396,7 @@ electrons per unit energy per unit volume,#note[
   Slide 17 pictures the crystal as a hotel, $g$ counting the rooms on floor $E$
   and $f$ saying whether they are taken.
 ]
-and it is what the energy integral of @c-from-g accumulates into a carrier
+and it is what the energy integral of @n-from-g accumulates into a carrier
 density.
 The same product resolved in energy, rather than integrated, is what a transport
 calculation needs, since current is carried by electrons in a particular range
@@ -581,7 +581,7 @@ $
 $
 independent of position, and the carrier density @carrier-density collapses to
 $
-  c_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
+  n_"bulk" = 1 / V sum_avec(k) f(E(avec(k))).
 $
 The position dependence is gone.
 #key[This is forced rather than fortunate: the structure was assumed
@@ -846,7 +846,7 @@ $
 $
 The carrier density is therefore
 $
-  c_"QW" (x)
+  n_"QW" (x)
     = 1 / A sum_n sum_(avec(k)_t) abs(phi_n (x))^2
       f(E_n + (planck^2 abs(avec(k)_t)^2) / (2 m^*)),
 $
