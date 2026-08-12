@@ -47,6 +47,8 @@ The agenda slides are revealed progressively and repeat, a third of some decks,
 and carry nothing after the first.
 They are the ones matching `Summary of today`.
 A page carrying no text at all is a figure slide and has to be looked at.
+A page carrying its title alone was developed on the board, and the captions are
+its only record.
 
 Note that a range is the only thing the reader accepts, never a list of pages,
 so a deck with the boilerplate cut out is read in several goes.
@@ -94,7 +96,9 @@ holds the raw WebVTT in its history.
   the margin and leaves queryable metadata, so what a question is answered by
   can be collected without parsing the source. The mark sits on the narrowest
   passage that carries the whole answer, never on a section that merely contains
-  one. The script holds no answer written as one, since it is the material the
+  one. Its id names the question and not the chapter, so a question listed under
+  a later lecture is marked where the derivation it asks for is actually made.
+  The script holds no answer written as one, since it is the material the
   answers are practiced from.
 - A `#key` is a single sentence, and a section carries one, two where it states
   two things, and none where it states none. Where no sentence carries the whole
