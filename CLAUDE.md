@@ -3,7 +3,7 @@
 A Typst script for the ETH course 227-0159-00, written from the lecture slides
 and recording captions, which sit in the parent directory and are not part of
 this repository. `../CLAUDE.md` carries the course and exam facts, and
-`prompt.md` the brief this script is written to.
+`prompt.md` the brief this script is written to, read before writing a chapter.
 
 ## Layout
 
