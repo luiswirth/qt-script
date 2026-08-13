@@ -244,16 +244,30 @@ replaced by the permittivity.
 There the operator was $nabla (1 slash m^*) nabla$, so that
 $(1 slash m^*) dif psi slash dif x$ was continuous across an interface and the
 probability current was conserved.
-Both cases discretize the divergence of a flux instead of a plain second
-derivative.
 
-To get the entries of $M$, integrate @Poisson over the cell around a grid point.
-The left hand side then becomes the difference of the displacement at the two
-faces of the cell.
+To get the entries of $M$ we need a region to integrate over.
+Both the charge and the potential live on the grid points, so the conservation
+statement has to be made about a region surrounding one.
+That region is the #term("cell") of the point, reaching to the midpoints on
+either side, and those midpoints are its two #term("faces").
+The potential is a value at a point, the displacement
+$D = - epsilon dif Phi slash dif x$ a difference across a face, and the charge
+a content of a cell.
+In the language of exterior calculus the first two are a 0-cochain and a
+1-cochain, and the divergence is taken on the dual mesh the cells form.
+
 Write $Delta x_(-) = x_i - x_(i-1)$ and $Delta x_(+) = x_(i+1) - x_i$ for the
 two spacings, and take the permittivity at a face as the average of its two
-neighbors.
-The result is
+neighbors, $epsilon_(i plus.minus 1 slash 2) = (epsilon_i + epsilon_(i plus.minus 1)) slash 2$.
+Integrating @Poisson over the cell of $x_i$ gives the displacement through its
+two faces against the charge it encloses,
+$
+  epsilon_(i + 1 slash 2) (Phi_(i+1) - Phi_i) / (Delta x_(+))
+  - epsilon_(i - 1 slash 2) (Phi_i - Phi_(i-1)) / (Delta x_(-))
+  = - rho_i (Delta x_(-) + Delta x_(+)) / 2 .
+$
+Dividing by the width of the cell leaves $rho_i$ alone on the right, and the two
+factors of two cancel,
 $
   M_(i, i-1) = (epsilon_i + epsilon_(i-1)) /
     (Delta x_(-) (Delta x_(-) + Delta x_(+))),
@@ -264,8 +278,16 @@ $
 together with $M_(i i) = - M_(i, i-1) - M_(i, i+1)$.
 Each row sums to zero, because a constant potential produces no charge.
 
-The first and last row use the same stencil, but with the flux through the outer
-face left out.
+#key[That division by the cell width is what makes this stencil differ from the
+Hamiltonian's @discrete-hamiltonian, which is otherwise the same operator with
+the permittivity in place of $planck^2 slash 2 m^*$.]
+It costs the symmetry of the matrix on a nonuniform grid.
+That is free here, where $M$ is only inverted, and would not be for $H$, whose
+eigenvalues are energies and which has to stay Hermitian, which is why the
+Hamiltonian was written on a uniform grid.
+
+The first and last row use the same stencil, but with the displacement through
+the outer face left out.
 That is exactly what $B_0 = B_L = 0$ means.
 For the first row,
 $
