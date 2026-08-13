@@ -288,8 +288,8 @@ the count increases with energy;
 each arc marks the place where one more maximum has appeared.
 The structure is symmetric at zero bias and so is the picture.
 
-Above the top of the barrier the same slide carries weight in a region no
-contact can inject into directly.
+Below the band edge of the left contact the same slide carries weight in a
+region no contact can inject into directly.
 The band edge of a contact is the bottom of its discrete band and nothing is
 injected below it, yet the well formed between the barrier and the sloping
 band edge holds states, and those states are reached by tunneling from the far
