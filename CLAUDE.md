@@ -107,12 +107,7 @@ holds the raw WebVTT in its history.
 - A remark about the sources rather than about the subject is a `#note`, which
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
-
-### Voice
-
-The reader meets the material here for the first time, and no sentence may
-require decoding.
-The script speaks as we, never as you.
+- The script speaks as we, never as you.
 
 ### Deviations from the lectures
 
