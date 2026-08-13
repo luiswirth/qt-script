@@ -100,13 +100,22 @@ holds the raw WebVTT in its history.
   a later lecture is marked where the derivation it asks for is actually made.
   The script holds no answer written as one, since it is the material the
   answers are practiced from.
-- A `#key` is a single sentence, and a section carries one, two where it states
-  two things, and none where it states none. Where no sentence carries the whole
-  statement, the prose is restructured until one does, never marked as a clause.
+- A `#key` marks the statement a section exists for, and takes as many sentences
+  as that statement needs. A section carries one, two where it states two
+  things, and none where it states none. Never compress several ideas into one
+  sentence to fit a mark.
 - A remark about the sources rather than about the subject is a `#note`, which
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
   A lecture reaches `ai-approved` only once it has been read against the slides.
+
+### Voice
+
+The reader meets the material here for the first time, and no sentence may
+require decoding.
+A thing is defined before it is used.
+Each sentence states one fact, and the object it is about is its subject.
+The script speaks as we, never as you.
 
 ### Deviations from the lectures
 
