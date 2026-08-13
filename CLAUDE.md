@@ -107,7 +107,6 @@ holds the raw WebVTT in its history.
 - A remark about the sources rather than about the subject is a `#note`, which
   sets it as a footnote, and prose that would carry it is deleted instead.
 - Provenance is marked per the global guidelines.
-  A lecture reaches `ai-approved` only once it has been read against the slides.
 
 ### Voice
 
