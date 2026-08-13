@@ -112,8 +112,6 @@ holds the raw WebVTT in its history.
 
 The reader meets the material here for the first time, and no sentence may
 require decoding.
-A thing is defined before it is used.
-Each sentence states one fact, and the object it is about is its subject.
 The script speaks as we, never as you.
 
 ### Deviations from the lectures
