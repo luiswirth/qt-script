@@ -318,8 +318,11 @@ Take a potential, compute $rho$ from it, then compute $Phi = - M^(-1) rho$ from
 that charge, and repeat.
 This does not converge.
 The problem is that the new charge is computed for the old potential.
-The charge reacts to the potential, and that reaction is exactly what screening
-is.
+Mobile charge does not sit still under a potential.
+Raising the potential at a point attracts electrons to it, and the negative
+charge they bring opposes the rise that attracted them.
+That is #term("screening"), and it is the statement that
+$partial rho slash partial Phi$ is negative.
 Ignoring it makes each step overshoot.
 
 We can estimate how badly.
