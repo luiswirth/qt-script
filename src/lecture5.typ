@@ -283,6 +283,13 @@ We cannot solve the linear system @discrete-poisson directly.
 The potential goes into the Hamiltonian, and the solutions of that Hamiltonian
 give us the carrier density @n-obc.
 So Poisson's equation in a device is nonlinear.]
+The operator $M$ is linear, and so is the step from the carrier density to the
+charge.
+The nonlinearity enters where the states are occupied.
+The Fermi integral @FI is exponential in the energies of the spectrum, and the
+potential shifts them.
+An equation whose derivative terms are linear and whose nonlinearity sits in the
+source is called #term("semilinear").
 
 The obvious approach is to iterate.
 Take a potential, compute $rho$ from it, then compute $Phi = - M^(-1) rho$ from
