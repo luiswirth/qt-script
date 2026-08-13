@@ -84,7 +84,7 @@ and $epsilon_r$ is its relative value, which is about $10$ in a semiconductor.
 
 Now put the first equation into the second one and the field drops out.
 #key[What is left is #term("Poisson's equation"), which gives us the
-#term("electrostatic potential") that a charge density produces,]
+#term("electrostatic potential") $Phi$ that a charge density $rho$ produces,]
 $
   nabla dot (epsilon(avec(r)) nabla Phi(avec(r))) = - rho(avec(r)).
 $ <Poisson>
@@ -195,8 +195,8 @@ zero across the whole contact region, so its derivative is zero there too.
 Therefore $rho = 0$ in the contact region.
 #key[Fixing the derivative of the potential to zero at the boundary makes the
 contact region neutral.
-The electron density there goes to the donor concentration, and the hole
-density to the acceptor concentration.]
+The electron density there goes to the donor concentration and the hole density
+to the acceptor concentration, $n = N_D$ and $p = N_A$.]
 
 We never tell the solver what the carrier density should be.
 Here is how it happens instead.
@@ -326,7 +326,7 @@ $partial rho slash partial Phi$ is negative.
 Ignoring it makes each step overshoot.
 
 We can estimate how badly.
-Take a potential variation with wavelength $lambda$.
+Take a potential variation $delta Phi$ with wavelength $lambda$.
 It contributes a term of size $epsilon (2 pi slash lambda)^2$ to $M$, and the
 reaction of the charge contributes $partial rho slash partial Phi$.
 The ratio of the two is $(lambda slash 2 pi lambda_D)^2$, where $lambda_D$ is
@@ -449,8 +449,8 @@ So we alternate between them:
   A better guess saves iterations but changes no result.
 + Place the Fermi levels.
   Each contact is neutral and in equilibrium.
-  So its Fermi level is the one at which the equilibrium density @n-from-g
-  equals the local doping.
+  So its Fermi level $E_F^c$ is the one at which the equilibrium density
+  @n-from-g equals the local doping.
   The applied bias then splits the two Fermi levels by @bias.
 + Build $V(x)$ from @potential-energy and solve the open system @OBC at every
   energy of the grid.
@@ -473,8 +473,8 @@ This is the cheapest way to cut down the number of Schrödinger solves.]
 Slide 15 shows a converged solution.
 The structure is the barrier of the previous two chapters, doped on both sides
 and undoped in the middle, at one applied bias.
-There are four plots: the carrier density, the charge density, the field and the
-potential.
+There are four plots: the carrier density $n$, the charge density $rho$, the
+field $cal(E)$ and the potential $Phi$.
 
 They show the chain of this part on a real example.
 The electron density equals the donor concentration at both ends.
@@ -748,8 +748,10 @@ $
 Everything that belongs to the contacts now sits inside the bracket, and
 everything that belongs to the device sits outside it.
 The bracket gets a name of its own.
-#key[The #term("lesser self-energy") describes what the contacts inject.
-The #term("lesser Green's function") describes what the device does with it,]
+#key[The #term("lesser self-energy") $Sigma^(<)$ describes what the contacts
+inject.
+The #term("lesser Green's function") $G^(<)$ describes what the device does with
+it,]
 $
   Sigma^(<) (E) = i sum_c S^c S^(c dagger)
     abs((dif E) / (dif k_c))^(-1) F(E, E_F^c) Delta x,
@@ -918,8 +920,8 @@ $
   i (G^R - G^A) = G^R Gamma G^A,
 $
 and the diagonal of this, divided by $2 pi Delta x$, is $sum_c g^c$.
-The left hand side is called the #term("spectral function"), and it is the local
-density of states of the open device.
+The left hand side is called the #term("spectral function") $A$, and it is the
+local density of states of the open device.
 It does not mention the contacts at all.
 The right hand side splits the same quantity into contributions of the
 contacts.
@@ -968,7 +970,7 @@ The next chapter gets that price back.
 The formalism is not finished yet.
 The electron density has a Green's function expression, but the current does
 not, since the transmission is still computed from wave function amplitudes.
-The hole density needs its own object, a counterpart of $G^(<)$ that counts
+The hole density $p$ needs its own object, a counterpart of $G^(<)$ that counts
 empty states instead of occupied ones.
 The next chapter supplies both, collects the identities that relate all the
 Green's functions to each other, and replaces the full inversion by a recursion
