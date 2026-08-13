@@ -727,10 +727,13 @@ The off-diagonal entries $phi_i phi_j^*$ are not needed for a density.
 We keep them anyway, and they are what the correlation reading of a Green's
 function refers to.
 
-Two things in @wf-square still do not belong to the new formalism.
-One is the injection vector $S$, which is a wave function quantity.
-The other is the band derivative $dif E slash dif k_c$, which the density of
-states @g-obc needs.
+Two things still do not belong to the new formalism, and they sit at different
+places.
+One is the injection vector $S$ in @wf-square itself, which is a wave function
+quantity.
+The other is the band derivative $dif E slash dif k_c$, which enters only when
+@wf-square is put into the density of states @g-obc, as the Jacobian of the
+change of variable from $k_c$ to $E$.
 The rest of this chapter gets rid of both.
 
 === Lesser Green's function and lesser self-energy
