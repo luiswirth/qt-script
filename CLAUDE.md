@@ -5,6 +5,11 @@ and recording captions, which sit in the parent directory and are not part of
 this repository. `../CLAUDE.md` carries the course and exam facts, and
 `prompt.md` the brief this script is written to, read before writing a chapter.
 
+The script is a reference for grounding explanations, not a study text.
+It is written from the sources ahead of a session and read back during one.
+The studying happens in conversation, and the framings that come out of it go
+to `atlas` rather than here.
+
 ## Layout
 
 - `src/main.typ`:
