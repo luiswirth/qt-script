@@ -114,16 +114,20 @@ holds the raw WebVTT in its history.
 - Provenance is marked per the global guidelines.
 - The script speaks as we, never as you.
 
-### Deviations from the lectures
+### Fidelity to the lectures
 
-Where the lectures' notation is inconsistent or forces a special case, the
-script replaces it rather than inherits it, and marks the replacement at its
-defining occurrence with a `#note` naming the lectures' form, since the exam is
-answered in their vocabulary. Listed here are only the deviations that change
-how something is stated, never a symbol chosen differently.
+The script states what the lectures state, in the form they state it in, since
+it exists to be depended on in place of them and the exam is answered in their
+vocabulary. A cleaner formulation of something the course does otherwise is not
+an improvement here, and belongs in `atlas` instead.
 
-- The carrier charge is signed, and every quantity derived from it carries that
-  sign, the mobility included. The lectures leave it unsigned and carry
-  magnitudes, which is what forces them to split drift-diffusion into one
-  equation per species where the script keeps a single one with the species as
-  a parameter.
+The exceptions are the two places where mirroring is impossible, and each is
+marked at its defining occurrence with a `#note` naming the lectures' form:
+
+- A letter the course overloads, which is resolved by giving each meaning its
+  own symbol, as under Conventions above.
+- A point where the lectures contradict themselves, or where slides and
+  captions disagree. The script picks one reading and records the other.
+
+Structure, wording and the marks are the script's own throughout. What must
+match is the content.
