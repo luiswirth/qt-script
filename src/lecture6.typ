@@ -148,8 +148,8 @@ $dif E slash dif k_c$ appears in either of them.
 
 Slides 11 and 12 show the two densities in an In#sub[0.53]Ga#sub[0.47]As p-n
 junction, computed with both Green's functions, with
-$N_A = 8 dot 10^19 thin #unit($"cm"^(-3)$)$ on the left and
-$N_D = 4 dot 10^19 thin #unit($"cm"^(-3)$)$ on the right.
+$N_A = #qty($8 dot 10^19$, $"cm"^(-3)$)$ on the left and
+$N_D = #qty($4 dot 10^19$, $"cm"^(-3)$)$ on the right.
 It is the analytical picture of the fifth chapter with the quantum calculation
 put next to it.
 
@@ -171,7 +171,7 @@ charge, and less again in the potential.]
 The calculated field is close to the triangle of the analytical model, which is
 what justifies using the simple model for the electrostatics of a diode.
 The potential rises by the built-in potential, here about
-$1.1 thin #unit("V")$, with no bias applied.
+#qty(1.1, $V$), with no bias applied.
 
 === Single-band model of a p-n junction
 
@@ -231,10 +231,10 @@ stands.
 What we still compute from wave functions is its transmission, defined in the
 fourth chapter as the ratio of transmitted to injected flux,
 $
-  T_(L R) (E) = abs(b_(R L) (E))^2 / abs(a_L)^2 thin
-    abs(v^R (E)) / abs(v^L (E)),
+  T_(L R) (E) = abs(b_R^L (E))^2 / abs(a_L)^2 thin
+    abs(v_R (E)) / abs(v_L (E)),
 $
-with $a_L$ the amplitude injected from the left, $b_(R L)$ the amplitude leaving
+with $a_L$ the amplitude injected from the left, $b_R^L$ the amplitude leaving
 into the right contact, and the two velocities those of the contact bands.
 We set $a_L = 1$.
 
@@ -242,7 +242,7 @@ The transmitted amplitude is a value of the wave function.
 #key[An electron injected from the left and observed at the far end of the
 device is what has been transmitted,]
 $
-  abs(b_(R L) (E))^2 = abs(phi^L_N (E))^2,
+  abs(b_R^L (E))^2 = abs(phi^L_N (E))^2,
 $
 where $phi^L$ is the wave function injected from the left contact and $N$ is the
 last grid point.#note[
@@ -266,7 +266,7 @@ That entry is the propagator from one end of the device to the other, which is
 what a transmission asks for.
 
 Two velocities are left, and each one turns into a broadening.
-Write them as band derivatives, $planck v^c = abs(dif E slash dif k_c)$, so that
+Write them as band derivatives, $planck v_c = abs(dif E slash dif k_c)$, so that
 $
   T_(L R) (E) = G^R_(N 1) abs(S^L_(1 1))^2 G^A_(1 N)
     abs((dif E) / (dif k_L))^(-1) abs((dif E) / (dif k_R)).
@@ -532,8 +532,8 @@ $ <spectral-DOS>
 alone.]
 The chain took us from an object built out of two contacts to one that does not
 mention them.
-That is the same conclusion the fifth chapter drew from the resolvent identity,
-reached here from the definitions instead, and it says that the split of the
+That is the same conclusion the fifth chapter drew by inverting the definitions,
+reached here from the field operators instead, and it says that the split of the
 states between the contacts is bookkeeping for the occupation.
 The name is now justified too: a spectrum is what a density of states is.
 
