@@ -96,8 +96,11 @@ $
   partial_t rho_n (avec(r), t) + nabla dot avec(J)_n (avec(r), t) = 0,
 $ <continuity>
 written here for electrons alone, with
-$rho_n = - e n$ the electron charge density and $avec(J)_n$ the electron current
-density.
+$rho_n = - q n$ the electron charge density and $avec(J)_n$ the electron current
+density.#note[
+  This lecture writes the elementary charge $e$, where the earlier ones write
+  $q$. The script keeps $q$ throughout.
+]
 In one dimension the divergence is $partial_x J$, and the statement that this
 vanishes in steady state is Kirchhoff's law: what arrives at a point leaves it
 again.
@@ -157,7 +160,7 @@ The differential operators combine into the derivative of the diagonal, the two
 Hamiltonian terms stay apart because they act on different positions, and the
 four integral terms collect,
 $
-  partial_t rho_n = e lim_(avec(r)' arrow.r avec(r))
+  partial_t rho_n = q lim_(avec(r)' arrow.r avec(r))
     (H(avec(r)) - H(avec(r)')) G^(<) (avec(r) t; avec(r)' t) \
   - integral dif 2 thin (
     G^(<) (1, 2) Sigma^A (2, 1) + G^R (1, 2) Sigma^(<) (2, 1) \
@@ -192,7 +195,7 @@ For the current we may simply drop it.
 What is left of @charge-rate is
 $
   nabla dot avec(J)_n (avec(r), t)
-    = e lim_(avec(r)' arrow.r avec(r))
+    = q lim_(avec(r)' arrow.r avec(r))
       (H(avec(r)') - H(avec(r))) G^(<) (avec(r) t; avec(r)' t),
 $
 and in steady state $partial_t rho_n = 0$, so the divergence vanishes and the
@@ -222,7 +225,7 @@ function of two arguments and then setting them equal is the gradient of the
 diagonal, so it is the divergence sitting on the left hand side.
 Strip it from both sides,
 $
-  avec(J)_n (avec(r)) = (e planck) / (2 m_0) integral (dif E) / (2 pi)
+  avec(J)_n (avec(r)) = (q planck) / (2 m_0) integral (dif E) / (2 pi)
     lim_(avec(r)' arrow.r avec(r))
       (nabla_avec(r) - nabla_(avec(r)')) G^(<) (E; avec(r) avec(r)').
 $ <current-continuum>
@@ -231,7 +234,7 @@ $ <current-continuum>
 ballistic transport, elastic scattering and dissipative scattering alike.]
 It asks for no transmission, so nothing in it requires the electron to keep its
 energy.
-Its shape is the probability current @prob-current-1d of the third chapter, with
+Its shape is the probability current @prob-current-1d of the fourth chapter, with
 the antisymmetric derivative of a wave function and its conjugate replaced by
 the antisymmetric derivative of the correlation function between two points.
 That is what $G^(<)$ generalizes: the wave function version compares a state
@@ -250,7 +253,7 @@ Running the same argument with the discrete Hamiltonian
 @discrete-hamiltonian gives the discrete current.
 The gradient difference becomes a difference of hopping terms across a bond,
 $
-  J_n (x_i) = (e Delta x) / planck integral (dif E) / (2 pi)
+  J_n (x_i) = (q Delta x) / planck integral (dif E) / (2 pi)
     "tr" (H_(i, i+1) G^(<)_(i+1, i) (E) - G^(<)_(i, i+1) (E) H_(i+1, i)),
 $ <current-discrete>
 which is the current flowing from grid point $i$ to grid point $i + 1$.#note[
@@ -265,7 +268,7 @@ ends.]
 The two terms are conjugates of each other, so their difference is imaginary and
 the current is real.
 A correlation $G^(<)_(i+1, i)$ that is real would carry no current at all: as in
-the third chapter, current comes from the phase between two points.
+the fourth chapter, current comes from the phase between two points.
 
 This is the expression a program evaluates, at every bond and at every energy.
 Its value has to come out the same on every bond, and that is the practical test
@@ -493,7 +496,7 @@ where P is the principal value.
 #key[This is causality written out: the imaginary part of a retarded quantity
 determines its real part, and the integral relating them is the Hilbert
 transform.]
-The second term is the broadening we already know from the third chapter, local
+The second term is the broadening we already know from the fifth chapter, local
 in energy and cheap.
 The first term shifts the states in energy, is nonlocal in energy, and is
 usually dropped.#note[
@@ -541,8 +544,8 @@ and the potential changes everything again.
 === Reduced current in a nanowire transistor
 
 #exam("L10.7")
-Slides 32 to 34 show a silicon nanowire transistor, $3 thin #unit("nm")$ in
-diameter with a gate $15 thin #unit("nm")$ long, computed twice, once
+Slides 32 to 34 show a silicon nanowire transistor, #qty(3, $"nm"$) in
+diameter with a gate #qty(15, $"nm"$) long, computed twice, once
 ballistically and once with electron-phonon scattering.
 The electrons come from a tight binding model, the phonons from a valence force
 field model, and both are quantized by the confinement of the wire, so the
@@ -564,8 +567,8 @@ With scattering it follows the band edge downward, and the average energy at the
 drain is lower than at the source.
 Dividing that difference by the optical phonon energy gives the number of
 phonons an electron emits on its way through, two to three here.
-The injection velocity falls from $1.3 dot 10^7$ to
-$0.9 dot 10^7 thin #unit("cm/s")$, partly from the backscattering and partly
+The injection velocity falls from #qty($1.3 dot 10^7$, $"cm" slash s$) to
+#qty($0.9 dot 10^7$, $"cm" slash s$), partly from the backscattering and partly
 because confinement raises the effective mass above its bulk value, to
 $0.29 thin m_0$ here.
 #key[The energy-integrated current is the same at every position in both maps.
