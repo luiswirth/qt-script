@@ -135,31 +135,33 @@ $X$ valleys in their measured positions.
 
 A crystal is built by translating a primitive unit cell along its lattice
 vectors $avec(a)_1, avec(a)_2, avec(a)_3$.
-Collect them into the columns of a matrix
-$amat(A) = [avec(a)_1 avec(a)_2 avec(a)_3]$.
-They generate the #term("Bravais lattice") of translations,
+A translation of the #term("Bravais lattice") is a whole number of steps along
+each of them,
 $
-  cal(R) = { sum_(i=1)^3 n_i avec(a)_i mid(|) avec(n) in ZZ^3 } = amat(A) ZZ^3 .
+  avec(R) = n_1 avec(a)_1 + n_2 avec(a)_2 + n_3 avec(a)_3,
+  quad n_1, n_2, n_3 in ZZ.
 $
 All cells are identical, so the effective potential has the same periodicity,
 $
-  V_"eff" (avec(r) + avec(R)) = V_"eff" (avec(r)),
-  quad avec(R) in cal(R) .
+  V_"eff" (avec(r) + avec(R)) = V_"eff" (avec(r)).
 $
-#note[The lectures write the translation as $n_1 avec(a)_1 + n_2 avec(a)_2 + n_3
-avec(a)_3$ throughout, carrying the coefficients rather than naming the lattice.]
 
 A plane wave $e^(i avec(k) dot avec(r))$ has that same periodicity for some wave
 vectors and not for others.
-#key[The wave vectors that do form the #term("reciprocal lattice"), which is the
-dual basis of the direct one, scaled so that $avec(k) dot avec(r)$ is a
-phase,]
+It has it when $e^(i avec(k) dot avec(R)) = 1$ for every translation $avec(R)$,
+which asks $avec(k) dot avec(R)$ to be a multiple of $2 pi$.
+#key[The wave vectors that do this are themselves a lattice, the
+#term("reciprocal lattice"),]
 $
-  cal(R)^* = { avec(G) in RR^3 mid(|) e^(i avec(G) dot avec(R)) = 1
-    " for all " avec(R) in cal(R) } = 2 pi amat(A)^(-transp) ZZ^3 .
+  avec(G) = m_1 avec(b)_1 + m_2 avec(b)_2 + m_3 avec(b)_3,
+  quad m_1, m_2, m_3 in ZZ,
 $
-The second equality is $avec(a)_i dot avec(b)_j = 2 pi delta_(i j)$ written for
-all $i$ and $j$ at once.
+whose vectors $avec(b)_j$ are fixed by
+$
+  avec(a)_i dot avec(b)_j = 2 pi delta_(i j).
+$
+That condition is what makes $avec(G) dot avec(R)$ a multiple of $2 pi$ for
+every pair of them.
 
 === Bloch's theorem
 
@@ -220,26 +222,18 @@ it belongs to a structure assembled from several materials.
 
 Only the phase $avec(k) dot avec(R)$ has any meaning, and a phase is defined
 modulo $2 pi$.
-So $avec(k)$ and $avec(k) + avec(G)$ label the same state, for every
-$avec(G) in cal(R)^*$.
-#key[The wave vector is therefore not a point of $RR^3$, but a point of the
-quotient torus]
-$
-  TT^* = RR^3 \/ cal(R)^* .
-$
-A bounded region that holds one $avec(k)$ per state is a fundamental domain of
-$TT^*$.
-The #term("Brillouin zone") is the fundamental domain built from the points that
-are closer to the origin than to any other reciprocal lattice point,
-$
-  "BZ" = { avec(k) in RR^3 mid(|) abs(avec(k)) <= abs(avec(k) - avec(G))
-    " for all " avec(G) in cal(R)^* } .
-$
+So $avec(k)$ and $avec(k) + avec(G)$ label the same state, for every reciprocal
+lattice vector $avec(G)$.
+#key[One region of $avec(k)$-space is therefore enough, provided it holds every
+state once.
+Every wave vector outside it is a copy of one inside.]
+The #term("Brillouin zone") is the region we take, and it consists of the points
+that are closer to the origin than to any other reciprocal lattice point.
 Its faces are the perpendicular bisectors of the $avec(G)$, which is the Bragg
 condition.
-Of all fundamental domains this is the one that carries the point group of the
-crystal, and that is what makes the high-symmetry labels $Gamma$, $X$, $L$ mean
-anything.
+Among all regions that would do, this is the one that carries the symmetry of
+the crystal, and that is what makes the high-symmetry labels $Gamma$, $X$, $L$
+mean anything.
 Solving the crystal means solving the eigenvalue problem @schroedinger-k for
 every $avec(k)$ in the zone.
 We then report the dispersion along a path joining those high-symmetry points,
