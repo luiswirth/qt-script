@@ -145,35 +145,30 @@ That comparison decides whether the model applies at all.]
 
 === Drift-diffusion and mobility
 
-At the classical level the unknowns are the carrier densities $n_s$
-#unit($m^(-3)$), where the species $s in {n, p}$ are electrons and holes.
-We write $n$ and $p$ when we mean one species.
-The current density is
+At the classical level the unknowns are the carrier densities $n$ and $p$
+#unit($m^(-3)$), of electrons and of holes.
+The current density of each species is
 $
-  avec(J)_s = q_s mu_s n_s avec(cal(E)) - q_s D_s nabla n_s.
+  avec(J)_n &= q n mu_n avec(cal(E)) + q D_n nabla n, \
+  avec(J)_p &= q p mu_p avec(cal(E)) - q D_p nabla p.
 $ <DD>
-The quantities in it are the #term("current density") $avec(J)$, which is charge
-crossing unit area per unit time; the charge of the species $q_s$, with
-$q_n = -q$ and $q_p = +q$ for the elementary charge
-$q = #qty($1.602 dot 10^(-19)$, $C$)$; the electric field $avec(cal(E))$; the
-#term("mobility") $mu_s$ #unit($m^2 slash (V thin s)$), defined below; and the
-#term("diffusion coefficient") $D_s$ #unit($m^2 slash s$), which relates a
-particle flux to the density gradient driving it and contains no charge.
-The charge is signed, and every quantity we derive from it carries that
-sign.#note[
-  The lectures and the experimental literature leave it unsigned and carry the
-  magnitudes $abs(mu_s)$, the sign sitting in the species label,
-  and split the drift-diffusion current @DD into one equation per species.
-]
+The quantities in them are the #term("current density") $avec(J)$, which is
+charge crossing unit area per unit time; the elementary charge
+$q = #qty($1.602 dot 10^(-19)$, $C$)$, a positive number, the sign of the
+carrier sitting in the signs of the equations instead; the electric field
+$avec(cal(E))$; the #term("mobility") $mu_(n slash p)$
+#unit($m^2 slash (V thin s)$), defined below; and the
+#term("diffusion coefficient") $D_(n slash p)$ #unit($m^2 slash s$), which
+relates a particle flux to the density gradient driving it and contains no
+charge.
 
 The first term is #term("drift"), driven by the field.
 The second is #term("diffusion"), driven by the density gradient.
 The two terms treat the charge differently.
-Drift picks it up twice, once through the force $q_s avec(cal(E))$ and once
-through the current, since a current is a particle flux times the charge
-carried.
-That is why $q_s mu_s = q_s^2 tau_s slash m_s^*$ below is positive for both
-species.
+Drift picks it up twice, once through the force on the carrier and once through
+the current, since a current is a particle flux times the charge carried.
+The two sign flips cancel for electrons, which is why both drift terms enter
+with $+q$.
 Diffusion picks the charge up once, so it changes sign between the species.
 Electrons and holes in one field drift in opposite directions and carry opposite
 charge, so their currents add.
@@ -188,14 +183,14 @@ The argument runs along the field, in one dimension, so $cal(E)$ means the field
 component along it.
 Between collisions the carrier obeys Newton's law.
 It carries the mass it has inside the crystal, not the one it has in vacuum.
-That is the #term("effective mass") $m_s^*$, which is fixed by the curvature of
+That is the #term("effective mass") $m^*$, which is fixed by the curvature of
 the band the carrier occupies and which we compute in the next lecture.
 We customarily give it as a multiple of the free electron mass
 $m_0 = #qty($9.109 dot 10^(-31)$, $"kg"$)$, so that $m_n^* = 0.32 m_0$ in
 silicon is a number rather than a measurement in kilograms.
 Newton's law reads
 $
-  m_s^* (dif v) / (dif t) = q_s cal(E),
+  m^* (dif v) / (dif t) = q cal(E),
 $
 so the velocity $v$ grows linearly in time.
 Then the carrier scatters, off another electron, an impurity or a surface, and
@@ -207,26 +202,29 @@ the #term("Drude model").
 
 Steady state is the balance between the two processes.
 Write $angled(v)$ for the velocity averaged along the trajectory, called the
-#term("drift velocity"), and $tau_s$ for the #term("mean free time"), the
+#term("drift velocity"), and $tau$ for the #term("mean free time"), the
 average interval between two scattering events.
-Momentum is gained at the rate $q_s cal(E)$ and lost at the rate
-$m_s^* angled(v) slash tau_s$.
+Momentum is gained at the rate $q cal(E)$ and lost at the rate
+$m^* angled(v) slash tau$.
 Equate the two and we get
 $
-  angled(v) = (q_s tau_s) / m_s^* cal(E) =: mu_s cal(E),
-  quad mu_s := (q_s tau_s) / m_s^*.
+  angled(v) = (q tau) / m^* cal(E) =: mu cal(E),
+  quad mu := (q tau) / m^*.
 $
-Since $mu_s slash q_s = tau_s slash m_s^*$ is positive, an electron drifts
-against the field and a hole drifts along it.
-Both $tau_s$ and $m_s^*$ depend on the species, so the two mobilities differ in
-magnitude and not only in sign.
+The mobility is positive, and the direction a species actually drifts in is
+carried by the signs in the current @DD rather than by $mu$.#note[
+  So $angled(v) = mu cal(E)$ holds as written for a hole, while an electron
+  drifts against the field.
+]
+Both $tau$ and $m^*$ depend on the species, so the two mobilities differ in
+magnitude.
 
 The mobility is a statement about scattering.
 The longer a carrier survives between collisions, the faster it moves, and the
 faster it moves, the higher the clock frequency the circuit sustains.
 The length that goes with it is the #term("mean free path") $lambda_"mfp"$,
 $
-  lambda_"mfp" = abs(angled(v)) tau_s,
+  lambda_"mfp" = angled(v) tau,
 $ <mfp>
 which is the average distance covered between two scattering events, a speed
 times a time.#note[
@@ -236,7 +234,7 @@ times a time.#note[
   would put the thermal velocity there instead.
 ]
 
-Both $tau_s$ and $angled(v)$ are averages, and averaging over scattering events
+Both $tau$ and $angled(v)$ are averages, and averaging over scattering events
 needs enough events to average over.
 So we can define a mobility, and apply drift-diffusion @DD, only when
 $
@@ -254,7 +252,7 @@ that derivation adds a second restriction, to states only slightly perturbed
 away from equilibrium.
 
 #key[Two things are missing from drift-diffusion @DD by construction, and no
-adjustment of $mu_s$ or $D_s$ puts them in.]
+adjustment of $mu_(n slash p)$ or $D_(n slash p)$ puts them in.]
 There is no #term("tunneling"), so a barrier reflects every carrier whose energy
 lies below it, however thin the barrier is.
 And there is no #term("quantization"), so a quantum well carries a continuum of
@@ -276,7 +274,7 @@ natural variable because a crystal quantizes momentum rather than velocity.
 The distribution function obeys the #term("Boltzmann transport equation"),
 $
   (partial / (partial t) + avec(v)(avec(k)) dot nabla_avec(r)
-    + q_s / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
+    - q / planck avec(cal(E))(t) dot nabla_avec(k)) f(avec(r), avec(k), t)
     = ((dif f) / (dif t))_"collision".
 $ <BTE>
 Here $planck = h slash 2 pi = #qty($1.055 dot 10^(-34)$, $J thin s$)$ is the
@@ -290,7 +288,8 @@ It moves through real space at the #term("band velocity") $avec(v)(avec(k))$,
 which is not an independent quantity but the group velocity of the band,
 $avec(v) = planck^(-1) nabla_avec(k) E(avec(k))$.
 It moves through momentum space under the field by Newton's law in the form
-$planck dot(avec(k)) = q_s avec(cal(E))$.
+$planck dot(avec(k)) = - q avec(cal(E))$, written for electrons as the
+Boltzmann equation @BTE is.
 Lift the curve to $t arrow.bar (t, gamma(t))$ and its tangent
 $partial_t + dot(gamma)$ is a single direction in time and phase space together.
 The three terms on the left are then the derivative of $f$ along that direction,
@@ -312,7 +311,7 @@ That is the precise sense in which drift-diffusion sits below the Boltzmann
 equation instead of beside it.
 
 What the extra variables buy us is the collision operator on the right.
-#key[Drift-diffusion compresses all scattering into the single number $tau_s$,
+#key[Drift-diffusion compresses all scattering into the single number $tau$,
 while the Boltzmann equation @BTE keeps every mechanism explicitly.]
 The mechanisms enter as a table of processes, selected according to their
 probabilities as a carrier propagates.
