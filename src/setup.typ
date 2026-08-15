@@ -120,6 +120,19 @@
   "spectral-DOS": $A(g)$,
   "rgf-right": $cal(G)^R_n$,
   "rgf-reconstruct": $G^R_(n n), G^R_(n 1)$,
+  "continuity": [continuity],
+  "n-time": $n(t)$,
+  "eom-t": $partial_t G^(<)$,
+  "eom-tprime": $partial_(t') G^(<)$,
+  "charge-rate": $partial_t rho_n$,
+  "conservation-raw": [collision term],
+  "current-continuum": $avec(J)_n$,
+  "current-discrete": $J_n (x_i)$,
+  "conservation": $Sigma^(<) G^(>)$,
+  "bose": $N_"ph"$,
+  "eph-lesser": $Sigma^(<)_"e-ph"$,
+  "eph-greater": $Sigma^(>)_"e-ph"$,
+  "eph-retarded": $Sigma^R_"e-ph"$,
 )
 
 // The metadata leaves what a question is answered by collectable without
