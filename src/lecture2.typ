@@ -979,7 +979,7 @@ the one-dimensional problem @qw-1d on a computer.
 For a heterostructure its kinetic term
 $- planck^2 slash 2 m^* thin dif^2 slash dif x^2$ is the wrong one, because the
 effective mass varies with position.
-We replace it by the #term("BenDaniel–Duke operator")
+We replace it by the #term("BenDaniel-Duke operator")
 $
   - planck^2 / 2 dif / (dif x) 1 / (m^* (x)) dif / (dif x),
 $ <BDD>
@@ -993,7 +993,7 @@ there.]
 If we wrote $(1 slash m^*) dif^2 phi slash dif x^2$ instead, then
 $dif phi slash dif x$ would be continuous, which is the wrong condition and does
 not conserve probability current across the interface.
-The BenDaniel–Duke operator @BDD is also self-adjoint, which
+The BenDaniel-Duke operator @BDD is also self-adjoint, which
 $(1 slash m^*) dif^2 slash dif x^2$ is not, and only a self-adjoint operator has
 the real eigenvalues that an energy needs.
 
@@ -1015,7 +1015,7 @@ Only the lowest states of the resulting spectrum are trustworthy.]
 === Discretized Hamiltonian
 
 #exam("L2.19")
-The BenDaniel–Duke operator @BDD is a derivative of a flux, and we discretize it
+The BenDaniel-Duke operator @BDD is a derivative of a flux, and we discretize it
 as one.
 Evaluate the inner derivative on the midpoints between grid points, where the
 mass is
@@ -1071,6 +1071,8 @@ entries unchanged.
 The eigenvalues are the $E_n$ and the eigenvectors are the $phi_n$ sampled on
 the grid, normalized by $sum_i abs(phi_i)^2 Delta x = 1$ so that they carry the
 #unit($m^(-1 slash 2)$) that the continuous $phi$ does.
+
+== Outlook
 
 The structure of $H$ is what the rest of the course builds on.
 A closed system gives a Hermitian matrix, a discrete spectrum and bound states,

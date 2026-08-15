@@ -171,7 +171,7 @@ $
 $
 #key[What is continuous is the derivative divided by the mass, not the
 derivative itself.
-This is the condition the BenDaniel–Duke operator @BDD was built to satisfy, and
+This is the condition the BenDaniel-Duke operator @BDD was built to satisfy, and
 it is why the mass sits between the two derivatives there.]
 We have now met the same statement twice, once as a matching rule for analytic
 solutions and once as an operator ordering for a discretization.

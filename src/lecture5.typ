@@ -239,7 +239,7 @@ equation pass $epsilon dif Phi slash dif x$ from one grid point to the next.
 So the discretization respects that continuity by construction.]
 
 We have done this before.
-It is the BenDaniel-Duke ordering @BDD of the third chapter, with the mass
+It is the BenDaniel-Duke ordering @BDD of the second chapter, with the mass
 replaced by the permittivity.
 There the operator was $nabla (1 slash m^*) nabla$, so that
 $(1 slash m^*) dif psi slash dif x$ was continuous across an interface and the
@@ -496,7 +496,7 @@ We never put them in.]
 
 === Green's function of a linear operator
 
-#exam("L5.7")
+#exam("L5.7", "L5.10")
 Start with a general linear differential equation that has a source term,
 $
   L(x) f(x) = S(x),
