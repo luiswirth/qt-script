@@ -18,4 +18,5 @@
 #include "lecture4.typ"
 #include "lecture5.typ"
 #include "lecture6.typ"
+#include "lecture8.typ"
 #include "lecture10.typ"
