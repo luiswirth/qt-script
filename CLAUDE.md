@@ -30,8 +30,8 @@ to `atlas` rather than here.
   cd to this directory, so a build expects nothing of the environment and runs
   from anywhere.
 - `.github/workflows/typst-deploy.yml`:
-  a push to main publishes the PDF at <https://lwirth.com/quantum-transport-script/>.
-  The repository is private and that page is not.
+  a push to main publishes the PDF at <https://lwirth.com/qt-script/>.
+  The repository and that page are public.
 
 ## Reading the sources
 
