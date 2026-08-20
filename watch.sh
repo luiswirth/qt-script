@@ -3,8 +3,9 @@
 set -e
 cd "$(dirname "$0")"
 self="$PWD/$(basename "$0")"
-command -v typst >/dev/null || exec nix develop --command "$self" "$@"
+# The library comes from the flake, so the environment is what the build
+# needs and not merely the binary.
+[ -n "$TYPST_PACKAGE_PATH" ] || exec nix develop --command "$self" "$@"
 
-export TYPST_PACKAGE_PATH="$PWD/lib/dottyp/pkg"
 mkdir -p out
 typst watch src/main.typ out/script.pdf --root "$PWD"
