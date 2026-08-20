@@ -19,14 +19,14 @@ to `atlas` rather than here.
   departs from it.
 - `src/lectureN.typ`:
   one file per lecture.
-- `lib/dottyp`:
-  the notation and template library, vendored as a submodule and never edited
-  here. It carries the Typst conventions this script is written to.
 - `flake.nix`:
-  the Typst toolchain, entered by direnv interactively and by the build scripts
-  themselves otherwise, a non-interactive shell loading no direnv.
+  the Typst toolchain and the dottyp input carrying the notation and template
+  library, entered by direnv interactively and by the build scripts themselves
+  otherwise, a non-interactive shell loading no direnv. The library is never
+  edited here, and its `CLAUDE.md` carries the Typst conventions this script is
+  written to.
 - `build.sh`, `watch.sh`:
-  compile to `out/script.pdf`. Both export `TYPST_PACKAGE_PATH` themselves and
+  compile to `out/script.pdf`. Both enter the devShell themselves and
   cd to this directory, so a build expects nothing of the environment and runs
   from anywhere.
 - `.github/workflows/typst-deploy.yml`:
